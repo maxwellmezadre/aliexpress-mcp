@@ -83,7 +83,9 @@ function sameCookie(a: Cookie, b: Cookie): boolean {
   return (
     a.value === b.value &&
     a.expires === b.expires &&
-    a.domain === b.domain &&
+    // Normalised: some parsers keep the leading dot and some drop it, and a
+    // spurious difference here would rewrite the session file on every request.
+    stripDot(a.domain) === stripDot(b.domain) &&
     a.path === b.path &&
     a.httpOnly === b.httpOnly &&
     a.secure === b.secure
@@ -155,10 +157,27 @@ export function findCookie(cookies: readonly Cookie[], name: string): Cookie | u
  * part before the first `_` goes into the signature. This is NOT authentication
  * — the session cookies are — it is a short-lived token the server itself
  * issues and rotates.
+ *
+ * A jar can legitimately hold two `_m_h5_tk` entries (one scoped to
+ * `.aliexpress.com`, one to `acs.aliexpress.com`); the browser sends both and
+ * picking the wrong one costs a whole retry round. The trailing timestamp says
+ * which is fresher, so that is the one we sign with.
  */
 export function mtopToken(cookies: readonly Cookie[]): string {
-  const raw = findCookie(cookies, "_m_h5_tk")?.value ?? "";
-  return raw.split("_")[0] ?? "";
+  let token = "";
+  let freshest = Number.NEGATIVE_INFINITY;
+  for (const candidate of cookies) {
+    if (candidate.name !== "_m_h5_tk") continue;
+    const [value, expiresAt] = candidate.value.split("_");
+    if (!value) continue;
+    const stamp = Number(expiresAt);
+    const rank = Number.isFinite(stamp) ? stamp : 0;
+    if (rank >= freshest) {
+      freshest = rank;
+      token = value;
+    }
+  }
+  return token;
 }
 
 export type RegionalSettings = {
