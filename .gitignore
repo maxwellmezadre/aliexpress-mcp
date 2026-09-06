@@ -1,0 +1,18 @@
+node_modules/
+dist/
+*.log
+.DS_Store
+
+# Single-binary build artifacts
+/aliexpress
+/aliexpress-*
+
+# Env
+.env
+.env.*
+
+# Private planning artifacts: the original spec carries real account data
+task/
+
+# Raw payload captures (before anonymization) never leave the machine
+/captures/

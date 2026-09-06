@@ -1,0 +1,45 @@
+{
+  "name": "@maxwellmezadre/aliexpress-mcp",
+  "version": "0.1.0",
+  "description": "CLI + servidor MCP para o histórico de compras do AliExpress (pedidos, produtos, preços, rastreio e devoluções) sobre um núcleo compartilhado",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxwellmezadre/aliexpress-mcp.git"
+  },
+  "homepage": "https://github.com/maxwellmezadre/aliexpress-mcp#readme",
+  "keywords": ["aliexpress", "cli", "mcp", "purchases", "orders", "tracking", "claude"],
+  "bin": {
+    "aliexpress": "./dist/bin.js",
+    "aliexpress-mcp": "./dist/mcp-bin.js"
+  },
+  "files": ["dist", "SKILL.md", "docs/TOOLS.md", "README.md", "LICENSE"],
+  "exports": "./dist/bin.js",
+  "publishConfig": { "access": "public" },
+  "engines": { "bun": ">=1.3" },
+  "scripts": {
+    "start": "bun run src/bin.ts",
+    "login": "bun run src/bin.ts login",
+    "typecheck": "tsc --noEmit",
+    "test": "bun test",
+    "verify": "bun run scripts/verify.ts",
+    "docs:tools": "bun run scripts/gen-tools-doc.ts",
+    "build:dist": "bun build src/bin.ts src/mcp-bin.ts --target=bun --packages external --outdir dist",
+    "build:binary": "bun build --compile src/bin.ts --outfile aliexpress --external playwright-core",
+    "prepublishOnly": "bun run build:dist",
+    "setup": "bun run scripts/install.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "@sinclair/typebox": "^0.34.52",
+    "commander": "^15.0.0"
+  },
+  "optionalDependencies": {
+    "playwright-core": "^1.62.1"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.1",
+    "typescript": "^5"
+  }
+}
