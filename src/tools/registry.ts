@@ -1,5 +1,6 @@
 import type { Config } from "../config.js";
 import { authStatus } from "./auth.js";
+import { login } from "./login.js";
 import type { ToolDef } from "./define.js";
 import { rawGet } from "./raw.js";
 
@@ -9,6 +10,7 @@ import { rawGet } from "./raw.js";
 export const allTools: ToolDef[] = [
   // Session
   authStatus,
+  login,
   // Escape hatch
   rawGet,
 ];

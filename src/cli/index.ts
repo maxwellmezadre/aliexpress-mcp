@@ -75,6 +75,23 @@ export async function runCli(argv: string[], version: string): Promise<void> {
       invoke("auth_status", { verify: options.verify }, { json: options.json ?? false }),
     );
 
+  command("login")
+    .description("Abre o navegador para entrar na conta do AliExpress e salva a sessão")
+    .option("--timeout <minutes>", "minutos esperando o login (default 5)")
+    .option("--fresh", "apaga o perfil do navegador antes de abrir")
+    .option("--from-browser <browser>", "importa a sessão de um navegador já logado (macOS)")
+    .action((options) =>
+      invoke(
+        "login",
+        {
+          timeout_seconds: options.timeout ? Number(options.timeout) * 60 : undefined,
+          fresh: options.fresh,
+          from_browser: options.fromBrowser,
+        },
+        { json: options.json ?? false },
+      ),
+    );
+
   command("raw <api>")
     .description("Chama uma API MTOP de leitura diretamente (redescoberta)")
     .option("-d, --data <json>", "payload JSON da API")
