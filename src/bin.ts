@@ -4,15 +4,19 @@
 // to the executable.
 import pkg from "../package.json" with { type: "json" };
 
-// Lazy import per mode keeps the cold start low: the MCP server never loads
-// the CLI (commander) and vice versa. `mcp` is the fast path; everything else
-// goes to the CLI.
+// Lazy import per mode keeps the cold start low: the MCP server never loads the
+// CLI (commander) and vice versa. `mcp` is the fast path; everything else goes
+// to the CLI.
 const arg = process.argv[2];
 
-if (arg === "--version" || arg === "-V") {
-  console.log(pkg.version);
+if (arg === "mcp") {
+  const [{ loadConfig }, { createContext }, { startMcpServer }] = await Promise.all([
+    import("./config.js"),
+    import("./context.js"),
+    import("./mcp/server.js"),
+  ]);
+  await startMcpServer(createContext(loadConfig()), pkg.version);
 } else {
-  // Scaffold: the MCP server lands in step 007 and the CLI in step 020.
-  console.error(`aliexpress-mcp ${pkg.version} — ainda em construção (scaffold).`);
-  process.exitCode = 1;
+  const { runCli } = await import("./cli/index.js");
+  await runCli(process.argv, pkg.version);
 }

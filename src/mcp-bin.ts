@@ -3,7 +3,8 @@
 // without a subcommand — what an MCP client registers when it does not want
 // the CLI.
 import pkg from "../package.json" with { type: "json" };
+import { loadConfig } from "./config.js";
+import { createContext } from "./context.js";
+import { startMcpServer } from "./mcp/server.js";
 
-// Scaffold: replaced by the real bootstrap in step 007.
-console.error(`aliexpress-mcp ${pkg.version} — ainda em construção (scaffold).`);
-process.exitCode = 1;
+await startMcpServer(createContext(loadConfig()), pkg.version);
