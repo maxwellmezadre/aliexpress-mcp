@@ -1,0 +1,44 @@
+name: Bug
+description: Algo não funciona como deveria
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ⚠️ **Nunca cole `session.enc`, `session.key`, `cache.db`, um header
+        `Cookie` nem ids de pedido reais.** Eles são a sua conta.
+  - type: textarea
+    id: what
+    attributes:
+      label: O que aconteceu
+      description: E o que você esperava que acontecesse.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Como reproduzir
+      placeholder: |
+        1. aliexpress sync
+        2. aliexpress orders --status shipped
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: doctor
+    attributes:
+      label: Saída de `aliexpress doctor`
+      description: Ela diz qual camada quebrou. Censure ids e nomes de loja.
+      render: text
+  - type: input
+    id: version
+    attributes:
+      label: Versão
+      placeholder: aliexpress --version
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: Sistema e Bun
+      placeholder: macOS 15 / Bun 1.3.14

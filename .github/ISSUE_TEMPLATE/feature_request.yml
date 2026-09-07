@@ -1,0 +1,21 @@
+name: Ideia
+description: Sugerir uma melhoria
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Que problema isso resolve
+      description: A situação concreta, não a solução.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: O que você imagina
+  - type: markdown
+    attributes:
+      value: |
+        Lembre que este projeto é **somente leitura** na conta: confirmar
+        recebimento, cancelar, abrir disputa ou pagar estão fora de escopo por
+        decisão de projeto.
