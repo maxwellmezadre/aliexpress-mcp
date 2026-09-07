@@ -10,7 +10,7 @@ jobs:
     name: Type-check, test & invariants (Bun)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: oven-sh/setup-bun@v2
       - run: bun install --frozen-lockfile
       # verify.ts = tsc --noEmit + bun test + the real MCP server over stdio.
@@ -22,7 +22,7 @@ jobs:
     name: Build binary
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: oven-sh/setup-bun@v2
       - run: bun install --frozen-lockfile
       - run: bun run build:dist
