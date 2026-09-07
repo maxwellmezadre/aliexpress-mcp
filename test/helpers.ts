@@ -90,10 +90,12 @@ export type ScriptedFetch = FetchLike & {
 
 /**
  * Replays a script of responses in order. A function entry is called with the
- * request so a test can branch; running out of entries is a test bug and throws.
+ * request so a test can branch. Running out of entries throws — a test that
+ * meant to allow more calls passes an explicit `fallback`.
  */
 export function scriptedFetch(
   script: Array<FetchResponse | ((url: string, init: FetchInit) => FetchResponse)>,
+  fallback?: FetchResponse | ((url: string, init: FetchInit) => FetchResponse),
 ): ScriptedFetch {
   const calls: Array<{ url: string; init: FetchInit }> = [];
   let index = 0;
@@ -104,7 +106,7 @@ export function scriptedFetch(
     try {
       // A microtask turn so overlapping callers would actually overlap.
       await Promise.resolve();
-      const entry = script[index++];
+      const entry = script[index++] ?? fallback;
       if (entry === undefined) throw new Error(`scriptedFetch ran out of responses at call ${index}`);
       return typeof entry === "function" ? entry(url, init) : entry;
     } finally {

@@ -1,3 +1,6 @@
+import type { Database } from "bun:sqlite";
+import { openCache } from "./cache/db.js";
+import { type CacheRepo, createCacheRepo } from "./cache/repo.js";
 import { type Config, loadConfig } from "./config.js";
 import { type FetchLike, type Http, createHttp } from "./core/http.js";
 import { type Logger, createLogger } from "./core/logger.js";
@@ -15,6 +18,8 @@ export type ContextDeps = {
   random?: () => number;
   session?: SessionStore;
   log?: Logger;
+  /** `:memory:` in tests. */
+  db?: Database;
 };
 
 export type Ctx = {
@@ -24,6 +29,11 @@ export type Ctx = {
   session: SessionStore;
   http: Http;
   mtop: MtopClient;
+  /** Memoised: the SQLite file is only opened (and migrated) on first use, so
+   *  a tool that never touches the cache never creates it. */
+  cache: () => CacheRepo;
+  /** Closes what was opened. Safe to call more than once. */
+  dispose: () => void;
 };
 
 export function createContext(config: Config, deps: ContextDeps = {}): Ctx {
@@ -60,7 +70,30 @@ export function createContext(config: Config, deps: ContextDeps = {}): Ctx {
     { now, ...(deps.sleep ? { sleep: deps.sleep } : {}) },
   );
 
-  return { config, log, now, session, http, mtop };
+  let db: Database | undefined;
+  let repo: CacheRepo | undefined;
+  const cache = (): CacheRepo => {
+    if (!repo) {
+      db = deps.db ?? openCache(config.dbPath);
+      repo = createCacheRepo(db, now);
+    }
+    return repo;
+  };
+
+  return {
+    config,
+    log,
+    now,
+    session,
+    http,
+    mtop,
+    cache,
+    dispose: () => {
+      if (deps.db === undefined) db?.close();
+      db = undefined;
+      repo = undefined;
+    },
+  };
 }
 
 /** Convenience for the entry points: load the env config and wire everything. */

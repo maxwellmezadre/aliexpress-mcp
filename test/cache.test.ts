@@ -70,6 +70,20 @@ describe("upsertSummary", () => {
     expect(cache.getOrder(order.orderId)?.is_final).toBe(0);
   });
 
+  test("a refined total alone is NOT a change — otherwise incremental never settles", () => {
+    // The detail refines the amount the list showed; if that counted as a
+    // change, every incremental sync would think the whole page was new.
+    const cache = repo();
+    const order = summaries[0] as OrderSummary;
+    cache.upsertSummary(order);
+    const refined = cache.upsertSummary({
+      ...order,
+      total: { cents: 999_99, currency: "BRL", text: "R$999,99" },
+    });
+    expect(refined.changed).toBe(false);
+    expect(cache.getOrder(order.orderId)?.total_cents).toBe(999_99);
+  });
+
   test("marks terminal statuses as final so their detail is never refetched", () => {
     const cache = repo();
     for (const order of summaries) cache.upsertSummary(order);

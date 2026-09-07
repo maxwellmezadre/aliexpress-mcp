@@ -169,10 +169,8 @@ export function createCacheRepo(db: Database, now: () => number) {
     upsertSummary(order: OrderSummary): { inserted: boolean; changed: boolean } {
       return inTx(db, () => {
         const previous = db
-          .query("SELECT status, status_text, total_cents FROM orders WHERE order_id = ?")
-          .get(order.orderId) as
-          | { status: string; status_text: string | null; total_cents: number | null }
-          | null;
+          .query("SELECT status FROM orders WHERE order_id = ?")
+          .get(order.orderId) as { status: string } | null;
 
         db.query(
           `INSERT INTO orders
@@ -215,10 +213,11 @@ export function createCacheRepo(db: Database, now: () => number) {
 
         return {
           inserted: previous === null,
-          changed:
-            previous === null ||
-            previous.status !== order.status ||
-            previous.total_cents !== (order.total?.cents ?? null),
+          // Deliberately status-only. Comparing the total would report a change
+          // on every incremental sync of an order whose detail refined the
+          // amount the list showed, and the "stop at the first page with
+          // nothing new" rule would then never stop.
+          changed: previous === null || previous.status !== order.status,
         };
       });
     },
