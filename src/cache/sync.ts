@@ -12,6 +12,7 @@ import {
 import type { OrderSummary } from "../domain/types.js";
 import type { UltronResponse } from "../ultron/types.js";
 import type { CacheRepo } from "./repo.js";
+import { summaryFromRow } from "./rows.js";
 
 // Filling the cache. Chunked and resumable because a tool call has a client
 // timeout and AliExpress is only comfortable at roughly one request per second.
@@ -266,40 +267,24 @@ function reparseAll(ctx: Ctx, cache: CacheRepo): number {
  */
 function summaryOf(cache: CacheRepo, orderId: string): OrderSummary {
   const row = cache.getOrder(orderId);
-  const lines = cache.getLines(orderId);
-  return {
-    orderId,
-    orderDate: row?.order_date ?? null,
-    orderDateText: row?.order_date_text ?? null,
-    status: (row?.status ?? "unknown") as OrderSummary["status"],
-    statusText: row?.status_text ?? null,
-    statusTab: (row?.status_tab ?? null) as OrderSummary["statusTab"],
-    total:
-      row?.total_cents === null || row?.total_cents === undefined
-        ? null
-        : { cents: row.total_cents, currency: row.currency ?? "", text: "" },
-    store: { name: row?.store_name ?? null, storeId: row?.store_id ?? null, url: null },
-    paymentOutId: row?.payment_out_id ?? null,
-    itemCount: row?.item_count ?? 0,
-    lines: lines.map((line) => ({
-      orderLineId: line.order_line_id,
-      productId: line.product_id,
-      title: line.title,
-      quantity: line.quantity,
-      unitPrice:
-        line.unit_cents === null
-          ? null
-          : { cents: line.unit_cents, currency: line.currency ?? "", text: "" },
-      lineTotal:
-        line.line_cents === null
-          ? null
-          : { cents: line.line_cents, currency: line.currency ?? "", text: "" },
-      skuId: line.sku_id,
-      skuAttrs: line.sku_attrs ? (JSON.parse(line.sku_attrs) as OrderSummary["lines"][number]["skuAttrs"]) : [],
-      imageUrl: line.image_url,
-      productUrl: line.product_url,
-    })),
-  };
+  if (!row) {
+    // Only reachable if the list phase did not write the row; the detail still
+    // has everything it needs to stand on its own.
+    return {
+      orderId,
+      orderDate: null,
+      orderDateText: null,
+      status: "unknown",
+      statusText: null,
+      statusTab: null,
+      total: null,
+      store: { name: null, storeId: null, url: null },
+      paymentOutId: null,
+      itemCount: 0,
+      lines: [],
+    };
+  }
+  return summaryFromRow(row, cache.getLines(orderId));
 }
 
 const messageOf = (error: unknown): string =>
