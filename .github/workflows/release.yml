@@ -1,0 +1,62 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write # criar a Release e anexar os binários
+  id-token: write # provenance do npm (trusted publishing)
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+      - run: bun run scripts/verify.ts
+
+  npm:
+    needs: verify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - uses: actions/setup-node@v6
+        with:
+          # Trusted publishing (OIDC) precisa de npm >= 11.5.1; o Node 24 já traz.
+          node-version: "24"
+          registry-url: "https://registry.npmjs.org"
+          package-manager-cache: false
+      - run: bun install --frozen-lockfile
+      - run: bun run build:dist
+      # Sem NODE_AUTH_TOKEN: a credencial é um token OIDC de vida curta emitido
+      # na hora do publish, e a provenance sai automática.
+      - run: npm publish --access public
+
+  binaries:
+    needs: verify
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+            target: bun-linux-x64
+            asset: aliexpress-linux-x64
+          - os: macos-latest
+            target: bun-darwin-arm64
+            asset: aliexpress-darwin-arm64
+          - os: windows-latest
+            target: bun-windows-x64
+            asset: aliexpress-windows-x64.exe
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+      # playwright-core fica externo: só o `login` precisa dele em runtime, e
+      # todos os outros comandos rodam a partir do binário sozinho.
+      - run: bun build --compile --target=${{ matrix.target }} src/bin.ts --outfile ${{ matrix.asset }} --external playwright-core
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ matrix.asset }}

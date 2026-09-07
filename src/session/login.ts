@@ -66,7 +66,12 @@ const POLL_MS = 2_000;
 const REPORT_EVERY_MS = 30_000;
 
 export const PLAYWRIGHT_HINT =
-  "Instale o Google Chrome, ou rode `bunx playwright install chromium` e use " +
+  "O `login` precisa do playwright-core resolvível — no binário compilado ele " +
+  "fica de fora de propósito (150 MB que só este comando usa). Rode " +
+  "`bun install -g playwright-core`, ou faça o login de dentro do repositório " +
+  "(`bun run login`), ou use `aliexpress login --from-browser chrome`, que não " +
+  "abre navegador nenhum. Se o problema for o navegador e não o pacote: " +
+  "instale o Google Chrome, ou `bunx playwright install chromium` com " +
   "ALIEXPRESS_BROWSER_CHANNEL=chromium.";
 
 /**

@@ -59,8 +59,11 @@ bun install -g @maxwellmezadre/aliexpress-mcp
 bun run build:binary   # gera ./aliexpress, sem runtime nenhum
 ```
 
-O `login` precisa do `playwright-core` resolvível; todos os outros comandos
-rodam só com o binário.
+Todos os comandos rodam só com o binário, **menos o `login`**: os 150 MB do
+Playwright ficam de fora de propósito, já que só ele usa. Para logar a partir
+do binário, `bun install -g playwright-core`, ou rode `bun run login` de dentro
+do repositório, ou use `aliexpress login --from-browser chrome`, que não abre
+navegador nenhum.
 
 ## Login
 
@@ -189,6 +192,8 @@ Arquitetura em detalhe: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 - **Um pedido com status `unknown`** — o AliExpress usou um rótulo novo.
   `aliexpress doctor` mostra qual, e é um `dicionário` de uma linha em
   `src/domain/status.ts`.
+- **"Não consegui carregar o playwright-core"** — só o `login` precisa dele, e
+  o binário não o embute. Veja [Binário único](#binário-único).
 - **Algo quebrou depois de uma mudança no site** — `aliexpress doctor` diz qual
   camada, e [`docs/REDISCOVERY.md`](docs/REDISCOVERY.md) diz como remapear.
 
