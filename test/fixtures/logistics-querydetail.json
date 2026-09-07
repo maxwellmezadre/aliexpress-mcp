@@ -1,0 +1,495 @@
+{
+  "api": "mtop.ae.ld.querydetail",
+  "data": {
+    "module": {
+      "fastDeliveryInfoDTO": {
+        "fdBlockColor": "#DDFFE1",
+        "fdContent": "Apply for R$5.00 coupon code if delayed by Aug 3, 2026 · Refund if no delivery before Sep 3, 2026 · Refund if items damaged · Refund if package lost",
+        "fdContentList": [
+          "Apply for R$5.00 coupon code if delayed by Aug 3, 2026",
+          "Refund if no delivery before Sep 3, 2026",
+          "Refund if items damaged",
+          "Refund if package lost"
+        ],
+        "fdContentListIcon": "https://ae-pic-a1.aliexpress-media.com/kf/S734ca902cb7e438b990cd8b0dfaf6515g.png",
+        "fdContentListRichText": [
+          "<img src=\"https://ae-pic-a1.aliexpress-media.com/kf/S734ca902cb7e438b990cd8b0dfaf6515g.png\" width=\"12\" height=\"12\"><span style=\"font-size:12px;color:#2ABD05;\">Apply for R$5.00 coupon code if delayed by Aug 3, 2026</span>",
+          "<img src=\"https://ae-pic-a1.aliexpress-media.com/kf/S734ca902cb7e438b990cd8b0dfaf6515g.png\" width=\"12\" height=\"12\"><span style=\"font-size:12px;color:#2ABD05;\">Refund if no delivery before Sep 3, 2026</span>",
+          "<img src=\"https://ae-pic-a1.aliexpress-media.com/kf/S734ca902cb7e438b990cd8b0dfaf6515g.png\" width=\"12\" height=\"12\"><span style=\"font-size:12px;color:#2ABD05;\">Refund if items damaged</span>",
+          "<img src=\"https://ae-pic-a1.aliexpress-media.com/kf/S734ca902cb7e438b990cd8b0dfaf6515g.png\" width=\"12\" height=\"12\"><span style=\"font-size:12px;color:#2ABD05;\">Refund if package lost</span>"
+        ],
+        "fdResourceIcon": "https://ae-pic-a1.aliexpress-media.com/kf/Se2f0776f343d40cd9aa5b979eeb8ecffK.png",
+        "fdStatusDesc": "Protection ",
+        "fdStatusRichText": "<span style=\"font-size:12px;color:#2ABD05;\"><strong>Protection </strong></span>",
+        "fdTitle": "Fast delivery",
+        "fdTitleIcon": "https://ae-pic-a1.aliexpress-media.com/kf/S271312dd47a0429da453508c60053ab9Q.png",
+        "fdTitleRichText": "<img src=\"https://ae-pic-a1.aliexpress-media.com/kf/S271312dd47a0429da453508c60053ab9Q.png\" width=\"16\" height=\"16\"><span style=\"font-size:12px;color:#2ABD05;\"><strong> Fast delivery</strong></span>"
+      },
+      "isTrackingV2": true,
+      "logisticsReceiverInfo": {
+        "address": "Rua Exemplo, 123",
+        "address2": "Bairro Exemplo",
+        "city": "Cidade Exemplo",
+        "contactName": "Comprador Exemplo",
+        "country": "Brazil",
+        "phoneCountry": "+55",
+        "phoneNumber": "11999999999",
+        "province": "Estado Exemplo",
+        "receiverInfoIcon": "https://ae-pic-a1.aliexpress-media.com/kf/Sb621aa952b5e4935a36339baccf5c160f.png",
+        "receiverInfoRichText": "<span>Comprador Exemplo</span>",
+        "zipCode": "00000-000"
+      },
+      "trackingDetailLineList": [
+        {
+          "blockMailNo": false,
+          "detailList": [
+            {
+              "fulfillStage": "1700",
+              "nodeColor": "#00A45A",
+              "nodeIcon": "https://img.alicdn.com/imgextra/i2/O1CN01QidCuY1SPVuQoFsMd_!!6000815717313-2-tps-72-72.png",
+              "nodeTitleBold": true,
+              "skipRiskControl": true,
+              "tags": [
+                "loacl",
+                "cb",
+                "icon_deliver"
+              ],
+              "time": 1785512111654,
+              "timeText": "Tue | Jul. 28 18:39",
+              "trackingDetailDesc": "Package delivered.",
+              "trackingName": "Delivered",
+              "trackingPrimaryCode": "AE_GTMS_SIGNED",
+              "trackingSecondCode": "AE_GTMS_SIGNED"
+            },
+            {
+              "fulfillStage": "1700",
+              "skipRiskControl": true,
+              "tags": [
+                "loacl",
+                "cb"
+              ],
+              "time": 1785168672713,
+              "timeText": "Tue | Jul. 28 14:48",
+              "trackingDetailDesc": "Package out for delivery",
+              "trackingName": "Delivery update",
+              "trackingPrimaryCode": "AE_GTMS_DELIVERING",
+              "trackingSecondCode": "AE_GTMS_DO_DEPART"
+            },
+            {
+              "detailedLocation": "Cidade Exemplo,UF",
+              "fulfillStage": "1700",
+              "skipRiskControl": true,
+              "tags": [
+                "loacl",
+                "cb"
+              ],
+              "time": 1785781503863,
+              "timeText": "Tue | Jul. 28 06:19",
+              "trackingDetailDesc": "Package arrived at local carrier facility",
+              "trackingName": "In transit",
+              "trackingPrimaryCode": "AE_GTMS_DO_ARRIVE",
+              "trackingSecondCode": "AE_GTMS_DO_ARRIVE"
+            },
+            {
+              "detailedLocation": "Cidade Exemplo,UF",
+              "fulfillStage": "1700",
+              "skipRiskControl": true,
+              "tags": [
+                "loacl",
+                "cb"
+              ],
+              "time": 1785506002522,
+              "timeText": "Mon | Jul. 27 19:36",
+              "trackingDetailDesc": "Package left carrier facility",
+              "trackingName": "In transit",
+              "trackingPrimaryCode": "AE_GTMS_SC_DEPART",
+              "trackingSecondCode": "AE_GTMS_SC_DEPART"
+            },
+            {
+              "detailedLocation": "Cidade Exemplo,UF",
+              "fulfillStage": "1700",
+              "skipRiskControl": true,
+              "tags": [
+                "loacl",
+                "cb"
+              ],
+              "time": 1785258504071,
+              "timeText": "Mon | Jul. 27 09:17",
+              "trackingDetailDesc": "Package arrived at carrier facility",
+              "trackingName": "In transit",
+              "trackingPrimaryCode": "AE_GTMS_SC_ARRIVE",
+              "trackingSecondCode": "AE_GTMS_SC_ARRIVE"
+            },
+            {
+              "detailedLocation": "Cidade Exemplo,UF",
+              "fulfillStage": "1700",
+              "skipRiskControl": true,
+              "tags": [
+                "loacl",
+                "cb"
+              ],
+              "time": 1785239255627,
+              "timeText": "Sun | Jul. 26 00:58",
+              "trackingDetailDesc": "Package left carrier facility",
+              "trackingName": "In transit",
+              "trackingPrimaryCode": "AE_GTMS_SC_DEPART",
+              "trackingSecondCode": "AE_GTMS_SC_DEPART"
+            },
+            {
+              "detailedLocation": "Cidade Exemplo,UF",
+              "fulfillStage": "1700",
+              "skipRiskControl": true,
+              "tags": [
+                "loacl",
+                "cb"
+              ],
+              "time": 1785713183560,
+              "timeText": "Sun | Jul. 26 00:46",
+              "trackingDetailDesc": "Package arrived at carrier facility",
+              "trackingName": "In transit",
+              "trackingPrimaryCode": "AE_GTMS_SC_ARRIVE",
+              "trackingSecondCode": "AE_GTMS_SC_ARRIVE"
+            },
+            {
+              "detailedLocation": "Cidade Exemplo,UF",
+              "fulfillStage": "1700",
+              "skipRiskControl": true,
+              "tags": [
+                "loacl",
+                "cb"
+              ],
+              "time": 1785958424668,
+              "timeText": "Sat | Jul. 25 20:32",
+              "trackingDetailDesc": "Package left carrier facility",
+              "trackingName": "In transit",
+              "trackingPrimaryCode": "AE_GTMS_SC_DEPART",
+              "trackingSecondCode": "AE_GTMS_SC_DEPART"
+            },
+            {
+              "detailedLocation": "Cidade Exemplo,UF",
+              "fulfillStage": "1700",
+              "skipRiskControl": true,
+              "tags": [
+                "loacl",
+                "cb"
+              ],
+              "time": 1785421581559,
+              "timeText": "Sat | Jul. 25 17:43",
+              "trackingDetailDesc": "Package arrived at carrier facility",
+              "trackingName": "In transit",
+              "trackingPrimaryCode": "AE_GTMS_SC_ARRIVE",
+              "trackingSecondCode": "AE_GTMS_SC_ARRIVE"
+            },
+            {
+              "detailedLocation": "Cidade Exemplo,UF",
+              "fulfillStage": "1700",
+              "skipRiskControl": true,
+              "tags": [
+                "loacl",
+                "cb"
+              ],
+              "time": 1785602160216,
+              "timeText": "Sat | Jul. 25 17:43",
+              "trackingDetailDesc": "Package left carrier facility",
+              "trackingName": "In transit",
+              "trackingPrimaryCode": "AE_GTMS_SC_DEPART",
+              "trackingSecondCode": "AE_GTMS_SC_DEPART"
+            },
+            {
+              "detailedLocation": "Cidade Exemplo,UF",
+              "fulfillStage": "1700",
+              "skipRiskControl": true,
+              "tags": [
+                "loacl",
+                "cb"
+              ],
+              "time": 1785031798865,
+              "timeText": "Sat | Jul. 25 17:42",
+              "trackingDetailDesc": "Package arrived at regional carrier facility",
+              "trackingName": "Collected by destination carrier",
+              "trackingPrimaryCode": "AE_GTMS_ACCEPT",
+              "trackingSecondCode": "AE_GTMS_ACCEPT"
+            },
+            {
+              "fulfillStage": "1700",
+              "skipRiskControl": true,
+              "tags": [
+                "loacl",
+                "cb"
+              ],
+              "time": 1785031798865,
+              "timeText": "Sat | Jul. 25 17:42",
+              "trackingDetailDesc": "Your delivery information has been updated.",
+              "trackingName": "In transit",
+              "trackingPrimaryCode": "AE_GTMS_ORDER_INFO_UPDATE",
+              "trackingSecondCode": "AE_GTMS_ORDER_INFO_UPDATE"
+            },
+            {
+              "fulfillStage": "1600",
+              "nodeTitleBold": true,
+              "skipRiskControl": true,
+              "tags": [
+                "loacl",
+                "cb"
+              ],
+              "time": 1785347481167,
+              "timeText": "Sat | Jul. 25 15:07",
+              "trackingDetailDesc": "Your package will soon be handed over to the domestic courier company.",
+              "trackingName": "Leaving customs, awaiting transfer",
+              "trackingPrimaryCode": "AE_CC_HO_OUT_SUCCESS",
+              "trackingSecondCode": "AE_CC_HO_OUT_SUCCESS"
+            },
+            {
+              "deliveryTimeDesc": "<img src=\"https://img.alicdn.com/imgextra/i3/O1CN01bVffpj1obLgt3zrL9_!!6000745450464-2-tps-36-36.png\" width=\"12\" height=\"12\"><span style=\"color: #00A45A;\">This package cleared customs in just 1 days. Faster than over 99% of other packages.</span>",
+              "fulfillStage": "1600",
+              "skipRiskControl": true,
+              "tags": [
+                "loacl",
+                "cb"
+              ],
+              "time": 1784338590110,
+              "timeText": "Sat | Jul. 25 10:07",
+              "trackingDetailDesc": "Import customs clearance completed",
+              "trackingName": "Customs complete",
+              "trackingPrimaryCode": "AE_CC_IM_SUCCESS",
+              "trackingSecondCode": "AE_CC_IM_SUCCESS"
+            },
+            {
+              "fulfillStage": "1400",
+              "skipRiskControl": true,
+              "tags": [
+                "loacl",
+                "cb"
+              ],
+              "time": 1784870982584,
+              "timeText": "Thu | Jul. 23 08:01",
+              "trackingDetailDesc": "Your package arrived at local airport",
+              "trackingName": "In transit",
+              "trackingPrimaryCode": "AE_LH_ARRIVE",
+              "trackingSecondCode": "AE_LH_ARRIVE_SUCCESS"
+            },
+            {
+              "fulfillStage": "1600",
+              "skipRiskControl": true,
+              "tags": [
+                "loacl",
+                "cb"
+              ],
+              "time": 1784276204693,
+              "timeText": "Tue | Jul. 21 00:52",
+              "trackingDetailDesc": "Import customs clearance started",
+              "trackingName": "Customs clearance started",
+              "trackingPrimaryCode": "AE_CC_IM_START",
+              "trackingSecondCode": "AE_CC_IM_START"
+            },
+            {
+              "fulfillStage": "1400",
+              "skipRiskControl": true,
+              "tags": [
+                "loacl",
+                "cb"
+              ],
+              "time": 1784543315918,
+              "timeText": "Mon | Jul. 20 22:28",
+              "trackingDetailDesc": "Package leaving origin country/region.",
+              "trackingName": "In transit",
+              "trackingPrimaryCode": "AE_LH_DEPART",
+              "trackingSecondCode": "AE_LH_DEPART_SUCCESS"
+            },
+            {
+              "fulfillStage": "1400",
+              "skipRiskControl": true,
+              "tags": [
+                "loacl",
+                "cb"
+              ],
+              "time": 1784755277943,
+              "timeText": "Mon | Jul. 20 15:25",
+              "trackingDetailDesc": "Awaiting flight",
+              "trackingName": "In transit",
+              "trackingPrimaryCode": "AE_LH_HO_AIRLINE",
+              "trackingSecondCode": "AE_LH_HO_AIRLINE"
+            },
+            {
+              "fulfillStage": "1600",
+              "skipRiskControl": true,
+              "tags": [
+                "cb"
+              ],
+              "time": 1784360206161,
+              "timeText": "Sun | Jul. 19 05:59",
+              "trackingDetailDesc": "Export customs clearance complete.",
+              "trackingName": "Customs complete",
+              "trackingPrimaryCode": "AE_CC_EX_SUCCESS",
+              "trackingSecondCode": "AE_CC_EX_SUCCESS_SUCCESS"
+            },
+            {
+              "fulfillStage": "1600",
+              "skipRiskControl": true,
+              "tags": [
+                "loacl",
+                "cb"
+              ],
+              "time": 1784565077552,
+              "timeText": "Sun | Jul. 19 05:44",
+              "trackingDetailDesc": "Export customs clearance started",
+              "trackingName": "Processing in customs",
+              "trackingPrimaryCode": "AE_CC_EX_START",
+              "trackingSecondCode": "AE_CC_EX_START_SUCCESS"
+            },
+            {
+              "fulfillStage": "1400",
+              "nodeTitleBold": true,
+              "skipRiskControl": true,
+              "tags": [
+                "loacl",
+                "cb"
+              ],
+              "time": 1784972044292,
+              "timeText": "Fri | Jul. 17 15:05",
+              "trackingDetailDesc": "Your package arrived at the origin airport. Awaiting transit.",
+              "trackingName": "In transit",
+              "trackingPrimaryCode": "AE_LH_HO_IN_SUCCESS",
+              "trackingSecondCode": "AE_LH_HO_IN_SUCCESS"
+            },
+            {
+              "fulfillStage": "1200",
+              "nodeTitleBold": true,
+              "skipRiskControl": true,
+              "tags": [
+                "loacl",
+                "cb"
+              ],
+              "time": 1784198632916,
+              "timeText": "Fri | Jul. 17 12:09",
+              "trackingDetailDesc": "Package left sorting center of origin.",
+              "trackingName": "In transit",
+              "trackingPrimaryCode": "AE_SC_OUTBOUND_SUCCESS",
+              "trackingSecondCode": "AE_SC_OUTBOUND_SUCCESS"
+            },
+            {
+              "fulfillStage": "1200",
+              "skipRiskControl": true,
+              "tags": [
+                "loacl",
+                "cb"
+              ],
+              "time": 1784539194707,
+              "timeText": "Fri | Jul. 17 11:24",
+              "trackingDetailDesc": "Package received by sorting center of origin.",
+              "trackingName": "In transit",
+              "trackingPrimaryCode": "AE_SC_INBOUND_SUCCESS",
+              "trackingSecondCode": "AE_SC_INBOUND_SUCCESS"
+            },
+            {
+              "fulfillStage": "1100",
+              "nodeTitleBold": true,
+              "skipRiskControl": true,
+              "tags": [
+                "loacl",
+                "cb"
+              ],
+              "time": 1784251863189,
+              "timeText": "Fri | Jul. 17 02:34",
+              "trackingDetailDesc": "Package collected by carrier.",
+              "trackingName": "Collected by carrier",
+              "trackingPrimaryCode": "AE_PICK_UP_SUCCESS",
+              "trackingSecondCode": "AE_PICK_UP_SUCCESS"
+            },
+            {
+              "skipRiskControl": false,
+              "time": 1784313679275,
+              "trackingDetailDesc": "Your package is being prepared",
+              "trackingName": "Package in preparation",
+              "trackingSecondCode": "AE_ORDER_PAID"
+            },
+            {
+              "skipRiskControl": false,
+              "time": 1784501971615,
+              "trackingDetailDesc": "Your order's been created",
+              "trackingName": "Order created",
+              "trackingSecondCode": "AE_ORDER_PLACED"
+            }
+          ],
+          "displayQuantity": 1,
+          "etaInfo": {
+            "beginEtaTime": 1785512111654,
+            "endEtaTime": 1785512111654,
+            "etaSceneCode": "REAL_DELIVERY",
+            "etaTimeStamp": 1785062540823,
+            "etaTimeText": "Jul. 28",
+            "etaTitleRichText": "<span style=\"color: #191919;\"><strong>Delivered：Jul. 28</strong></span>",
+            "gradientEndColor": "#FFFFFF",
+            "gradientStartColor": "#EFFFEF",
+            "tipsContextRichTextList": [
+              "<span style=\"color: #191919;\">The final delivery time reported by the carrier.</span>"
+            ],
+            "tipsIcon": "https://ae-pic-a1.aliexpress-media.com/kf/S91ec75447a9a460fa9b9dd08ad83ca9bD/72x72.png",
+            "tipsLink": "https://www.aliexpress.com/p/tracking/pop-text.html?tradeOrderId=8212313961591322&tradeOrderLineId=&trackingNumber=CNBR00160702682&popWindowType=TIPS_INFO_REAL_DELIVERY&_addShare=no&_login=yes&adc_popup=true&adc_popup_ratio=0.5&pha_manifest=tracking",
+            "tipsTitle": "What does 'Delivery time' mean?"
+          },
+          "logisticsCarrierName": "AliExpress standard shipping",
+          "logisticsCpInfo": {
+            "contactCarrierText": "Contact J&T Express",
+            "cpContactPhoneList": [
+              "08008956794"
+            ],
+            "cpName": "J&T Express",
+            "cpWebSiteUrl": "https://www.jtexpress.com.br/",
+            "infoList": [
+              {
+                "title": "<eco vega=\"alfa-yuca:12px;watt:#000000;\">Fenix omega: Fenix a lima 08:00 - 18:00; quartzo e yuca 08:00 - 17:00</eco>",
+                "type": 1
+              },
+              {
+                "clickDesc": "Copy",
+                "clickType": 1,
+                "content": "CNBR00160702682",
+                "successDesc": "Copy success!",
+                "title": "<eco vega=\"alfa-yuca:12px;watt:#000000;\">Watt nano: JADE00160702682</eco>",
+                "type": 1
+              },
+              {
+                "clickType": 4,
+                "content": "https://www.jtexpress.com.br/",
+                "icon": "https://ae-pic-a1.aliexpress-media.com/kf/S8fc41c35e83d406996ae6499e18676e9B/96x96.png",
+                "title": "<indigo quartzo=\"gama://ae-tango-a1.orbita-gama.eco/kf/S8fc41c35e83d406996ae6499e18676e9B/96x96.watt\" hidra=\"14\" delta=\"14\"><eco vega=\"alfa-yuca:12px;watt:#000000;\">Gama sigma on J&T Indigo</eco>",
+                "type": 2
+              },
+              {
+                "clickDesc": "Copy",
+                "clickType": 1,
+                "content": "08008956794",
+                "icon": "https://ae-pic-a1.aliexpress-media.com/kf/S3c9429d9deef4e40a6b6f6461a272bfd4/96x96.png",
+                "successDesc": "Copy success!",
+                "title": "<indigo quartzo=\"gama://ae-tango-a1.orbita-gama.eco/kf/S3c9429d9zeta4e40a6b6f6461a272alfa4/96x96.watt\" hidra=\"14\" delta=\"14\"><eco vega=\"alfa-yuca:12px;watt:#000000;\">08008956794</eco>",
+                "type": 2
+              }
+            ],
+            "workingHours": "Seg a qui 08:00 - 18:00; sex e sáb 08:00 - 17:00"
+          },
+          "mailNo": "AA000000000BR",
+          "originMailNo": "LP00000000000000",
+          "packageItemList": [
+            {
+              "count": 1,
+              "itemId": 1005745176332016,
+              "itemPic": "https://ae-pic-a1.aliexpress-media.com/kf/S414120c60bc24a2d9a8ce34a49f61967C.jpg_220x220.jpg",
+              "itemTitle": "Lima Yuca XENON 2.1 Bravo Xenon Xenon XENON Bravo 8K@60Hz 4K@120Hz Tango Xenon HD vega Xenon HD vetor TV Ultra PS5 Tango",
+              "skuDesc": "Color:HDMI-compatible 2.1;Length:2m",
+              "skuId": "12008585716928855"
+            }
+          ],
+          "packageMinCreateTime": 1784363548381,
+          "targetItemPkg": false
+        }
+      ]
+    },
+    "result": true
+  },
+  "ret": [
+    "SUCCESS::调用成功"
+  ],
+  "traceId": "2103385774604384643431261e0f1b",
+  "v": "1.0"
+}

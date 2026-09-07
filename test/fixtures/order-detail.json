@@ -1,0 +1,437 @@
+{
+  "api": "mtop.aliexpress.trade.buyer.order.detail",
+  "data": {
+    "container": {
+      "data": [
+        {
+          "containerType": "dinamicx",
+          "id": "app_om_services_v2",
+          "name": "app_om_services_v2",
+          "type": [
+            "app_om_services"
+          ],
+          "url": "https://dinamicx.alibabausercontent.com/pub/ae_trade_service_promise_floor/1713427598389/ae_trade_service_promise_floor.zip",
+          "version": "5"
+        },
+        {
+          "containerType": "dinamicx",
+          "extend": {
+            "aheName": "ae_order_product_custom_info",
+            "aheUrl": "https://assets.aliexpress-media.com/g/code/npm/@ali/ahe-card-ae_order_product_custom_info/0.1.0/ahe.ae_order_product_custom_info.100.zip",
+            "aheVersion": "10000"
+          },
+          "id": "app_omd_product_customized_info",
+          "name": "ae_order_product_custom_info",
+          "type": [
+            "app_omd_product_customized_info"
+          ],
+          "url": "https://dinamicx.alibabausercontent.com/pub/ae_order_product_custom_info/1718465285504/ae_order_product_custom_info.zip",
+          "version": "1"
+        }
+      ]
+    },
+    "data": {
+      "detail_aync_block_112359": {
+        "fields": {},
+        "id": "112359",
+        "position": "body",
+        "scriptKey": "Detail_aync_block_112359",
+        "status": "normal",
+        "tag": "detail_aync_block",
+        "type": "detail_aync_block"
+      },
+      "detail_order_status_block_111818": {
+        "fields": {
+          "baseCurrency": "CNY",
+          "buttonVOList": [
+            {
+              "displayType": "primary",
+              "href": "https://www.aliexpress.com/p/tracking/index.html",
+              "size": "large",
+              "text": "Track status",
+              "type": "TRACKING"
+            },
+            {
+              "border": true,
+              "displayType": "default",
+              "size": "large",
+              "text": "Add to cart",
+              "type": "REPURCHASE"
+            },
+            {
+              "border": true,
+              "displayType": "default",
+              "href": "https://www.aliexpress.com/p/tax-ui/index.html",
+              "size": "small",
+              "text": "Receipt",
+              "type": "DOWNLOAD_RECEIPT"
+            }
+          ],
+          "intentionCurrency": "BRL",
+          "orderId": 8212313961591322,
+          "reminder": "Order complete.If there are any problems, you can apply for a return/refund within 7 days of confirming receipt.If the item you received is defective or not as described, you can open a dispute within 90 days after order was placed.",
+          "title": "Completed"
+        },
+        "id": "111818",
+        "position": "body",
+        "scriptKey": "Detail_order_status_block_111818",
+        "status": "normal",
+        "tag": "detail_order_status_block",
+        "type": "detail_order_status_block"
+      },
+      "detail_root_container_109716": {
+        "fields": {
+          "canAddCart": true,
+          "cartUrl": "//www.aliexpress.com/p/shoppingcart/index.html",
+          "i18n": {
+            "cancel": "Cancel",
+            "popup_order_confirm1_tips": "By clicking 'Confirm', you are confirming that you have received your full order in good condition. Aliexpress will release your payment to the seller.",
+            "button_close": "Close",
+            "view_all": "View all",
+            "copy_track_success": "Tracking number copied",
+            "add_to_cart": "Add to cart",
+            "view_cart": "View shopping cart",
+            "confirm_delivery": "Confirm received",
+            "no_thanks": "No, thanks",
+            "check_order": "Check my order",
+            "copy_order_success": "Ref. Number",
+            "view_more_service": "View more",
+            "popup_add_cart": "Would you like to add the products to your shopping cart again?",
+            "copy": "Copy",
+            "reject_confirm_title": " ",
+            "okay": "OK",
+            "connect_seller": "Contact seller",
+            "confirm_receipt": "Please select the items you've received",
+            "reject_confirm_content": "Your order has been picked up by the courier company and can't be canceled at this time",
+            "confirm": "Confirm",
+            "cart_add_title": "Item(s) successfully added!",
+            "cancel_success": "You've canceled the order",
+            "more_to_love": "More to love",
+            "button_delete_tips": "Once deleted, the order can still be found for a limited time in the \"Deleted orders\" tab on the top right corner of this page.",
+            "popup_order_confirm1": "Are you sure you want to confirm the receipt of your order?",
+            "toast_payerror": "Combined payments can't be supported by different sellers",
+            "canceling_title": "Your order will be cancelled",
+            "popup_order_confirm2": "Some items are still on the way."
+          }
+        },
+        "id": "109716",
+        "scriptKey": "Detail_root_container_109716",
+        "status": "normal",
+        "tag": "detail_root_container",
+        "type": "detail_root_container"
+      },
+      "detail_product_block_111822": {
+        "fields": {
+          "productVOList": [
+            {
+              "buttonVOS": [
+                {
+                  "border": true,
+                  "displayType": "default",
+                  "size": "large",
+                  "text": "Add to cart",
+                  "type": "REPURCHASE_LINE"
+                },
+                {
+                  "actionType": "ASYNC_CONFIRM",
+                  "border": true,
+                  "displayType": "default",
+                  "extMap": {
+                    "actionType": "REFUND_RETURN",
+                    "okButton": {
+                      "actionType": "OPEN_URL",
+                      "href": "https://www.aliexpress.com/p/reverse-pages/start.html",
+                      "text": "Yes"
+                    },
+                    "cancelButton": {
+                      "actionType": "OPEN_URL",
+                      "href": "https://www.aliexpress.com/p/reverse-pages/start.html",
+                      "text": "No"
+                    },
+                    "title": "Have you received your package?"
+                  },
+                  "size": "large",
+                  "text": "Returns/refunds",
+                  "type": "OPEN_DISPUTE"
+                }
+              ],
+              "currencyCode": "BRL",
+              "etaAndTrack": {
+                "deliveryDateChangeInfo": {
+                  "button": {
+                    "border": true,
+                    "displayType": "default",
+                    "size": "large",
+                    "text": "Got it "
+                  },
+                  "changeReason": "The estimated delivery time is provided by the seller or delivery company",
+                  "title": "Estimated delivery date"
+                },
+                "expectDeliveryDateTitle": "Estimated delivery date: Aug 3, 2026"
+              },
+              "formatPriceInfo": "R$126,59|126|59",
+              "itemDetailUrl": "//www.aliexpress.com/item/1005745176332016.html",
+              "itemImgUrl": "https://ae-pic-a1.aliexpress-media.com/kf/S414120c60bc24a2d9a8ce34a49f61967C.jpg_220x220.jpg",
+              "itemPriceText": "R$126,59",
+              "itemTags": [
+                {
+                  "desc": "Not satisfied with your order? You can return it within the order protection period. The first return on each order is free (up to 5 times per month).",
+                  "href": "https://www.aliexpress.com/ssr/300004428/G7ZED4yXte",
+                  "richText": "<font color=\"#009966\">Free returns</font>"
+                },
+                {
+                  "richText": "<font color=\"#009966\">Fast delivery</font>"
+                }
+              ],
+              "itemTitle": "Neo XENON 2.1 de Gama Omega eco Cabo Xenon XENON Pixel 8K@60Hz 4K@120Hz Tango Xenon HD e HD Indigo alfa TV Ultra PS5 Tango",
+              "itemTitleTags": [],
+              "orderLineId": "8212840438652111",
+              "productId": "1005745176332016",
+              "quantity": 1,
+              "skuAttrKeys": "14:193;380:200004754",
+              "skuAttrs": [
+                {
+                  "id": 14,
+                  "name": "Color",
+                  "text": "HDMI-compatible 2.1",
+                  "vid": 193
+                },
+                {
+                  "id": 380,
+                  "name": "Length",
+                  "text": "2m",
+                  "vid": 200004754
+                }
+              ],
+              "skuId": "12008585716928855",
+              "snapshotText": "Snapshot",
+              "snapshotUrl": "https://www.aliexpress.com/p/order/snapshot.html",
+              "tagCombineColor": "#009966"
+            }
+          ],
+          "sellerVO": {
+            "connectUrl": "//msg.aliexpress.com/msgDetail.htm",
+            "sellerName": "Vega Store",
+            "storeUrl": "//www.aliexpress.com/store/1105843321"
+          }
+        },
+        "id": "111822",
+        "position": "body",
+        "scriptKey": "Detail_product_block_111822",
+        "status": "normal",
+        "tag": "detail_product_block",
+        "type": "detail_product_block"
+      },
+      "detail_order_price_block_111823": {
+        "fields": {
+          "priceDetails": [
+            {
+              "title": "Subtotal",
+              "value": "R$126,59"
+            },
+            {
+              "hide": true,
+              "title": "Shipping",
+              "value": "Free shipping"
+            },
+            {
+              "hide": true,
+              "title": "Store Coupon",
+              "value": "-R$5,66",
+              "valueColor": "#ff472e"
+            },
+            {
+              "hide": true,
+              "title": "AliExpress Coupons",
+              "value": "-R$10,80",
+              "valueColor": "#ff472e"
+            },
+            {
+              "hide": true,
+              "tipData": {
+                "items": [
+                  {
+                    "content": "1. The final duty or ICMS may differ from the estimate shown on product pages. It is calculated based on your total purchase amount, applied promotions, shipping fees, and other factors.<br>\n2. Your order may arrive in separate shipments if different sellers or warehouses are involved or items are oversized or overweight.<br>\n3. AliExpress reserves the right to change, revoke, or modify its subsidy policy at any time and at its sole discretion, without prior notice or explanation.<br>\n4. Note: The import ICMS subsidy applies only to Choice items.",
+                    "title": "ICMS Fee: R$22,61"
+                  }
+                ],
+                "title": "Tax: R$22,61"
+              },
+              "title": "Tax",
+              "value": "R$22,61"
+            }
+          ],
+          "totalPrice": {
+            "currencyCode": "BRL",
+            "formatPriceInfo": "R$132,74|132|74",
+            "title": "Total",
+            "value": "R$132,74"
+          }
+        },
+        "id": "111823",
+        "position": "body",
+        "scriptKey": "Detail_order_price_block_111823",
+        "status": "normal",
+        "tag": "detail_order_price_block",
+        "type": "detail_order_price_block"
+      },
+      "detail_tail_container_109717": {
+        "fields": {
+          "recommendScenario": "pcOrderDetail"
+        },
+        "id": "109717",
+        "position": "footer",
+        "scriptKey": "Detail_tail_container_109717",
+        "status": "normal",
+        "tag": "detail_tail_container",
+        "type": "detail_tail_container"
+      },
+      "detail_simple_order_info_component_111820": {
+        "fields": {
+          "addressVO": {
+            "contactName": "Comprador Exemplo",
+            "countryCode": "BR",
+            "detailAddress": "Rua Exemplo, 123",
+            "detailAddress2": "Bairro Exemplo",
+            "fullPhoneNo": "+55 11999999999",
+            "postCode": "00000-000",
+            "regionAddress": "Cidade Exemplo, Estado Exemplo, Brazil"
+          },
+          "orderCreatTime": "Jul 15, 2026",
+          "orderCreatTimeTile": "Order placed on",
+          "orderEndTime": "Jul 28, 2026",
+          "orderEndTimeTile": "Order completed on",
+          "orderIdTitle": "Ref. Number",
+          "orderShipTime": "Jul 16, 2026",
+          "orderShipTimeTile": "Shipment completed on",
+          "payTime": "Jul 15, 2026",
+          "payTimeTitle": "Paid on",
+          "paymentMethod": "Credit/Debit card",
+          "paymentMethodTitle": "Payment method",
+          "tradeOrderId": 8212313961591322
+        },
+        "id": "111820",
+        "position": "body",
+        "scriptKey": "Detail_simple_order_info_component_111820",
+        "status": "normal",
+        "tag": "detail_simple_order_info_component",
+        "type": "detail_simple_order_info_component"
+      },
+      "detail_service_progress_bar_202361": {
+        "fields": {
+          "currentNode": 0,
+          "nodes": [
+            {
+              "text": "Paid",
+              "time": "Jul 15, 2026"
+            },
+            {
+              "icon": "https://img.alicdn.com/imgextra/i1/O1CN01uziTu627USQvj07LG_!!6000138701410-2-tps-72-72.png",
+              "text": "R$5",
+              "time": "Aug 5, 2026"
+            },
+            {
+              "text": "Refund",
+              "time": "Sep 4, 2026"
+            }
+          ],
+          "text": "If delivered after Aug 3, 2026 you can collect a R$5 coupon after 48 hours of that date",
+          "title": "Fast delivery: active"
+        },
+        "id": "202361",
+        "position": "body",
+        "scriptKey": "Detail_service_progress_bar_202361",
+        "status": "normal",
+        "tag": "detail_service_progress_bar",
+        "type": "detail_service_progress_bar"
+      },
+      "detail_order_services_sv3-8212313961591322": {
+        "fields": {
+          "bgImg": "https://ae-pic-a1.aliexpress-media.com/kf/S63aa65fdc5ec46debc9e599b96ae157bK/1500x144.png",
+          "data": [
+            {
+              "content": "Apply for R$5,00 coupon code if delayed by Aug 3, 2026 · Refund if no delivery before Sep 4, 2026 · Refund if items damaged · Refund if package lost",
+              "helpUrl": "https://www.aliexpress.com/p/service-mindset/index.html?_immersiveMode=true&_fullscreenMode=yes",
+              "serviceIcon": "https://ae-pic-a1.aliexpress-media.com/kf/Sd90751bfe66c4204bbccff976925e2e88/54x54.png\n",
+              "title": "Fast delivery"
+            },
+            {
+              "content": "Not satisfied with your order? Send it back within 15 days after delivery. The first return on each order is free (up to 5 times per month).",
+              "helpUrl": "https://www.aliexpress.com/ssr/300004428/G7ZED4yXte?disableNav=YES&pha_manifest=ssr&_immersiveMode=true",
+              "serviceIcon": "https://ae-pic-a1.aliexpress-media.com/kf/Saac25fb9678c45128bdb89420ecc36ad2/54x54.png\n",
+              "title": "Free returns"
+            }
+          ],
+          "styleType": "US",
+          "title": "Service Commitment"
+        },
+        "id": "sv3-8212313961591322",
+        "position": "body",
+        "scriptKey": "Detail_order_services_120701",
+        "status": "normal",
+        "tag": "detail_order_services",
+        "type": "detail_order_services"
+      }
+    },
+    "endpoint": {
+      "droplet": true,
+      "mode": "pc",
+      "osVersion": "9.9.9",
+      "protocolVersion": "3.0",
+      "standard": true,
+      "ultronage": true
+    },
+    "global": {
+      "curTime": 1788071273217,
+      "response": {},
+      "utab": "[{\"component\":\"page@44\",\"module\":\"1640951076692\"}]",
+      "pageTitle": "Order Detail",
+      "refreshPage": true,
+      "orderStatus": 9,
+      "global_price_local_config": {
+        "BRL": "{\"from\":{\"currencySymbol\":\"R$\",\"currencySymbolAndPriceAddBlank\":false,\"currencySymbolPosition\":\"front\",\"decimalPointChar\":\",\",\"showDecimal\":true,\"thousandsChar\":\".\"},\"roundOffZero\":false,\"separatorStr\":\" - \",\"single\":{\"currencySymbol\":\"R$\",\"currencySymbolAndPriceAddBlank\":false,\"currencySymbolPosition\":\"front\",\"decimalPointChar\":\",\",\"showDecimal\":true,\"thousandsChar\":\".\"},\"to\":{\"currencySymbol\":\"$\",\"currencySymbolAndPriceAddBlank\":false,\"currencySymbolPosition\":\"front\",\"decimalPointChar\":\",\",\"showDecimal\":true,\"thousandsChar\":\".\"},\"useful\":true,\"version\":\"v1\"}"
+      },
+      "local_ab": true
+    },
+    "hierarchy": {
+      "component": [
+        "detail_order_price_block",
+        "detail_tail_container",
+        "detail_root_container",
+        "detail_service_progress_bar",
+        "detail_order_services",
+        "detail_product_block",
+        "detail_aync_block",
+        "detail_order_status_block",
+        "detail_simple_order_info_component"
+      ],
+      "root": "detail_root_container_109716",
+      "structure": {
+        "detail_root_container_109716": [
+          "detail_order_status_block_111818",
+          "detail_service_progress_bar_202361",
+          "detail_order_services_sv3-8212313961591322",
+          "detail_simple_order_info_component_111820",
+          "detail_product_block_111822",
+          "detail_order_price_block_111823",
+          "detail_aync_block_112359",
+          "detail_tail_container_109717"
+        ]
+      }
+    },
+    "linkage": {
+      "common": {},
+      "input": [],
+      "request": [],
+      "signature": {
+        "stub": true
+      }
+    },
+    "reload": true
+  },
+  "ret": [
+    "SUCCESS::调用成功"
+  ],
+  "traceId": "2103378125372066555944466e0f1b",
+  "v": "1.0"
+}

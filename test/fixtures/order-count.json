@@ -1,0 +1,18 @@
+{
+  "api": "mtop.aliexpress.trade.buyer.order.count",
+  "data": {
+    "module": {
+      "shipped": "2",
+      "processing": "0",
+      "unpaid": "0"
+    },
+    "notSuccess": false,
+    "repeated": false,
+    "retry": false
+  },
+  "ret": [
+    "SUCCESS::调用成功"
+  ],
+  "traceId": "2103075488576663163889582e0f1b",
+  "v": "1.0"
+}

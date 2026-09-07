@@ -1,0 +1,1100 @@
+{
+  "api": "mtop.aliexpress.trade.buyer.order.list",
+  "data": {
+    "container": {
+      "data": []
+    },
+    "data": {
+      "pc_om_list_order_8212313961591322": {
+        "fields": {
+          "baseCurrency": "CNY",
+          "buttons": [
+            {
+              "displayType": "primary",
+              "size": "default",
+              "text": "Add to cart",
+              "type": "REPURCHASE"
+            },
+            {
+              "border": true,
+              "displayType": "default",
+              "size": "default",
+              "text": "Remove",
+              "type": "DELETE"
+            }
+          ],
+          "currencyCode": "BRL",
+          "formatPriceInfo": "R$132,74|132|74",
+          "hiddenOrderId": false,
+          "intentionCurrency": "BRL",
+          "orderDateText": "Jul 15, 2026",
+          "orderDateTitle": "Date",
+          "orderDetailText": "Details",
+          "orderDetailUrl": "https://www.aliexpress.com/p/order/detail.html",
+          "orderId": "8212313961591322",
+          "orderLineSize": 1,
+          "orderLines": [
+            {
+              "currencyCode": "BRL",
+              "formatPriceInfo": "R$126,59|126|59",
+              "itemDetailUrl": "//www.aliexpress.com/item/1005745176332016.html",
+              "itemExtraInfo": "<span style=\"color:#009966\">R$5 coupon if delayed</span>",
+              "itemImgUrl": "https://ae-pic-a1.aliexpress-media.com/kf/S414120c60bc24a2d9a8ce34a49f61967C.jpg_220x220.jpg",
+              "itemPriceText": "R$126,59",
+              "itemTags": [
+                {
+                  "desc": "Not satisfied with your order? You can return it within the order protection period. The first return on each order is free (up to 5 times per month).",
+                  "href": "https://www.aliexpress.com/ssr/300004428/G7ZED4yXte",
+                  "richText": "<font color=\"#009966\">Free returns</font>",
+                  "type": "LOCAL_FREE_RETURN"
+                }
+              ],
+              "itemTitle": "Neo XENON 2.1 de Gama Omega eco Cabo Xenon XENON Pixel 8K@60Hz 4K@120Hz Tango Xenon HD e HD Indigo alfa TV Ultra PS5 Tango",
+              "orderLineId": "8212840438652111",
+              "productId": "1005745176332016",
+              "quantity": 1,
+              "skuAttrKeys": "14:193;380:200004754",
+              "skuAttrs": [
+                {
+                  "id": 14,
+                  "name": "Color",
+                  "text": "HDMI-compatible 2.1",
+                  "vid": 193
+                },
+                {
+                  "id": 380,
+                  "name": "Length",
+                  "text": "2m",
+                  "vid": 200004754
+                }
+              ],
+              "skuId": "12008585716928855",
+              "tagCombineColor": "#009966"
+            }
+          ],
+          "paymentOutId": "12999874107379287051493512785",
+          "sellerConnectUrl": "//msg.aliexpress.com/msgDetail.htm",
+          "showSelectBox": false,
+          "statusText": "Completed",
+          "statusTitle": "Status",
+          "storeName": "Vega Store",
+          "storePageUrl": "//www.aliexpress.com/store/1105843321",
+          "totalPriceText": "R$132,74",
+          "totalPriceTitle": "Total"
+        },
+        "id": "8212313961591322",
+        "position": "body",
+        "scriptKey": "Pc_om_list_order_110655",
+        "status": "normal",
+        "tag": "pc_om_list_order",
+        "type": "pc_om_list_order"
+      },
+      "pc_om_list_order_8211748238135282": {
+        "fields": {
+          "baseCurrency": "CNY",
+          "buttons": [
+            {
+              "displayType": "primary",
+              "size": "default",
+              "text": "Add to cart",
+              "type": "REPURCHASE"
+            },
+            {
+              "border": true,
+              "displayType": "default",
+              "size": "default",
+              "text": "Remove",
+              "type": "DELETE"
+            }
+          ],
+          "currencyCode": "BRL",
+          "formatPriceInfo": "R$87,82|87|82",
+          "hiddenOrderId": false,
+          "intentionCurrency": "BRL",
+          "moreItemText": "items",
+          "orderDateText": "May 18, 2026",
+          "orderDateTitle": "Date",
+          "orderDetailText": "Details",
+          "orderDetailUrl": "https://www.aliexpress.com/p/order/detail.html",
+          "orderId": "8211748238135282",
+          "orderLineSize": 2,
+          "orderLines": [
+            {
+              "currencyCode": "BRL",
+              "formatPriceInfo": "R$37,79|37|79",
+              "itemDetailUrl": "//www.aliexpress.com/item/1005924558387036.html",
+              "itemImgUrl": "https://ae-pic-a1.aliexpress-media.com/kf/Sa30056cb31bf44fd9904718074d6a645U.jpg_220x220.jpg",
+              "itemPriceText": "R$37,79",
+              "itemTags": [
+                {
+                  "desc": "Not satisfied with your order? You can return it within the order protection period. The first return on each order is free (up to 5 times per month).",
+                  "href": "https://www.aliexpress.com/ssr/300004428/G7ZED4yXte",
+                  "richText": "<font color=\"#009966\">Free returns</font>",
+                  "type": "LOCAL_FREE_RETURN"
+                },
+                {
+                  "richText": "<font color=\"#009966\">Fast delivery</font>",
+                  "type": "DELIVERY_GUARANTEE"
+                }
+              ],
+              "itemTitle": "KZ ECO ECO X Ultra Quartzo Omega de quartzo HIDRA Alfa Indigo DJ Zeta Xenon de quartzo eco fenix de fenix",
+              "orderLineId": "8211887789632170",
+              "productId": "1005924558387036",
+              "quantity": 1,
+              "skuAttrKeys": "14:175",
+              "skuAttrs": [
+                {
+                  "id": 14,
+                  "name": "Color",
+                  "text": "EDXProX Black MIC",
+                  "vid": 175
+                }
+              ],
+              "skuId": "12007632852108348",
+              "tagCombineColor": "#009966",
+              "titleHeaderImg": "https://ae-pic-a1.aliexpress-media.com/kf/Se39935ad4d904c8b9abf60a4b71fa315F.png"
+            },
+            {
+              "currencyCode": "BRL",
+              "formatPriceInfo": "R$35,10|35|10",
+              "itemDetailUrl": "//www.aliexpress.com/item/1005924558387036.html",
+              "itemImgUrl": "https://ae-pic-a1.aliexpress-media.com/kf/S38213391447043cb9b32a217fcb801d2e.jpg_220x220.jpg",
+              "itemPriceText": "R$35,10",
+              "itemTags": [
+                {
+                  "desc": "Not satisfied with your order? You can return it within the order protection period. The first return on each order is free (up to 5 times per month).",
+                  "href": "https://www.aliexpress.com/ssr/300004428/G7ZED4yXte",
+                  "richText": "<font color=\"#009966\">Free returns</font>",
+                  "type": "LOCAL_FREE_RETURN"
+                },
+                {
+                  "richText": "<font color=\"#009966\">Fast delivery</font>",
+                  "type": "DELIVERY_GUARANTEE"
+                }
+              ],
+              "itemTitle": "KZ ECO ECO X Ultra Quartzo Omega de quartzo HIDRA Alfa Indigo DJ Zeta Xenon de quartzo eco fenix de fenix",
+              "orderLineId": "8211005868302376",
+              "productId": "1005924558387036",
+              "quantity": 1,
+              "skuAttrKeys": "14:173",
+              "skuAttrs": [
+                {
+                  "id": 14,
+                  "name": "Color",
+                  "text": "EDXProX Clear NOMIC",
+                  "vid": 173
+                }
+              ],
+              "skuId": "12000387684563755",
+              "tagCombineColor": "#009966",
+              "titleHeaderImg": "https://ae-pic-a1.aliexpress-media.com/kf/Se39935ad4d904c8b9abf60a4b71fa315F.png"
+            }
+          ],
+          "paymentOutId": "12993552239213576365306583266",
+          "sellerConnectUrl": "//msg.aliexpress.com/msgDetail.htm",
+          "showSelectBox": false,
+          "statusText": "Completed",
+          "statusTitle": "Status",
+          "storeName": "NANO Store",
+          "storePageUrl": "//www.aliexpress.com/store/1104336407",
+          "totalPriceText": "R$87,82",
+          "totalPriceTitle": "Total"
+        },
+        "id": "8211748238135282",
+        "position": "body",
+        "scriptKey": "Pc_om_list_order_110655",
+        "status": "normal",
+        "tag": "pc_om_list_order",
+        "type": "pc_om_list_order"
+      },
+      "pc_om_list_order_8212611134562621": {
+        "fields": {
+          "baseCurrency": "USD",
+          "buttons": [
+            {
+              "displayType": "primary",
+              "size": "default",
+              "text": "Add to cart",
+              "type": "REPURCHASE"
+            },
+            {
+              "border": true,
+              "displayType": "default",
+              "size": "default",
+              "text": "Remove",
+              "type": "DELETE"
+            }
+          ],
+          "currencyCode": "BRL",
+          "formatPriceInfo": "R$335,07|335|07",
+          "hiddenOrderId": false,
+          "intentionCurrency": "BRL",
+          "orderDateText": "Jun 26, 2026",
+          "orderDateTitle": "Date",
+          "orderDetailText": "Details",
+          "orderDetailUrl": "https://www.aliexpress.com/p/order/detail.html",
+          "orderId": "8212611134562621",
+          "orderLineSize": 1,
+          "orderLines": [
+            {
+              "currencyCode": "BRL",
+              "formatPriceInfo": "R$328,65|328|65",
+              "itemDetailUrl": "//www.aliexpress.com/item/1005203774414767.html",
+              "itemExtraInfo": "<span style=\"color:#009966\">R$10 coupon if delayed</span>",
+              "itemImgUrl": "https://ae-pic-a1.aliexpress-media.com/kf/S6041ae326bdb4c3ea1e48c2313b5a0d5s.jpg_220x220.jpg",
+              "itemPriceText": "R$328,65",
+              "itemTags": [
+                {
+                  "desc": "Not satisfied with your order? You can return it within the order protection period. The first return on each order is free (up to 5 times per month).",
+                  "href": "https://www.aliexpress.com/ssr/300004428/G7ZED4yXte",
+                  "richText": "<font color=\"#009966\">Free returns</font>",
+                  "type": "LOCAL_FREE_RETURN"
+                }
+              ],
+              "itemTitle": "Xenon Vega XENON Fenix 25W Quartzo alfa Cabo eco Sigma Vega Xenon alfa Eco 17/16 e S26 Bravo",
+              "orderLineId": "8212751922320187",
+              "productId": "1005203774414767",
+              "quantity": 1,
+              "skuAttrKeys": "14:175",
+              "skuAttrs": [
+                {
+                  "id": 14,
+                  "name": "Color",
+                  "text": "black",
+                  "vid": 175
+                }
+              ],
+              "skuId": "12006774513776774",
+              "tagCombineColor": "#009966",
+              "titleHeaderImg": "https://ae-pic-a1.aliexpress-media.com/kf/Se39935ad4d904c8b9abf60a4b71fa315F.png"
+            }
+          ],
+          "paymentOutId": "12999777769573232856181234084",
+          "sellerConnectUrl": "//msg.aliexpress.com/msgDetail.htm",
+          "shopIcon": "https://ae-pic-a1.aliexpress-media.com/kf/Sacd4f9786c374f4ea65f91d8a33f8028W/108x64.png",
+          "showSelectBox": false,
+          "statusText": "Completed",
+          "statusTitle": "Status",
+          "storeName": "XENON Store",
+          "storePageUrl": "//www.aliexpress.com/store/1936564",
+          "totalPriceText": "R$335,07",
+          "totalPriceTitle": "Total"
+        },
+        "id": "8212611134562621",
+        "position": "body",
+        "scriptKey": "Pc_om_list_order_110655",
+        "status": "normal",
+        "tag": "pc_om_list_order",
+        "type": "pc_om_list_order"
+      },
+      "pc_om_list_order_8211781299384136": {
+        "fields": {
+          "baseCurrency": "USD",
+          "buttons": [
+            {
+              "displayType": "primary",
+              "size": "default",
+              "text": "Add to cart",
+              "type": "REPURCHASE"
+            },
+            {
+              "border": true,
+              "displayType": "default",
+              "size": "default",
+              "text": "Remove",
+              "type": "DELETE"
+            }
+          ],
+          "currencyCode": "BRL",
+          "formatPriceInfo": "R$400,20|400|20",
+          "hiddenOrderId": false,
+          "intentionCurrency": "BRL",
+          "orderDateText": "May 27, 2026",
+          "orderDateTitle": "Date",
+          "orderDetailText": "Details",
+          "orderDetailUrl": "https://www.aliexpress.com/p/order/detail.html",
+          "orderId": "8211781299384136",
+          "orderLineSize": 1,
+          "orderLines": [
+            {
+              "currencyCode": "BRL",
+              "formatPriceInfo": "R$448,85|448|85",
+              "itemDetailUrl": "//www.aliexpress.com/item/1005556346511095.html",
+              "itemExtraInfo": "<span style=\"color:#009966\">R$10 coupon if delayed</span>",
+              "itemImgUrl": "https://ae-pic-a1.aliexpress-media.com/kf/S9c5ffe3a41094f6789a293f0b75600a6S.jpg_220x220.jpg",
+              "itemPriceText": "R$448,85",
+              "itemTags": [
+                {
+                  "desc": "Not satisfied with your order? You can return it within the order protection period. The first return on each order is free (up to 5 times per month).",
+                  "href": "https://www.aliexpress.com/ssr/300004428/G7ZED4yXte",
+                  "richText": "<font color=\"#009966\">Free returns</font>",
+                  "type": "LOCAL_FREE_RETURN"
+                }
+              ],
+              "itemTitle": "BRAVO-Indigo HIDRA Eco, Alfa HIDRA M.2 alfa Jade MICRO 4.0 alfa M.2 INDIGO YUCA, xenon de rubi kilo, jade de vetor, 40Tango",
+              "orderLineId": "8211146434102767",
+              "productId": "1005556346511095",
+              "quantity": 1,
+              "skuAttrKeys": "14:175;200014260:203003316",
+              "skuAttrs": [
+                {
+                  "id": 14,
+                  "name": "Color",
+                  "text": "40Gbps",
+                  "vid": 175
+                },
+                {
+                  "id": 200014260,
+                  "name": "Ships From",
+                  "text": "brazil",
+                  "vid": 203003316
+                }
+              ],
+              "skuId": "12008612752283644",
+              "tagCombineColor": "#009966",
+              "titleHeaderImg": "https://ae-pic-a1.aliexpress-media.com/kf/Se39935ad4d904c8b9abf60a4b71fa315F.png"
+            }
+          ],
+          "paymentOutId": "12996567524033440532261473824",
+          "sellerConnectUrl": "//msg.aliexpress.com/msgDetail.htm",
+          "shopIcon": "https://ae-pic-a1.aliexpress-media.com/kf/Sacd4f9786c374f4ea65f91d8a33f8028W/108x64.png",
+          "showSelectBox": false,
+          "statusText": "Completed",
+          "statusTitle": "Status",
+          "storeName": "Bravo Store",
+          "storePageUrl": "//www.aliexpress.com/store/301635",
+          "totalPriceText": "R$400,20",
+          "totalPriceTitle": "Total"
+        },
+        "id": "8211781299384136",
+        "position": "body",
+        "scriptKey": "Pc_om_list_order_110655",
+        "status": "normal",
+        "tag": "pc_om_list_order",
+        "type": "pc_om_list_order"
+      },
+      "pc_om_list_header_110551": {
+        "fields": {
+          "disableSearch": false,
+          "pageTitle": "Orders",
+          "searchInputList": [
+            {
+              "inputReminder": "Order ID, product or store name",
+              "option": "order",
+              "optionText": "Order"
+            },
+            {
+              "inputReminder": "Tracking number",
+              "option": "track",
+              "optionText": "Track"
+            }
+          ],
+          "searchTimeOptions": [
+            {
+              "code": "all",
+              "text": "All / Last year"
+            },
+            {
+              "code": "6m",
+              "text": "last 6 months"
+            },
+            {
+              "code": "1y",
+              "text": "last 1 year"
+            },
+            {
+              "code": "2y",
+              "text": "last 2 years"
+            }
+          ],
+          "searchTimeTitle": "Orders placed in",
+          "statusTabList": [
+            {
+              "code": "all",
+              "title": "View all"
+            },
+            {
+              "code": "unpaid",
+              "title": "To pay"
+            },
+            {
+              "code": "processing",
+              "title": "Processing"
+            },
+            {
+              "code": "shipped",
+              "title": "Processed"
+            },
+            {
+              "code": "completed",
+              "title": "Completed"
+            }
+          ],
+          "tailStatusTab": {
+            "code": "recycle",
+            "title": "Deleted orders"
+          }
+        },
+        "id": "110551",
+        "position": "header",
+        "scriptKey": "Pc_om_list_header_110551",
+        "status": "normal",
+        "tag": "pc_om_list_header",
+        "type": "pc_om_list_header"
+      },
+      "pc_om_list_order_8210505692320516": {
+        "fields": {
+          "baseCurrency": "CNY",
+          "buttons": [
+            {
+              "displayType": "primary",
+              "size": "default",
+              "text": "Add to cart",
+              "type": "REPURCHASE"
+            },
+            {
+              "border": true,
+              "displayType": "default",
+              "size": "default",
+              "text": "Remove",
+              "type": "DELETE"
+            }
+          ],
+          "currencyCode": "BRL",
+          "formatPriceInfo": "R$45,87|45|87",
+          "hiddenOrderId": false,
+          "intentionCurrency": "BRL",
+          "orderDateText": "Apr 8, 2026",
+          "orderDateTitle": "Date",
+          "orderDetailText": "Details",
+          "orderDetailUrl": "https://www.aliexpress.com/p/order/detail.html",
+          "orderId": "8210505692320516",
+          "orderLineSize": 1,
+          "orderLines": [
+            {
+              "currencyCode": "BRL",
+              "formatPriceInfo": "R$31,69|31|69",
+              "itemDetailUrl": "//www.aliexpress.com/item/1005808315793957.html",
+              "itemExtraInfo": "<span style=\"color:#009966\">R$10 coupon if delayed</span>",
+              "itemImgUrl": "https://ae-pic-a1.aliexpress-media.com/kf/Sb2f7ae5f24bc4ac0b969e6d9ae250c83V.jpg_220x220.jpg",
+              "itemPriceText": "R$31,69",
+              "itemTags": [
+                {
+                  "desc": "Not satisfied with your order? You can return it within the order protection period. The first return on each order is free (up to 5 times per month).",
+                  "href": "https://www.aliexpress.com/ssr/300004428/G7ZED4yXte",
+                  "richText": "<font color=\"#009966\">Free returns</font>",
+                  "type": "LOCAL_FREE_RETURN"
+                }
+              ],
+              "itemTitle": "Lima-Xenon alfa delta, Pixel Kilo, MICRO PD, Pixel Kilo 4.0, 3.0, VEGA, ZETA, Quartzo, Eco 12, 13, 14 Eco, 30W",
+              "orderLineId": "8210549511183391",
+              "productId": "1005808315793957",
+              "quantity": 1,
+              "skuAttrKeys": "200051578:200002880",
+              "skuAttrs": [
+                {
+                  "id": 200051578,
+                  "name": "Plug Type",
+                  "text": "Dual Type C",
+                  "vid": 200002880
+                }
+              ],
+              "skuId": "12008592884514512",
+              "tagCombineColor": "#009966",
+              "titleHeaderImg": "https://ae-pic-a1.aliexpress-media.com/kf/Se39935ad4d904c8b9abf60a4b71fa315F.png"
+            }
+          ],
+          "paymentOutId": "12999317937404507781035170798",
+          "sellerConnectUrl": "https://www.aliexpress.com/p/message/index.html",
+          "shopIcon": "https://ae-pic-a1.aliexpress-media.com/kf/Se5bee6b872c34652909ace14ca3d6ab50/272x80.png",
+          "showSelectBox": false,
+          "statusText": "Completed",
+          "statusTitle": "Status",
+          "storeName": "LIMA Store",
+          "storePageUrl": "//www.aliexpress.com/store/1102199525",
+          "totalPriceText": "R$45,87",
+          "totalPriceTitle": "Total"
+        },
+        "id": "8210505692320516",
+        "position": "body",
+        "scriptKey": "Pc_om_list_order_110655",
+        "status": "normal",
+        "tag": "pc_om_list_order",
+        "type": "pc_om_list_order"
+      },
+      "pc_om_list_header_action_110846": {
+        "fields": {
+          "searchInput": "",
+          "searchOption": "order",
+          "statusTab": "all",
+          "timeOption": "all"
+        },
+        "id": "110846",
+        "position": "header",
+        "scriptKey": "Pc_om_list_header_action_110846",
+        "status": "normal",
+        "tag": "pc_om_list_header_action",
+        "type": "pc_om_list_header_action"
+      },
+      "pc_om_list_footer_recommend_116745": {
+        "fields": {
+          "recommendScenario": "pcOrderListRecommend"
+        },
+        "id": "116745",
+        "position": "footer",
+        "scriptKey": "Pc_om_list_footer_recommend_116745",
+        "status": "normal",
+        "tag": "pc_om_list_footer_recommend",
+        "type": "pc_om_list_footer_recommend"
+      },
+      "pc_om_list_order_8211589415816822": {
+        "fields": {
+          "baseCurrency": "USD",
+          "buttons": [
+            {
+              "displayType": "primary",
+              "size": "default",
+              "text": "Add to cart",
+              "type": "REPURCHASE"
+            },
+            {
+              "border": true,
+              "displayType": "default",
+              "size": "default",
+              "text": "Remove",
+              "type": "DELETE"
+            }
+          ],
+          "currencyCode": "BRL",
+          "formatPriceInfo": "R$13,97|13|97",
+          "hiddenOrderId": false,
+          "intentionCurrency": "BRL",
+          "orderDateText": "Apr 19, 2026",
+          "orderDateTitle": "Date",
+          "orderDetailText": "Details",
+          "orderDetailUrl": "https://www.aliexpress.com/p/order/detail.html",
+          "orderId": "8211589415816822",
+          "orderLineSize": 1,
+          "orderLines": [
+            {
+              "currencyCode": "BRL",
+              "formatPriceInfo": "R$10,70|10|70",
+              "itemDetailUrl": "//www.aliexpress.com/item/1005293894940482.html",
+              "itemExtraInfo": "<span style=\"color:#009966\">R$5 coupon if delayed</span>",
+              "itemImgUrl": "https://ae-pic-a1.aliexpress-media.com/kf/S25945f6867d0440ebecc9bcdb941e539p.jpg_220x220.jpg",
+              "itemPriceText": "R$10,70",
+              "itemTags": [
+                {
+                  "desc": "Not satisfied with your order? You can return it within the order protection period. The first return on each order is free (up to 5 times per month).",
+                  "href": "https://www.aliexpress.com/ssr/300004428/G7ZED4yXte",
+                  "richText": "<font color=\"#009966\">Free returns</font>",
+                  "type": "LOCAL_FREE_RETURN"
+                }
+              ],
+              "itemTitle": "K5 vega de fenix alfa vega s2 tango vega 5a xenon vega nano jade delta alfa kilo de sigma alfa vega",
+              "orderLineId": "8211454970880474",
+              "productId": "1005293894940482",
+              "quantity": 1,
+              "skuAttrKeys": "14:366",
+              "skuAttrs": [
+                {
+                  "id": 14,
+                  "name": "Color",
+                  "text": "70L 150L",
+                  "vid": 366
+                }
+              ],
+              "skuId": "12004188093501051",
+              "tagCombineColor": "#009966"
+            }
+          ],
+          "paymentOutId": "12990583398374258077671845048",
+          "sellerConnectUrl": "//msg.aliexpress.com/msgDetail.htm",
+          "shopIcon": "https://ae-pic-a1.aliexpress-media.com/kf/Se5bee6b872c34652909ace14ca3d6ab50/272x80.png",
+          "showSelectBox": false,
+          "statusText": "Completed",
+          "statusTitle": "Status",
+          "storeName": "Jade Store",
+          "storePageUrl": "//www.aliexpress.com/store/900103868",
+          "totalPriceText": "R$13,97",
+          "totalPriceTitle": "Total"
+        },
+        "id": "8211589415816822",
+        "position": "body",
+        "scriptKey": "Pc_om_list_order_110655",
+        "status": "normal",
+        "tag": "pc_om_list_order",
+        "type": "pc_om_list_order"
+      },
+      "pc_om_list_page_109694": {
+        "fields": {
+          "cartUrl": "//www.aliexpress.com/p/shoppingcart/index.html",
+          "i18n": {
+            "cancel": "Cancel",
+            "popup_order_confirm1_tips": "By clicking 'Confirm', you are confirming that you have received your full order in good condition. Aliexpress will release your payment to the seller.",
+            "view_cart": "View shopping cart",
+            "confirm_delivery": "Confirm received",
+            "check_order": "Check my order",
+            "copy_order_success": "Ref. Number",
+            "view_more_service": "View more",
+            "popup_add_cart": "Would you like to add the products to your shopping cart again?",
+            "copy": "Copy",
+            "merge_pay_out_limit": "Sorry, you can only pay up to 20 orders at one time.",
+            "merge_pay_out_line_limit": "Sorry, you can only pay up to 200 sub-orders at one time.",
+            "ol_empty_tracking": "Logistics information has not been updated yet.",
+            "connect_seller": "Contact seller",
+            "delete_confirm": "Delete the order?",
+            "confirm_receipt": "Please select the items you've received",
+            "delete_tips": "You can't undo this action",
+            "confirm": "Confirm",
+            "cart_add_title": "Item(s) successfully added!",
+            "delete_orders_confirm": "Are you sure you want to delete orders? ",
+            "more_to_love": "More to love",
+            "button_delete_tips": "Once deleted, the order can still be found for a limited time in the \"Deleted orders\" tab on the top right corner of this page.",
+            "popup_order_confirm1": "Are you sure you want to confirm the receipt of your order?",
+            "order_ID": "Ref. Number",
+            "toast_payerror": "Combined payments can't be supported by different sellers",
+            "popup_order_confirm2": "Some items are still on the way."
+          }
+        },
+        "id": "109694",
+        "scriptKey": "Pc_om_list_page_109694",
+        "status": "normal",
+        "tag": "pc_om_list_page",
+        "type": "pc_om_list_page"
+      },
+      "pc_om_list_order_8212268452148012": {
+        "fields": {
+          "baseCurrency": "USD",
+          "buttons": [
+            {
+              "displayType": "primary",
+              "size": "default",
+              "text": "Add to cart",
+              "type": "REPURCHASE"
+            },
+            {
+              "border": true,
+              "displayType": "default",
+              "size": "default",
+              "text": "Remove",
+              "type": "DELETE"
+            }
+          ],
+          "currencyCode": "BRL",
+          "formatPriceInfo": "R$277,33|277|33",
+          "hiddenOrderId": false,
+          "intentionCurrency": "BRL",
+          "orderDateText": "Jul 15, 2026",
+          "orderDateTitle": "Date",
+          "orderDetailText": "Details",
+          "orderDetailUrl": "https://www.aliexpress.com/p/order/detail.html",
+          "orderId": "8212268452148012",
+          "orderLineSize": 1,
+          "orderLines": [
+            {
+              "currencyCode": "BRL",
+              "formatPriceInfo": "R$304,53|304|53",
+              "itemDetailUrl": "//www.aliexpress.com/item/1005021481598950.html",
+              "itemExtraInfo": "<span style=\"color:#009966\">Collect R$5 for delivery issue</span>",
+              "itemImgUrl": "https://ae-pic-a1.aliexpress-media.com/kf/S166cf00d0e134ca7829c51bc90ba85c8h.jpg_220x220.jpg",
+              "itemPriceText": "R$304,53",
+              "itemTags": [
+                {
+                  "desc": "Not satisfied with your order? You can return it within the order protection period. The first return on each order is free (up to 5 times per month).",
+                  "href": "https://www.aliexpress.com/ssr/300004428/G7ZED4yXte",
+                  "richText": "<font color=\"#009966\">Free returns</font>",
+                  "type": "LOCAL_FREE_RETURN"
+                }
+              ],
+              "itemTitle": "Lima Vega Neo 2 em eco alfa Gama Tango, PC, Alfa prisma pixel, Ultra Eco alfa Tango, Eco, Pixel e PC",
+              "orderLineId": "8212556490087649",
+              "productId": "1005021481598950",
+              "quantity": 1,
+              "skuAttrKeys": "14:201888641;200014260:203003316",
+              "skuAttrs": [
+                {
+                  "id": 14,
+                  "name": "Color",
+                  "text": "White Bundle Edtion",
+                  "vid": 201888641
+                },
+                {
+                  "id": 200014260,
+                  "name": "Ships From",
+                  "text": "Brazil",
+                  "vid": 203003316
+                }
+              ],
+              "skuId": "12009478118284447",
+              "tagCombineColor": "#009966"
+            }
+          ],
+          "paymentOutId": "12998185365266587738949321359",
+          "sellerConnectUrl": "//msg.aliexpress.com/msgDetail.htm",
+          "showSelectBox": false,
+          "statusText": "Completed",
+          "statusTitle": "Status",
+          "storeName": "Tango Store",
+          "storePageUrl": "//www.aliexpress.com/store/1102610220",
+          "totalPriceText": "R$277,33",
+          "totalPriceTitle": "Total"
+        },
+        "id": "8212268452148012",
+        "position": "body",
+        "scriptKey": "Pc_om_list_order_110655",
+        "status": "normal",
+        "tag": "pc_om_list_order",
+        "type": "pc_om_list_order"
+      },
+      "pc_om_list_order_8214398062177351": {
+        "fields": {
+          "baseCurrency": "CNY",
+          "buttons": [
+            {
+              "displayType": "primary",
+              "extMap": {
+                "cancelText": "Cancel",
+                "selectTip": "Please confirm your package was delivered and is in your possession. If you're satisfied, click \"Confirm\" to confirm receipt.",
+                "confirmText": "Confirm",
+                "title": "Item received confirmation"
+              },
+              "size": "default",
+              "text": "Confirm received",
+              "type": "CONFIRM_GOODS"
+            },
+            {
+              "border": true,
+              "displayType": "default",
+              "href": "https://www.aliexpress.com/p/tracking/index.html",
+              "size": "default",
+              "text": "Track status",
+              "type": "TRACKING"
+            }
+          ],
+          "currencyCode": "BRL",
+          "formatPriceInfo": "R$31,93|31|93",
+          "hiddenOrderId": false,
+          "intentionCurrency": "BRL",
+          "orderDateText": "Sep 1, 2026",
+          "orderDateTitle": "Date",
+          "orderDetailText": "Details",
+          "orderDetailUrl": "https://www.aliexpress.com/p/order/detail.html",
+          "orderId": "8214398062177351",
+          "orderLineSize": 1,
+          "orderLines": [
+            {
+              "currencyCode": "BRL",
+              "formatPriceInfo": "R$13,90|13|90",
+              "itemDetailUrl": "//www.aliexpress.com/item/1005426411597830.html",
+              "itemExtraInfo": "<span style=\"color:#009966\">R$5 coupon if delayed</span>",
+              "itemImgUrl": "https://ae-pic-a1.aliexpress-media.com/kf/S59c8779a01d0451982fb9f0fde8a58b6P.jpg_220x220.jpg",
+              "itemPriceText": "R$13,90",
+              "itemTags": [
+                {
+                  "desc": "Not satisfied with your order? You can return it within the order protection period. The first return on each order is free (up to 5 times per month).",
+                  "href": "https://www.aliexpress.com/ssr/300004428/G7ZED4yXte",
+                  "richText": "<font color=\"#009966\">Free returns</font>",
+                  "type": "LOCAL_FREE_RETURN"
+                }
+              ],
+              "itemTitle": "Lima neo micro alfa eco 13 12 11 eco indigo eco neo micro de pixel kilo alfa eco x xr 8 micro hidra c alfa neo vetor",
+              "orderLineId": "8214969923776196",
+              "productId": "1005426411597830",
+              "quantity": 2,
+              "skuAttrKeys": "14:193;200019540:200701224",
+              "skuAttrs": [
+                {
+                  "id": 14,
+                  "name": "Color",
+                  "text": "2.4A USB To L",
+                  "vid": 193
+                },
+                {
+                  "id": 200019540,
+                  "name": "Length",
+                  "text": "1m",
+                  "vid": 200701224
+                }
+              ],
+              "skuId": "12005667062841773",
+              "tagCombineColor": "#009966",
+              "titleHeaderImg": "https://ae-pic-a1.aliexpress-media.com/kf/Se39935ad4d904c8b9abf60a4b71fa315F.png"
+            }
+          ],
+          "paymentOutId": "12991531787763359208189348489",
+          "sellerConnectUrl": "https://www.aliexpress.com/p/message/index.html",
+          "shopIcon": "https://ae-pic-a1.aliexpress-media.com/kf/Se5bee6b872c34652909ace14ca3d6ab50/272x80.png",
+          "showSelectBox": false,
+          "statusText": "Awaiting delivery",
+          "statusTitle": "Status",
+          "storeName": "LIMA Store",
+          "storePageUrl": "//www.aliexpress.com/store/1102357078",
+          "totalPriceText": "R$31,93",
+          "totalPriceTitle": "Total"
+        },
+        "id": "8214398062177351",
+        "position": "body",
+        "scriptKey": "Pc_om_list_order_110655",
+        "status": "normal",
+        "tag": "pc_om_list_order",
+        "type": "pc_om_list_order"
+      },
+      "pc_om_list_body_109702": {
+        "fields": {
+          "hasMore": true,
+          "hasMoreText": "View orders",
+          "mergePayLimit": 20,
+          "pageIndex": 1,
+          "pageSize": 10
+        },
+        "id": "109702",
+        "position": "body",
+        "scriptKey": "Pc_om_list_body_109702",
+        "status": "normal",
+        "tag": "pc_om_list_body",
+        "type": "pc_om_list_body"
+      },
+      "pc_om_list_order_8211736227630231": {
+        "fields": {
+          "baseCurrency": "USD",
+          "buttons": [
+            {
+              "displayType": "primary",
+              "size": "default",
+              "text": "Add to cart",
+              "type": "REPURCHASE"
+            },
+            {
+              "border": true,
+              "displayType": "default",
+              "size": "default",
+              "text": "Remove",
+              "type": "DELETE"
+            }
+          ],
+          "currencyCode": "BRL",
+          "formatPriceInfo": "R$287,99|287|99",
+          "hiddenOrderId": false,
+          "intentionCurrency": "BRL",
+          "orderDateText": "Apr 23, 2026",
+          "orderDateTitle": "Date",
+          "orderDetailText": "Details",
+          "orderDetailUrl": "https://www.aliexpress.com/p/order/detail.html",
+          "orderId": "8211736227630231",
+          "orderLineSize": 1,
+          "orderLines": [
+            {
+              "currencyCode": "BRL",
+              "formatPriceInfo": "R$287,99|287|99",
+              "itemDetailUrl": "//www.aliexpress.com/item/1005021481598950.html",
+              "itemExtraInfo": "<span style=\"color:#009966\">R$5 coupon if delayed</span>",
+              "itemImgUrl": "https://ae-pic-a1.aliexpress-media.com/kf/Scfe0485e1c894fecbf16436a3324f7ccT.jpg_220x220.jpg",
+              "itemPriceText": "R$287,99",
+              "itemTags": [
+                {
+                  "desc": "Not satisfied with your order? You can return it within the order protection period. The first return on each order is free (up to 5 times per month).",
+                  "href": "https://www.aliexpress.com/ssr/300004428/G7ZED4yXte",
+                  "richText": "<font color=\"#009966\">Free returns</font>",
+                  "type": "LOCAL_FREE_RETURN"
+                }
+              ],
+              "itemTitle": "Vega eco 2 lima gama tango pc alfa prisma pixel ultra eco lima alfa gama tango eco pixel pc",
+              "orderLineId": "8211376949949072",
+              "productId": "1005021481598950",
+              "quantity": 1,
+              "skuAttrKeys": "14:350850;200014260:203003316",
+              "skuAttrs": [
+                {
+                  "id": 14,
+                  "name": "Color",
+                  "text": "Black Bundle Edtion",
+                  "vid": 350850
+                },
+                {
+                  "id": 200014260,
+                  "name": "Ships From",
+                  "text": "brazil",
+                  "vid": 203003316
+                }
+              ],
+              "skuId": "12008787156117570",
+              "tagCombineColor": "#009966"
+            }
+          ],
+          "paymentOutId": "12996504364376680811209264168",
+          "sellerConnectUrl": "//msg.aliexpress.com/msgDetail.htm",
+          "showSelectBox": false,
+          "statusText": "Completed",
+          "statusTitle": "Status",
+          "storeName": "Tango Store",
+          "storePageUrl": "//www.aliexpress.com/store/1102610220",
+          "totalPriceText": "R$287,99",
+          "totalPriceTitle": "Total"
+        },
+        "id": "8211736227630231",
+        "position": "body",
+        "scriptKey": "Pc_om_list_order_110655",
+        "status": "normal",
+        "tag": "pc_om_list_order",
+        "type": "pc_om_list_order"
+      },
+      "pc_om_list_order_8214779947343229": {
+        "fields": {
+          "baseCurrency": "CNY",
+          "buttons": [
+            {
+              "displayType": "primary",
+              "extMap": {
+                "cancelText": "Cancel",
+                "selectTip": "Please confirm your package was delivered and is in your possession. If you're satisfied, click \"Confirm\" to confirm receipt.",
+                "confirmText": "Confirm",
+                "title": "Item received confirmation"
+              },
+              "size": "default",
+              "text": "Confirm received",
+              "type": "CONFIRM_GOODS"
+            },
+            {
+              "border": true,
+              "displayType": "default",
+              "href": "https://www.aliexpress.com/p/tracking/index.html",
+              "size": "default",
+              "text": "Track status",
+              "type": "TRACKING"
+            }
+          ],
+          "currencyCode": "BRL",
+          "formatPriceInfo": "R$87,15|87|15",
+          "hiddenOrderId": false,
+          "intentionCurrency": "BRL",
+          "orderDateText": "Sep 1, 2026",
+          "orderDateTitle": "Date",
+          "orderDetailText": "Details",
+          "orderDetailUrl": "https://www.aliexpress.com/p/order/detail.html",
+          "orderId": "8214779947343229",
+          "orderLineSize": 1,
+          "orderLines": [
+            {
+              "currencyCode": "BRL",
+              "formatPriceInfo": "R$37,99|37|99",
+              "itemDetailUrl": "//www.aliexpress.com/item/1005863438595818.html",
+              "itemExtraInfo": "<span style=\"color:#009966\">R$10 coupon if delayed</span>",
+              "itemImgUrl": "https://ae-pic-a1.aliexpress-media.com/kf/Sb501cf4e65c84e728639682b63cb0a5fs.jpg_220x220.jpg",
+              "itemPriceText": "R$37,99",
+              "itemTags": [
+                {
+                  "desc": "Not satisfied with your order? You can return it within the order protection period. The first return on each order is free (up to 5 times per month).",
+                  "href": "https://www.aliexpress.com/ssr/300004428/G7ZED4yXte",
+                  "richText": "<font color=\"#009966\">Free returns</font>",
+                  "type": "LOCAL_FREE_RETURN"
+                }
+              ],
+              "itemTitle": "Lima micro hidra c xenon 20w prisma micro c xenon sigma hidra c pd pixel kilo alfa eco 15 14 13 12 eco indigo 11x8 tango",
+              "orderLineId": "8214674215518251",
+              "productId": "1005863438595818",
+              "quantity": 2,
+              "skuAttrKeys": "200051578:200062561",
+              "skuAttrs": [
+                {
+                  "id": 200051578,
+                  "name": "Plug Type",
+                  "text": "20W Mini Black",
+                  "vid": 200062561
+                }
+              ],
+              "skuId": "12006441775184386",
+              "tagCombineColor": "#009966",
+              "titleHeaderImg": "https://ae-pic-a1.aliexpress-media.com/kf/Se39935ad4d904c8b9abf60a4b71fa315F.png"
+            }
+          ],
+          "paymentOutId": "12998326435984860647522943927",
+          "sellerConnectUrl": "https://www.aliexpress.com/p/message/index.html",
+          "shopIcon": "https://ae-pic-a1.aliexpress-media.com/kf/Se5bee6b872c34652909ace14ca3d6ab50/272x80.png",
+          "showSelectBox": false,
+          "statusText": "Awaiting delivery",
+          "statusTitle": "Status",
+          "storeName": "LIMA Store",
+          "storePageUrl": "//www.aliexpress.com/store/1102199525",
+          "totalPriceText": "R$87,15",
+          "totalPriceTitle": "Total"
+        },
+        "id": "8214779947343229",
+        "position": "body",
+        "scriptKey": "Pc_om_list_order_110655",
+        "status": "normal",
+        "tag": "pc_om_list_order",
+        "type": "pc_om_list_order"
+      }
+    },
+    "endpoint": {
+      "droplet": true,
+      "mode": "pc",
+      "osVersion": "9.9.9",
+      "protocolVersion": "3.0",
+      "standard": true,
+      "ultronage": true
+    },
+    "global": {
+      "curTime": 1788850420839,
+      "response": {},
+      "utab": "[{\"component\":\"page@44\",\"module\":\"1640525439802\"}]",
+      "refreshPage": true,
+      "global_price_local_config": {
+        "BRL": "{\"from\":{\"currencySymbol\":\"R$\",\"currencySymbolAndPriceAddBlank\":false,\"currencySymbolPosition\":\"front\",\"decimalPointChar\":\",\",\"showDecimal\":true,\"thousandsChar\":\".\"},\"roundOffZero\":false,\"separatorStr\":\" - \",\"single\":{\"currencySymbol\":\"R$\",\"currencySymbolAndPriceAddBlank\":false,\"currencySymbolPosition\":\"front\",\"decimalPointChar\":\",\",\"showDecimal\":true,\"thousandsChar\":\".\"},\"to\":{\"currencySymbol\":\"$\",\"currencySymbolAndPriceAddBlank\":false,\"currencySymbolPosition\":\"front\",\"decimalPointChar\":\",\",\"showDecimal\":true,\"thousandsChar\":\".\"},\"useful\":true,\"version\":\"v1\"}"
+      },
+      "payInfo": {
+        "mergePayLimitOfOrder": 20,
+        "mergePayLimitOfOrderLine": 200
+      },
+      "local_ab": true
+    },
+    "hierarchy": {
+      "component": [
+        "pc_om_list_body",
+        "pc_om_list_header_action",
+        "pc_om_list_footer_recommend",
+        "pc_om_list_header",
+        "pc_om_list_page",
+        "pc_om_list_order"
+      ],
+      "root": "pc_om_list_page_109694",
+      "structure": {
+        "pc_om_list_page_109694": [
+          "pc_om_list_header_110551",
+          "pc_om_list_body_109702",
+          "pc_om_list_footer_recommend_116745"
+        ],
+        "pc_om_list_header_110551": [
+          "pc_om_list_header_action_110846"
+        ],
+        "pc_om_list_body_109702": [
+          "pc_om_list_order_8214398062177351",
+          "pc_om_list_order_8214779947343229",
+          "pc_om_list_order_8212313961591322",
+          "pc_om_list_order_8212268452148012",
+          "pc_om_list_order_8212611134562621",
+          "pc_om_list_order_8211781299384136",
+          "pc_om_list_order_8211748238135282",
+          "pc_om_list_order_8211736227630231",
+          "pc_om_list_order_8211589415816822",
+          "pc_om_list_order_8210505692320516"
+        ]
+      }
+    },
+    "linkage": {
+      "common": {},
+      "input": [],
+      "request": [],
+      "signature": {
+        "stub": true
+      }
+    },
+    "reload": true
+  },
+  "ret": [
+    "SUCCESS::调用成功"
+  ],
+  "traceId": "2103077740451841260022549e0f1b",
+  "v": "1.0"
+}

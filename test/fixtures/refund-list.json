@@ -1,0 +1,231 @@
+{
+  "api": "mtop.aliexpress.buyer.reverse.queryreverseorderpagelistforbuyer",
+  "data": {
+    "module": {
+      "curPagesize": 0,
+      "firstPage": 0,
+      "items": [
+        {
+          "reverseOrderLines": [
+            {
+              "aeItemDTO": {
+                "canApplyReverse": false,
+                "itemCount": 1,
+                "itemDetailUrl": "https://www.aliexpress.com/item/32815538653.html",
+                "itemId": 32815538653,
+                "itemPicUrl": "https://ae-pic-a1.aliexpress-media.com/kf/H23aaf373e25348286316ce041af32ad0d.jpg_220x220.jpg",
+                "itemTitle": "FENIX MICRO Bravo Hidra Delta 2-in-1 Lima Rubi 3.5mm Delta Rubi Vetor Yuca Neo Prisma Vetor PS4 Tango",
+                "itemUnitPrice": {
+                  "cent": 6125,
+                  "currency": "BRL",
+                  "formatMoney": "R$61.25",
+                  "formatPrice": {
+                    "formatSimplePrice": "R$61.25",
+                    "localPriceTag": "{\"from\":{\"currencySymbol\":\"R$\",\"currencySymbolAndPriceAddBlank\":false,\"currencySymbolPosition\":\"front\",\"decimalPointChar\":\".\",\"showDecimal\":true,\"thousandsChar\":\",\"},\"roundOffZero\":false,\"separatorStr\":\" - \",\"single\":{\"currencySymbol\":\"R$\",\"currencySymbolAndPriceAddBlank\":false,\"currencySymbolPosition\":\"front\",\"decimalPointChar\":\".\",\"showDecimal\":true,\"thousandsChar\":\",\"},\"to\":{\"currencySymbol\":\"$\",\"currencySymbolAndPriceAddBlank\":false,\"currencySymbolPosition\":\"front\",\"decimalPointChar\":\".\",\"showDecimal\":true,\"thousandsChar\":\",\"},\"useful\":true,\"version\":\"v1\"}",
+                    "priceInfo": "R$61.25|61|25"
+                  }
+                },
+                "skuDTOList": [
+                  {
+                    "skuId": 347,
+                    "skuValue": "SC2"
+                  },
+                  {
+                    "skuId": 201384562,
+                    "skuValue": "China"
+                  }
+                ],
+                "supportPersonalReason": true,
+                "tradeSnapshotUrl": "https://www.aliexpress.com/p/order/snapshot.html"
+              },
+              "buttonDTOList": [
+                {
+                  "code": 7,
+                  "detailUrl": "https://m.aliexpress.com/p/refund-amount/detail.html?pha_manifest=refund-amount&tradeOrderLineId=8144101709301607",
+                  "type": "refund_details"
+                },
+                {
+                  "code": 1,
+                  "detailUrl": "https://trade.aliexpress.com/issue/fastissue/Detail.htm?tradeOrderLineId=8144101709301607&reverseOrderLineId=6239649418962814&from=1",
+                  "role": "BUYER",
+                  "type": "view_details"
+                }
+              ],
+              "gmtCreate": "1648080887108",
+              "gmtCreateFormat": "2022-03-23 21:19:58",
+              "gmtModified": "1648004111497",
+              "gmtModifiedFormat": "2022-03-27 02:19:10",
+              "reverseBizType": "4pl",
+              "reverseOrderId": "6239481780126943",
+              "reverseOrderLineId": "6239649418962814",
+              "reverseStatus": 4,
+              "reverseType": "RETURN",
+              "seller": {
+                "canContact": true,
+                "contactSellerUrl": "https://msg.aliexpress.com/msgDetail.htm?digest=ce112141ff0315f80544e1f3520b8cc4aa013336f8d35b23b313941f06812fe8127f9164c1c5504269481218c0b8f689&showTitle=true",
+                "extraParams": {},
+                "storeId": 1816519,
+                "storeUrl": "https://www.aliexpress.com/store/1816519",
+                "userId": 224524425
+              },
+              "solutionType": 1,
+              "tradeOrderId": "8144543148947317",
+              "tradeOrderLineId": "8144101709301607"
+            }
+          ],
+          "shopName": "FENIX Store"
+        },
+        {
+          "reverseOrderLines": [
+            {
+              "aeItemDTO": {
+                "canApplyReverse": false,
+                "itemCount": 1,
+                "itemDetailUrl": "https://www.aliexpress.com/item/1005650990935024.html",
+                "itemId": 1005650990935024,
+                "itemPicUrl": "https://ae-pic-a1.aliexpress-media.com/kf/H35bcc8da48c044ae9ac50bbe5e3f5e4a1.jpg_220x220.jpg",
+                "itemTitle": "Vetor Eco 12 Eco Indigo Eco PC+ORBITA Jade Fenix Nano Eco Gama Indigo Eco Vetor Eco12 Neo Eco Delta Sigma Kilo Vetor",
+                "itemUnitPrice": {
+                  "cent": 5273,
+                  "currency": "BRL",
+                  "formatMoney": "R$52.73",
+                  "formatPrice": {
+                    "formatSimplePrice": "R$52.73",
+                    "localPriceTag": "{\"from\":{\"currencySymbol\":\"R$\",\"currencySymbolAndPriceAddBlank\":false,\"currencySymbolPosition\":\"front\",\"decimalPointChar\":\".\",\"showDecimal\":true,\"thousandsChar\":\",\"},\"roundOffZero\":false,\"separatorStr\":\" - \",\"single\":{\"currencySymbol\":\"R$\",\"currencySymbolAndPriceAddBlank\":false,\"currencySymbolPosition\":\"front\",\"decimalPointChar\":\".\",\"showDecimal\":true,\"thousandsChar\":\",\"},\"to\":{\"currencySymbol\":\"$\",\"currencySymbolAndPriceAddBlank\":false,\"currencySymbolPosition\":\"front\",\"decimalPointChar\":\".\",\"showDecimal\":true,\"thousandsChar\":\",\"},\"useful\":true,\"version\":\"v1\"}",
+                    "priceInfo": "R$52.73|52|73"
+                  }
+                },
+                "skuDTOList": [
+                  {
+                    "skuId": 365213,
+                    "skuValue": "For iPhone 12 6.1"
+                  },
+                  {
+                    "skuId": 193,
+                    "skuValue": "Black Case"
+                  }
+                ],
+                "supportPersonalReason": true,
+                "tradeSnapshotUrl": "https://www.aliexpress.com/p/order/snapshot.html"
+              },
+              "buttonDTOList": [
+                {
+                  "code": 7,
+                  "detailUrl": "https://m.aliexpress.com/p/refund-amount/detail.html?pha_manifest=refund-amount&tradeOrderLineId=8143355043086413",
+                  "type": "refund_details"
+                },
+                {
+                  "code": 1,
+                  "detailUrl": "https://trade.aliexpress.com/issue/fastissue/Detail.htm?tradeOrderLineId=8143355043086413&reverseOrderLineId=6234417803672596&from=1",
+                  "role": "BUYER",
+                  "type": "view_details"
+                }
+              ],
+              "gmtCreate": "1643634479884",
+              "gmtCreateFormat": "2022-01-29 05:37:04",
+              "gmtModified": "1643649645517",
+              "gmtModifiedFormat": "2022-01-29 05:38:19",
+              "reverseBizType": "4pl",
+              "reverseOrderId": "6234353308960497",
+              "reverseOrderLineId": "6234417803672596",
+              "reverseStatus": 4,
+              "reverseType": "RETURN",
+              "seller": {
+                "canContact": true,
+                "contactSellerUrl": "https://msg.aliexpress.com/msgDetail.htm?digest=8c438dcdb681cdb06a4c59e4f2427201b07fe6d9b9985e63f063f29639b608af7043dd326f5a53f58fbc6b09f148c82e&showTitle=true",
+                "extraParams": {},
+                "storeId": 325087,
+                "storeUrl": "https://www.aliexpress.com/store/325087",
+                "userId": 202157664
+              },
+              "solutionType": 1,
+              "tradeOrderId": "8143536486605361",
+              "tradeOrderLineId": "8143355043086413"
+            }
+          ],
+          "shopName": "Cabo Store"
+        },
+        {
+          "reverseOrderLines": [
+            {
+              "aeItemDTO": {
+                "canApplyReverse": false,
+                "itemCount": 3,
+                "itemDetailUrl": "https://www.aliexpress.com/item/1005525676232238.html",
+                "itemId": 1005525676232238,
+                "itemPicUrl": "https://ae-pic-a1.aliexpress-media.com/kf/H01c2c26fd6f54c2fa7580feb86c4b7302.jpg_220x220.jpg",
+                "itemTitle": "Micro Watt Quartzo Jade Vetor 2 Bt 5.0 Watt Rubi Watt Mi Hidra Orbita 2 Quartzo Sigma Orbita Quartzo Ai Nano",
+                "itemUnitPrice": {
+                  "cent": 5617,
+                  "currency": "BRL",
+                  "formatMoney": "R$56.17",
+                  "formatPrice": {
+                    "formatSimplePrice": "R$56.17",
+                    "localPriceTag": "{\"from\":{\"currencySymbol\":\"R$\",\"currencySymbolAndPriceAddBlank\":false,\"currencySymbolPosition\":\"front\",\"decimalPointChar\":\".\",\"showDecimal\":true,\"thousandsChar\":\",\"},\"roundOffZero\":false,\"separatorStr\":\" - \",\"single\":{\"currencySymbol\":\"R$\",\"currencySymbolAndPriceAddBlank\":false,\"currencySymbolPosition\":\"front\",\"decimalPointChar\":\".\",\"showDecimal\":true,\"thousandsChar\":\",\"},\"to\":{\"currencySymbol\":\"$\",\"currencySymbolAndPriceAddBlank\":false,\"currencySymbolPosition\":\"front\",\"decimalPointChar\":\".\",\"showDecimal\":true,\"thousandsChar\":\",\"},\"useful\":true,\"version\":\"v1\"}",
+                    "priceInfo": "R$56.17|56|17"
+                  }
+                },
+                "skuDTOList": [
+                  {
+                    "skuId": 193,
+                    "skuValue": "black"
+                  },
+                  {
+                    "skuId": 201384562,
+                    "skuValue": "China"
+                  }
+                ],
+                "supportPersonalReason": true,
+                "tradeSnapshotUrl": "https://www.aliexpress.com/p/order/snapshot.html"
+              },
+              "buttonDTOList": [
+                {
+                  "code": 1,
+                  "detailUrl": "https://trade.aliexpress.com/issue/fastissue/Detail.htm?reverseOrderLineId=230619598499278&issueId=7100861864905604&from=1",
+                  "role": "BUYER",
+                  "type": "view_details"
+                }
+              ],
+              "gmtCreate": "1639710902986",
+              "gmtCreateFormat": "2021-12-10 02:08:25",
+              "gmtModified": "1639258268949",
+              "gmtModifiedFormat": "2021-12-10 02:16:50",
+              "reverseBizType": "4pl",
+              "reverseOrderId": "225480838716279",
+              "reverseOrderLineId": "230619598499278",
+              "reverseStatus": 4,
+              "reverseType": "RETURN",
+              "seller": {
+                "canContact": true,
+                "contactSellerUrl": "https://msg.aliexpress.com/msgDetail.htm?digest=51061b5f2241d2304c148f9102936db9d39757c3aae64f0eeb4c45118f7b1411ed334ff857199f8e6dbf42634607928c&showTitle=true",
+                "extraParams": {},
+                "storeId": 912255364,
+                "storeUrl": "https://www.aliexpress.com/store/912255364",
+                "userId": 252560686
+              },
+              "solutionType": 1,
+              "tradeOrderId": "8142247025479021",
+              "tradeOrderLineId": "8142306633611334"
+            }
+          ],
+          "shopName": "ZETA Store"
+        }
+      ],
+      "lastPage": 0,
+      "nextPage": 0,
+      "pageNum": 1,
+      "pageSize": 10,
+      "pages": 0,
+      "prePage": 0,
+      "total": 3
+    },
+    "notSuccess": false,
+    "repeated": false,
+    "retry": false
+  },
+  "ret": [
+    "SUCCESS::调用成功"
+  ],
+  "traceId": "2103835567589156691672075e0f1b",
+  "v": "1.0"
+}
