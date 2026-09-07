@@ -2,6 +2,7 @@ import { describe, expect, test } from "bun:test";
 import {
   cleanStatusText,
   isFinalStatus,
+  isUnpaidStatus,
   resolveStatus,
   statusFromText,
 } from "../src/domain/status.js";
@@ -62,5 +63,24 @@ describe("isFinalStatus", () => {
     expect(isFinalStatus("cancelled")).toBe(true);
     expect(isFinalStatus("shipped")).toBe(false);
     expect(isFinalStatus("unknown")).toBe(false);
+  });
+});
+
+describe("expired orders", () => {
+  test("an order whose payment window ran out gets its own status", () => {
+    // Three orders of the reference account come back as "Expired"; mapping
+    // them to `unknown` would have hidden them, and to `completed` would have
+    // inflated every spending total.
+    expect(statusFromText("Expired")).toBe("expired");
+    expect(statusFromText("Expirado")).toBe("expired");
+  });
+
+  test("expired is final and never counted as money spent", () => {
+    expect(isFinalStatus("expired")).toBe(true);
+    expect(isUnpaidStatus("expired")).toBe(true);
+    expect(isUnpaidStatus("cancelled")).toBe(true);
+    expect(isUnpaidStatus("unpaid")).toBe(true);
+    expect(isUnpaidStatus("completed")).toBe(false);
+    expect(isUnpaidStatus("shipped")).toBe(false);
   });
 });

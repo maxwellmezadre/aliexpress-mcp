@@ -11,6 +11,8 @@ export const ORDER_STATUSES = [
   "shipped",
   "completed",
   "cancelled",
+  /** Never paid: AliExpress closed the order when the payment window ran out. */
+  "expired",
   "unknown",
 ] as const;
 export type OrderStatus = (typeof ORDER_STATUSES)[number];
@@ -54,6 +56,9 @@ const BY_TEXT: Record<string, OrderStatus> = {
   "canceled": "cancelled",
   "order cancelled": "cancelled",
   "closed": "cancelled",
+  // Observed on 3 orders of the reference account: the payment window ran out.
+  "expired": "expired",
+  "payment expired": "expired",
   // pt_BR
   "a ser pago": "unpaid",
   "aguardando pagamento": "unpaid",
@@ -67,6 +72,8 @@ const BY_TEXT: Record<string, OrderStatus> = {
   "cancelado": "cancelled",
   "compra cancelada": "cancelled",
   "pedido cancelado": "cancelled",
+  "expirado": "expired",
+  "pagamento expirado": "expired",
 };
 
 /** `"Concluído "` → `"Concluído"`. AliExpress ships a trailing space in pt_BR. */
@@ -106,4 +113,11 @@ export function resolveStatus(input: StatusInput): OrderStatus {
 
 /** Terminal statuses never change again: their detail is cached forever. */
 export const isFinalStatus = (status: OrderStatus): boolean =>
-  status === "completed" || status === "cancelled";
+  status === "completed" || status === "cancelled" || status === "expired";
+
+/**
+ * Statuses where no money ever left the account. They are excluded from
+ * spending reports by default — counting them would inflate every total.
+ */
+export const isUnpaidStatus = (status: OrderStatus): boolean =>
+  status === "cancelled" || status === "expired" || status === "unpaid";
