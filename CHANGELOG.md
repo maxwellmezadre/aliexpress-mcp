@@ -5,6 +5,8 @@ versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-09-07
+
 ### Changed
 
 - `playwright-core` passou de dependência opcional a dependência normal e vai
@@ -60,5 +62,6 @@ Primeira versão publicada.
 - A soma das linhas do breakdown pode divergir do total em 1 a 3 centavos: o
   AliExpress arredonda cada linha.
 
-[Unreleased]: https://github.com/maxwellmezadre/aliexpress-mcp/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/maxwellmezadre/aliexpress-mcp/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/maxwellmezadre/aliexpress-mcp/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/maxwellmezadre/aliexpress-mcp/releases/tag/v0.1.1

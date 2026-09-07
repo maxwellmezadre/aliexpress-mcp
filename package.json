@@ -1,6 +1,6 @@
 {
   "name": "@maxwellmezadre/aliexpress-mcp",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "CLI + servidor MCP para o histórico de compras do AliExpress (pedidos, produtos, preços, rastreio e devoluções) sobre um núcleo compartilhado",
   "type": "module",
   "license": "MIT",
