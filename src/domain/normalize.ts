@@ -64,8 +64,12 @@ export function priceKeyOf(label: string | undefined | null): PriceKey {
   if (value === "subtotal") return "subtotal";
   if (/^(shipping|enviando|frete)/.test(value)) return "shipping";
   if (/^(tax|imposto|duty)/.test(value)) return "tax";
+  // Not documented anywhere, but present on 24 of the 70 reference orders.
+  if (/installment.*fee|taxa.*parcel|juros/.test(value)) return "installment_fee";
   if (/store coupon|cupom da loja/.test(value)) return "store_coupon";
   if (/aliexpress coupon|cupom aliexpress/.test(value)) return "ae_coupon";
+  if (/promo code|c[óo]digo promocional/.test(value)) return "promo_code";
+  if (/store discount|desconto da loja/.test(value)) return "store_discount";
   if (/^(coins|moedas)/.test(value)) return "coins";
   if (/payment discount|desconto no pagamento/.test(value)) return "payment_discount";
   if (/spend .*save|gaste e economize/.test(value)) return "spend_save";
@@ -215,6 +219,9 @@ export function normalizeOrderDetail(
   const statusText = cleanStatusText(statusBlock.title) || (summary.statusText ?? "");
   const statusCode = orderStatusCode(page);
 
+  const priceBreakdown = (priceBlock.priceDetails ?? []).map((row) =>
+    normalizePriceRow(row, currency),
+  );
   const seller = productBlock.sellerVO;
   const store: Store = seller
     ? {
@@ -242,12 +249,12 @@ export function normalizeOrderDetail(
     shippedAt: parseLocalisedDate(info.orderShipTime),
     finishedAt: parseLocalisedDate(info.orderEndTime),
     paymentMethod: text(info.paymentMethod),
-    // Not a shortcut: no API of the site exposes it. See docs/DATA-MODEL.md.
+    // Not a shortcut: no API of the site exposes the count. See docs/DATA-MODEL.md.
     installments: null,
+    installmentFee:
+      priceBreakdown.find((row) => row.key === "installment_fee")?.amount ?? null,
     shippingAddress: addressOf(info),
-    priceBreakdown: (priceBlock.priceDetails ?? []).map((row) =>
-      normalizePriceRow(row, currency),
-    ),
+    priceBreakdown,
     timeline: timelineOf(progress),
   };
 }

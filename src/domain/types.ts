@@ -33,8 +33,12 @@ export type PriceKey =
   | "subtotal"
   | "shipping"
   | "tax"
+  /** What AliExpress charges to pay in instalments. See `installments`. */
+  | "installment_fee"
   | "store_coupon"
   | "ae_coupon"
+  | "promo_code"
+  | "store_discount"
   | "coins"
   | "payment_discount"
   | "spend_save"
@@ -85,11 +89,18 @@ export type OrderDetail = OrderSummary & {
   finishedAt: string | null;
   paymentMethod: string | null;
   /**
-   * ALWAYS null. AliExpress does not expose the instalment count or amount in
-   * any API of the site — verified, including the wallet bundle. `paymentMethod`
-   * is the only signal; cross-reference the card statement.
+   * ALWAYS null: AliExpress exposes no instalment COUNT or per-instalment
+   * amount in any API of the site (verified, wallet bundle included).
+   * `installmentFee` below and `paymentMethod` are the only signals; the
+   * schedule has to come from the card statement.
    */
   installments: null;
+  /**
+   * The fee AliExpress charged for paying in instalments, when the breakdown
+   * carries an "Installment payment fee" row (24 of the 70 orders in the
+   * reference account). Its presence proves the order WAS paid in instalments.
+   */
+  installmentFee: Money | null;
   /** `global.orderStatus`: locale-independent, but only partially mapped. */
   statusCode: number | null;
   /** Snapshot of the address AT THE TIME OF THE ORDER, not the current one. */

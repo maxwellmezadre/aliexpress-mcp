@@ -273,6 +273,7 @@ describe("reparse", () => {
           finishedAt: null,
           paymentMethod: null,
           installments: null,
+          installmentFee: null,
           statusCode: null,
           shippingAddress: null,
           priceBreakdown: [],

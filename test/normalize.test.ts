@@ -18,6 +18,16 @@ const fixture = <T,>(name: string): T =>
   JSON.parse(readFileSync(join(import.meta.dir, "fixtures", `${name}.json`), "utf8")) as T;
 
 const LIST = fixture<{ data: UltronResponse }>("order-list-init").data;
+
+/** Clones a detail page with one extra row in its price breakdown. */
+function withPriceRow(page: UltronResponse, row: { title: string; value: string }): UltronResponse {
+  const clone = structuredClone(page);
+  for (const component of Object.values(clone.data)) {
+    if (component.tag !== "detail_order_price_block") continue;
+    (component.fields.priceDetails as Array<Record<string, unknown>>).push(row);
+  }
+  return clone;
+}
 const DETAIL = fixture<{ data: UltronResponse }>("order-detail").data;
 const LOGISTICS = fixture<{ data: { module: RawLogistics } }>("logistics-querydetail").data.module;
 const REFUNDS = fixture<{ data: { module: RawRefundPage } }>("refund-list").data.module;
@@ -43,6 +53,11 @@ describe("helpers", () => {
     expect(priceKeyOf("Moedas")).toBe("coins");
     expect(priceKeyOf("Desconto no pagamento")).toBe("payment_discount");
     expect(priceKeyOf("Gaste e Economize")).toBe("spend_save");
+    expect(priceKeyOf("Spend & save")).toBe("spend_save");
+    // Labels found only by running against the real account, never documented.
+    expect(priceKeyOf("Installment payment fee")).toBe("installment_fee");
+    expect(priceKeyOf("Promo codes")).toBe("promo_code");
+    expect(priceKeyOf("Store discounts")).toBe("store_discount");
     // Unknown labels are kept, not dropped: they still count towards the total.
     expect(priceKeyOf("Alguma taxa nova")).toBe("other");
   });
@@ -137,9 +152,21 @@ describe("normalizeOrderDetail", () => {
     expect(detail.priceBreakdown[2]?.amount?.cents).toBeLessThan(0);
   });
 
-  test("installments is always null — AliExpress exposes no instalment data", () => {
+  test("the instalment COUNT is null, but the fee is read when charged", () => {
+    // AliExpress exposes no instalment count anywhere; the "Installment
+    // payment fee" row (on 24 of the 70 reference orders) is the only proof an
+    // order was paid in instalments at all.
     expect(detail.installments).toBeNull();
     expect(detail.paymentMethod).toBe("Credit/Debit card");
+    // This particular order was paid outright, so there is no fee row.
+    expect(detail.installmentFee).toBeNull();
+
+    const withFee = normalizeOrderDetail(
+      withPriceRow(DETAIL, { title: "Installment payment fee", value: "R$5,23" }),
+      summary,
+    );
+    expect(withFee.installmentFee?.cents).toBe(523);
+    expect(withFee.installments).toBeNull();
   });
 
   test("takes the seller from the detail, which the list does not carry", () => {

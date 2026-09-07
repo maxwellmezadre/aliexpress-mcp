@@ -24,7 +24,7 @@ import type { CacheRepo } from "./repo.js";
 // budget actually rations.
 
 /** Bump when a parser changes: cached details are re-parsed on the next sync. */
-export const PARSER_VERSION = 1;
+export const PARSER_VERSION = 2;
 
 export const META_CURSOR = "sync.cursor";
 export const META_LAST_SYNC = "sync.last_completed_at";
