@@ -9,15 +9,33 @@
     "url": "git+https://github.com/maxwellmezadre/aliexpress-mcp.git"
   },
   "homepage": "https://github.com/maxwellmezadre/aliexpress-mcp#readme",
-  "keywords": ["aliexpress", "cli", "mcp", "purchases", "orders", "tracking", "claude"],
+  "keywords": [
+    "aliexpress",
+    "cli",
+    "mcp",
+    "purchases",
+    "orders",
+    "tracking",
+    "claude"
+  ],
   "bin": {
-    "aliexpress": "./dist/bin.js",
-    "aliexpress-mcp": "./dist/mcp-bin.js"
+    "aliexpress": "dist/bin.js",
+    "aliexpress-mcp": "dist/mcp-bin.js"
   },
-  "files": ["dist", "SKILL.md", "docs/TOOLS.md", "README.md", "LICENSE"],
+  "files": [
+    "dist",
+    "SKILL.md",
+    "docs/TOOLS.md",
+    "README.md",
+    "LICENSE"
+  ],
   "exports": "./dist/bin.js",
-  "publishConfig": { "access": "public" },
-  "engines": { "bun": ">=1.3" },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "bun": ">=1.3"
+  },
   "scripts": {
     "start": "bun run src/bin.ts",
     "login": "bun run src/bin.ts login",
