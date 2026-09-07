@@ -5,9 +5,13 @@ versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
 ## [Unreleased]
 
-## [0.1.0] - 2026-09-07
+## [0.1.1] - 2026-09-07
 
-Primeira versão.
+Primeira versão publicada.
+
+> A `0.1.0` foi despublicada logo após sair e o npm queima o par nome+versão
+> para sempre, então ela não existe no registro. A tag `v0.1.0` no GitHub
+> continua válida e traz os mesmos binários.
 
 ### Added
 
@@ -37,5 +41,5 @@ Primeira versão.
 - A soma das linhas do breakdown pode divergir do total em 1 a 3 centavos: o
   AliExpress arredonda cada linha.
 
-[Unreleased]: https://github.com/maxwellmezadre/aliexpress-mcp/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/maxwellmezadre/aliexpress-mcp/releases/tag/v0.1.0
+[Unreleased]: https://github.com/maxwellmezadre/aliexpress-mcp/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/maxwellmezadre/aliexpress-mcp/releases/tag/v0.1.1
