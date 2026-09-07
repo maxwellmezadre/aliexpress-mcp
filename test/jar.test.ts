@@ -3,6 +3,7 @@ import {
   type Cookie,
   cookieHeader,
   hostMatches,
+  inSiteDomain,
   mergeSetCookie,
   mtopToken,
   parseAepUsucF,
@@ -128,5 +129,31 @@ describe("parseAepUsucF", () => {
   test("reads it straight off a jar", () => {
     const jar = [cookie({ name: "aep_usuc_f", value: "region=BR&b_locale=pt_BR&c_tp=BRL" })];
     expect(regionalFromJar(jar).currency).toBe("BRL");
+  });
+});
+
+describe("inSiteDomain", () => {
+  test("keeps every cookie of the registrable domain, subdomains included", () => {
+    for (const domain of [
+      "aliexpress.com",
+      ".aliexpress.com",
+      "www.aliexpress.com",
+      "acs.aliexpress.com",
+      ".pt.aliexpress.com",
+    ]) {
+      expect(inSiteDomain(domain, "aliexpress.com")).toBe(true);
+    }
+  });
+
+  test("rejects a different registrable domain", () => {
+    expect(inSiteDomain("aliexpress.us", "aliexpress.com")).toBe(false);
+    expect(inSiteDomain("evilaliexpress.com", "aliexpress.com")).toBe(false);
+  });
+
+  test("is NOT hostMatches with the arguments swapped by accident", () => {
+    // hostMatches asks "would this host send this cookie", which drops the
+    // host-only cookies of a subdomain when filtering a whole jar.
+    expect(hostMatches("aliexpress.com", "www.aliexpress.com")).toBe(false);
+    expect(inSiteDomain("www.aliexpress.com", "aliexpress.com")).toBe(true);
   });
 });

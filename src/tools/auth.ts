@@ -1,5 +1,8 @@
 import { Type } from "@sinclair/typebox";
 import { AuthError, CaptchaError } from "../core/errors.js";
+import { timeZoneParam } from "../mtop/client.js";
+import { listOrders } from "../ultron/parse.js";
+import type { UltronResponse } from "../ultron/types.js";
 import { compactObject, defineTool } from "./define.js";
 
 // Session diagnostics. Free by default: it reads the local session file and
@@ -22,7 +25,9 @@ export type AuthStatus = {
   memberId: string | null;
   breaker: "ok" | "tripped";
   cooldownUntil: string | null;
-  counts?: { shipped: number; processing: number; unpaid: number };
+  /** Orders on the first page of the real list — proof the session is live. */
+  firstPageOrders?: number;
+  hasMore?: boolean;
   hint?: string;
 };
 
@@ -82,22 +87,24 @@ export const authStatus = defineTool({
     if (!args.verify) return compactObject(base);
 
     try {
-      const response = await ctx.mtop.request<{
-        module?: { shipped?: string; processing?: string; unpaid?: string };
-      }>({
-        api: "mtop.aliexpress.trade.buyer.order.count",
-        data: { clientPlatform: "pc" },
+      // NOT `order.count`: it answers SUCCESS with zeros to an unauthenticated
+      // caller, so it proves nothing (observed 2026-09-07). `order.list` is the
+      // cheapest endpoint that actually answers FAIL_SYS_SESSION_EXPIRED.
+      const response = await ctx.mtop.request<UltronResponse>({
+        api: "mtop.aliexpress.trade.buyer.order.list",
+        data: {
+          statusTab: "all",
+          renderType: "init",
+          clientPlatform: "pc",
+          timeZone: timeZoneParam(new Date(ctx.now())),
+        },
       });
-      const module = response.data?.module ?? {};
+      const page = response.data;
       return compactObject({
         ...base,
         verified: true,
-        counts: {
-          // The API answers with strings.
-          shipped: Number(module.shipped ?? 0),
-          processing: Number(module.processing ?? 0),
-          unpaid: Number(module.unpaid ?? 0),
-        },
+        firstPageOrders: listOrders(page).length,
+        hasMore: page?.data ? Boolean(fieldsHasMore(page)) : undefined,
       });
     } catch (error) {
       // An expired session or an anti-bot verdict is a *status*, not a crash:
@@ -115,3 +122,10 @@ export const authStatus = defineTool({
     }
   },
 });
+
+function fieldsHasMore(page: UltronResponse): boolean {
+  for (const component of Object.values(page.data ?? {})) {
+    if (component.tag === "pc_om_list_body") return component.fields.hasMore === true;
+  }
+  return false;
+}

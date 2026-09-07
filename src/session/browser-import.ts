@@ -6,7 +6,7 @@ import { join } from "node:path";
 import { IMPORT_BROWSERS, type ImportBrowser } from "../config.js";
 import type { Ctx } from "../context.js";
 import { LoginError } from "../core/errors.js";
-import { type Cookie, hostMatches, regionalFromJar, type SameSite } from "./jar.js";
+import { type Cookie, inSiteDomain, regionalFromJar, type SameSite } from "./jar.js";
 import type { LoginResult } from "./login.js";
 
 // Alternative to the browser login: reuse the session of a Chromium-based
@@ -112,7 +112,7 @@ export function readBrowserCookies(dbPath: string, key: Buffer, host: string): C
         )
         .all(`%${host}`) as CookieRow[];
       return rows
-        .filter((row) => hostMatches(host, row.host_key))
+        .filter((row) => inSiteDomain(row.host_key, host))
         .map((row) => ({
           name: row.name,
           value:

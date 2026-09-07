@@ -40,6 +40,18 @@ export function hostMatches(host: string, domain: string): boolean {
   return actual === wanted || actual.endsWith(`.${wanted}`);
 }
 
+/**
+ * Whether a cookie belongs to the site, i.e. its domain is the registrable
+ * domain or a subdomain of it. Note the direction: `hostMatches` asks "would
+ * this HOST send this cookie", which drops host-only cookies of subdomains
+ * (`www.aliexpress.com`) when filtering a whole jar by `aliexpress.com`.
+ */
+export function inSiteDomain(cookieDomain: string, registrable: string): boolean {
+  const domain = stripDot(cookieDomain);
+  const site = stripDot(registrable);
+  return domain === site || domain.endsWith(`.${site}`);
+}
+
 /** Builds the `Cookie:` header value for `url` from the cookies that apply. */
 export function cookieHeader(cookies: readonly Cookie[], url: URL, nowMs: number): string {
   const nowSeconds = Math.floor(nowMs / 1000);

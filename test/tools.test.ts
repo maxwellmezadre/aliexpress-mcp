@@ -74,15 +74,30 @@ describe("auth_status", () => {
     expect(JSON.stringify(status)).not.toContain("session-secret-value-0001");
   });
 
-  test("verify=true spends exactly one request and returns the counters as numbers", async () => {
+  test("verify=true probes order.list, not order.count", async () => {
+    // order.count answers SUCCESS with zeros to a logged-out caller (observed
+    // 2026-09-07), so verifying with it reports a dead session as healthy.
     const { ctx, fetch } = context([
-      mtopOk({ module: { shipped: "2", processing: "0", unpaid: "0" } }),
+      mtopOk({
+        hierarchy: {
+          root: "page",
+          structure: { page: ["body"], body: ["order_1", "order_2"] },
+        },
+        data: {
+          page: { tag: "pc_om_list_page", fields: {} },
+          body: { tag: "pc_om_list_body", fields: { pageIndex: 1, hasMore: true } },
+          order_1: { tag: "pc_om_list_order", fields: { orderId: "1" } },
+          order_2: { tag: "pc_om_list_order", fields: { orderId: "2" } },
+        },
+      }),
     ]);
     const status = (await call("auth_status", { verify: true }, ctx)) as AuthStatus;
     expect(fetch.calls).toHaveLength(1);
-    expect(fetch.calls[0]?.url).toContain("mtop.aliexpress.trade.buyer.order.count");
+    expect(fetch.calls[0]?.url).toContain("mtop.aliexpress.trade.buyer.order.list");
+    expect(fetch.calls[0]?.url).not.toContain("order.count");
     expect(status.verified).toBe(true);
-    expect(status.counts).toEqual({ shipped: 2, processing: 0, unpaid: 0 });
+    expect(status.firstPageOrders).toBe(2);
+    expect(status.hasMore).toBe(true);
   });
 
   test("an expired session is a status, not a thrown error", async () => {

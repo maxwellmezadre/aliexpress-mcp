@@ -2,7 +2,7 @@ import { mkdirSync, rmSync } from "node:fs";
 import type { BrowserChannel } from "../config.js";
 import type { Ctx } from "../context.js";
 import { LoginError } from "../core/errors.js";
-import { type Cookie, hostMatches, regionalFromJar } from "./jar.js";
+import { type Cookie, inSiteDomain, regionalFromJar } from "./jar.js";
 
 // Interactive login. The user types the password (and whatever else AliExpress
 // asks: SMS, Google, captcha) in a real browser window; this code never sees a
@@ -70,9 +70,13 @@ export const PLAYWRIGHT_HINT =
   "ALIEXPRESS_BROWSER_CHANNEL=chromium.";
 
 /**
- * Runs inside the logged-in page. Uses the site's own MTOP SDK, so the call is
- * signed and authenticated exactly like the site's, and a SUCCESS proves the
- * session really works — not just that some page rendered.
+ * Runs inside the page. Uses the site's own MTOP SDK, so the call is signed and
+ * authenticated exactly like the site's, and a SUCCESS proves the session
+ * really works — not just that some page rendered.
+ *
+ * It probes `order.list`, NOT `order.count`: count answers SUCCESS with zeros
+ * to an unauthenticated caller (observed 2026-09-07), so it would report a
+ * logged-out browser as logged in.
  */
 export const LOGIN_PROBE_SCRIPT = `(async () => {
   try {
@@ -80,12 +84,14 @@ export const LOGIN_PROBE_SCRIPT = `(async () => {
     const match = /(?:^|;\\s*)aep_usuc_f=([^;]*)/.exec(document.cookie);
     const params = new URLSearchParams(decodeURIComponent(match ? match[1] : ""));
     const response = await window.lib.mtop.request({
-      api: "mtop.aliexpress.trade.buyer.order.count",
+      api: "mtop.aliexpress.trade.buyer.order.list",
       v: "1.0",
       type: "GET",
       needLogin: true,
       dataType: "json",
       data: {
+        statusTab: "all",
+        renderType: "init",
         clientPlatform: "pc",
         shipToCountry: params.get("region") || "US",
         _lang: params.get("b_locale") || "en_US",
@@ -188,7 +194,7 @@ export async function runLogin(
     const host = new URL(config.siteBaseUrl).hostname;
     const registrable = host.split(".").slice(-2).join(".");
     const cookies = (await context.cookies()).filter((cookie) =>
-      hostMatches(`x.${registrable}`, cookie.domain),
+      inSiteDomain(cookie.domain, registrable),
     );
     const userAgent = String(await page.evaluate("navigator.userAgent"));
     const regional = {

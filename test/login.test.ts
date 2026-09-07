@@ -100,7 +100,9 @@ describe("launchOptions", () => {
 describe("LOGIN_PROBE_SCRIPT", () => {
   test("asks the site's own MTOP SDK instead of matching a url or selector", () => {
     expect(LOGIN_PROBE_SCRIPT).toContain("window.lib.mtop.request");
-    expect(LOGIN_PROBE_SCRIPT).toContain("mtop.aliexpress.trade.buyer.order.count");
+    expect(LOGIN_PROBE_SCRIPT).toContain("mtop.aliexpress.trade.buyer.order.list");
+    // Never order.count: it answers SUCCESS with zeros to a logged-out caller.
+    expect(LOGIN_PROBE_SCRIPT).not.toContain("order.count");
     expect(LOGIN_PROBE_SCRIPT).toContain("SUCCESS");
     // It reads the regional parameters from the page's own cookie.
     expect(LOGIN_PROBE_SCRIPT).toContain("aep_usuc_f");
