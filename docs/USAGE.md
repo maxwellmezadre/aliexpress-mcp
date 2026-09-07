@@ -1,13 +1,18 @@
 # Do zero à primeira resposta
 
+## 1. Instalar
+
 ```sh
 git clone https://github.com/maxwellmezadre/aliexpress-mcp.git
 cd aliexpress-mcp
 bun install
-bun run scripts/install.ts
+bun run setup
 ```
 
-## 1. Entrar na conta
+Compila o binário, instala em `~/.local/bin/aliexpress`, registra o servidor
+MCP no escopo de usuário do Claude Code e copia a Skill.
+
+## 2. Entrar na conta
 
 ```sh
 aliexpress login
@@ -28,7 +33,7 @@ verified: true
 firstPageOrders: 10
 ```
 
-## 2. Preencher o cache
+## 3. Preencher o cache
 
 ```sh
 aliexpress sync
@@ -45,7 +50,7 @@ bloco 2: 40 req, 37 detalhes, 0 pendentes — pronto
 Um histórico de ~70 pedidos custa cerca de 80 requisições e 40 segundos. Depois
 disso, `aliexpress sync` incremental custa 2 requisições.
 
-## 3. Perguntar
+## 4. Perguntar
 
 ```sh
 $ aliexpress orders --limit 3
@@ -84,7 +89,7 @@ $ aliexpress track 82145653345820XX
 $ aliexpress export --format csv --scope lines
 ```
 
-## 4. Usar pelo Claude
+## 5. Pelo Claude
 
 Reinicie o Claude Code e pergunte em português:
 
@@ -96,7 +101,7 @@ Reinicie o Claude Code e pergunte em português:
 
 O Claude usa `auth_status` → `sync` (se preciso) → a tool certa. A Skill em
 `~/.claude/skills/aliexpress-mcp/` já ensina as regras que evitam resposta
-errada — principalmente que **cancelado e expirado não são gasto** e que a
+errada, principalmente que **cancelado e expirado não são gasto** e que a
 **quantidade de parcelas não existe** em lugar nenhum.
 
 ## Manutenção

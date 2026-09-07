@@ -251,7 +251,7 @@ export async function runCli(argv: string[], version: string): Promise<void> {
             // Progress goes to stderr so stdout stays parseable.
             console.error(
               `bloco ${chunk}: ${last.requestsUsed} req, ${last.detailsFetched} detalhes, ` +
-                `${last.pendingDetails} pendentes${last.done ? " — pronto" : ""}`,
+                `${last.pendingDetails} pendentes${last.done ? ", pronto" : ""}`,
             );
             if (last.done === true) break;
           }

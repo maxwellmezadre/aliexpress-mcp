@@ -16,7 +16,7 @@
         └───────────────┬──────────────────────────────┘
                         │
         ┌───────────────▼──────────────────────────────┐
-        │  AliExpress — src/ae/ · src/ultron/ · src/mtop/│
+        │  AliExpress — src/aliexpress/ · src/ultron/ · src/mtop/│
         └───────────────┬──────────────────────────────┘
                         │
         ┌───────────────▼──────────────────────────────┐
@@ -30,8 +30,8 @@
    caminho MCP nunca carrega o commander).
 2. `tools/define.ts` valida os argumentos contra o schema TypeBox da tool.
 3. A tool lê do **cache** (`cache/repo.ts`) sempre que possível.
-4. Quando precisa de rede: `ae/*` monta a chamada, `mtop/client.ts` assina e
-   `core/http.ts` a envia — serial, com intervalo, backoff e breaker.
+4. Quando precisa de rede: `aliexpress/*` monta a chamada, `mtop/client.ts` assina e
+   `core/http.ts` a envia, serial, com intervalo, backoff e breaker.
 5. `ultron/parse.ts` lê o grafo de componentes, `domain/normalize.ts` o
    converte no modelo, `cache/repo.ts` grava.
 6. A resposta sai em JSON pelo MCP ou formatada pelo CLI.
@@ -61,7 +61,7 @@
 | `src/session/` | Cookie jar puro, sessão cifrada em repouso, login por navegador |
 | `src/mtop/` | Assinatura MD5, retry de token, taxonomia dos códigos `ret` |
 | `src/ultron/` | Leitura do grafo de componentes e montagem do POST de paginação |
-| `src/ae/` | Wrappers tipados dos endpoints; devolvem o payload cru |
+| `src/aliexpress/` | Wrappers tipados dos endpoints; devolvem o payload cru |
 | `src/domain/` | Modelo normalizado, dinheiro, datas, status |
 | `src/cache/` | Schema, queries, mapeamento de leitura e o sync em blocos |
 | `src/tools/` | Uma tool por assunto; o registry é compartilhado com o CLI |

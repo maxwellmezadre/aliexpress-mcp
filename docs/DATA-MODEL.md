@@ -2,7 +2,7 @@
 
 ## As regras que não se negociam
 
-Todas verificadas contra a conta de referência (70 pedidos, 2021–2026).
+Todas verificadas contra a conta de referência (70 pedidos, de 2021 a 2026).
 
 ### `itemPriceText` é preço **unitário**
 
@@ -36,8 +36,8 @@ total. **O `total` do pedido é o valor bom**; o breakdown é informativo.
 
 ### Parcelamento: a quantidade não existe
 
-Nenhuma API do site expõe o número de parcelas nem o valor de cada uma —
-verificado, inclusive no bundle da carteira. `installments` é **sempre `null`**.
+Nenhuma API do site expõe o número de parcelas nem o valor de cada uma.
+Verificado, inclusive no bundle da carteira. `installments` é **sempre `null`**.
 
 O que existe: uma linha `Installment payment fee` no breakdown, presente em 24
 dos 70 pedidos de referência, que vira `installmentFee`. **A presença dessa
@@ -95,5 +95,5 @@ ISO. Falhou o parse → `null`, nunca uma data inventada.
 `promo_code`, `store_discount`, `coins`, `payment_discount`, `spend_save`,
 `other`.
 
-Rótulos desconhecidos caem em `other` **mantendo o texto original** — nunca são
+Rótulos desconhecidos caem em `other` **mantendo o texto original**. Nunca são
 descartados, porque contam para o total.

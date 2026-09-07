@@ -8,13 +8,11 @@
         "@modelcontextprotocol/sdk": "^1.30.0",
         "@sinclair/typebox": "^0.34.52",
         "commander": "^15.0.0",
+        "playwright-core": "^1.63.0",
       },
       "devDependencies": {
         "@types/bun": "^1.4.1",
         "typescript": "^5",
-      },
-      "optionalDependencies": {
-        "playwright-core": "^1.62.1",
       },
     },
   },

@@ -2,7 +2,7 @@
 
 Tudo vem do ambiente (12-factor). **Nenhum arquivo `.env` é lido.** Valores
 malformados falham no boot, com todos os problemas listados de uma vez; valores
-ausentes nunca falham no boot — falham na hora da chamada, com uma mensagem que
+ausentes nunca falham no boot: falham na hora da chamada, com uma mensagem que
 diz o que fazer.
 
 ## Variáveis
@@ -50,12 +50,21 @@ claude mcp add -s user aliexpress -- /Users/você/.local/bin/aliexpress mcp
 
 Sempre com **caminho absoluto**: clientes MCP não herdam o `PATH` do shell. Uma
 entrada com o mesmo nome no escopo do projeto tem precedência sobre a de
-usuário — `scripts/install.ts` remove essas entradas justamente por isso.
+usuário; `scripts/install.ts` remove essas entradas justamente por isso.
+
+Variante somente leitura, para um agente menos confiável:
+
+```sh
+claude mcp add -s user aliexpress --env ALIEXPRESS_READ_ONLY=1 -- /Users/você/.local/bin/aliexpress mcp
+```
+
+Outros clientes (Claude Desktop e afins) leem o mesmo bloco `mcpServers`, com
+`command`, `args` e, se precisar, `env`.
 
 ## Ritmo e anti-bot
 
-O default é uma requisição a cada 400–600 ms, sempre serial. O crawl completo
+O default é uma requisição a cada 400 a 600 ms, sempre serial. O crawl completo
 das 7 páginas da conta de referência rodou estável assim. Se aparecer o desafio
-anti-bot, o cliente grava um cooldown de 30 minutos em `meta` — ele sobrevive ao
+anti-bot, o cliente grava um cooldown de 30 minutos em `meta`. Ele sobrevive ao
 processo, de propósito: um agente que reiniciasse e tentasse de novo só
 aprofundaria o bloqueio.

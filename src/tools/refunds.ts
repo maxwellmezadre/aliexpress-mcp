@@ -1,5 +1,5 @@
 import { Type } from "@sinclair/typebox";
-import { fetchAllRefunds } from "../ae/refunds.js";
+import { fetchAllRefunds } from "../aliexpress/refunds.js";
 import { moneyOut } from "../cache/rows.js";
 import { normalizeRefundPage } from "../domain/normalize.js";
 import { compactObject, defineTool } from "./define.js";
@@ -10,7 +10,7 @@ export const listRefunds = defineTool({
   description:
     "Devoluções e reembolsos da conta, do mais recente para o mais antigo, com o pedido de origem " +
     "e o preço unitário do item devolvido. Lê do cache; com refresh=true busca ao vivo. ATENÇÃO: o " +
-    "AliExpress não expõe nesta API o valor efetivamente reembolsado, só o preço do item — não " +
+    "AliExpress não expõe nesta API o valor efetivamente reembolsado, só o preço do item. Não " +
     "apresente `unitPrice` como se fosse o valor devolvido.",
   readOnly: true,
   input: Type.Object({
@@ -49,7 +49,7 @@ export const listRefunds = defineTool({
               },
         ),
       })),
-      note: "unitPrice é o preço do item, não o valor reembolsado — essa API não expõe o reembolso.",
+      note: "unitPrice é o preço do item, não o valor reembolsado: essa API não expõe o reembolso.",
     });
   },
 });

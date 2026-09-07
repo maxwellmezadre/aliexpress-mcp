@@ -10,5 +10,5 @@
 - [ ] `bun run docs:tools` rodado se uma tool mudou
 - [ ] Documentação atualizada quando o comportamento muda (`README`, `docs/`, `SKILL.md`)
 - [ ] Commits em [Conventional Commits](https://www.conventionalcommits.org)
-      (inglês, sem escopo, uma linha, ≤ 72 chars)
-- [ ] **Nenhum dado pessoal** em fixtures, logs ou exemplos
+      (inglês, sem escopo, uma linha, até 72 caracteres)
+- [ ] Nenhum dado pessoal em fixtures, logs ou exemplos

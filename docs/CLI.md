@@ -1,8 +1,7 @@
 # CLI
 
-Todo comando aceita `--json`. O resultado vai para o stdout; erros, avisos e
-progresso vão para o stderr, então `aliexpress orders --json | jq` funciona.
-Saída de erro sai com código 1.
+Um comando por tool, com os mesmos nomes de parâmetro. Todo comando aceita
+`--json`.
 
 ## Sessão e diagnóstico
 
@@ -57,6 +56,12 @@ O CLI repete os blocos sozinho até terminar.
 | Comando | O que faz |
 | --- | --- |
 | `aliexpress mcp` | Sobe o servidor MCP em stdio |
+
+## Saída
+
+O resultado vai para o stdout; erros, avisos e progresso vão para o stderr,
+então `aliexpress orders --json | jq` funciona. Sem `--json`, os comandos
+imprimem tabelas legíveis. Erro sai com código 1.
 
 ## Exemplos
 

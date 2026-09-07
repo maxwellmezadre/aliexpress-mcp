@@ -10,7 +10,7 @@ import {
   fetchOrderListInit,
   fetchOrderListPage,
   walkOrderPages,
-} from "../src/ae/orders.js";
+} from "../src/aliexpress/orders.js";
 import { createMemorySessionStore } from "../src/session/store.js";
 import type { UltronResponse } from "../src/ultron/types.js";
 import {

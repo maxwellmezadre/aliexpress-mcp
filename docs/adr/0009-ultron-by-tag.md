@@ -1,9 +1,12 @@
-# ADR-0009 — Ler o Ultron por `tag` e pela hierarquia
+# ADR-0009: Ler o Ultron por `tag` e pela hierarquia
 
-- **Status:** Aceito
-- **Contexto:** `order.list` e `order.detail` respondem com um grafo de
-  componentes. As chaves são `pc_om_list_order_<id>` e
-  `pc_om_list_body_109702` — o sufixo é um id no CMS do AliExpress.
+Status: Aceito
+
+## Contexto
+
+`order.list` e `order.detail` respondem com um grafo de
+componentes. As chaves são `pc_om_list_order_<id>` e
+`pc_om_list_body_109702`: o sufixo é um id no CMS do AliExpress.
 
 ## Decisão
 
@@ -17,7 +20,7 @@ compras do usuário fora de ordem, sem erro nenhum.
 
 Junto vai uma guarda para a falha silenciosa da paginação: o POST da página
 seguinte exige `linkage`, e **sem ele o servidor responde `SUCCESS` com `data`
-vazio** — indistinguível de "acabaram os pedidos". A camada recusa montar a
+vazio**, indistinguível de "acabaram os pedidos". A camada recusa montar a
 página nesse caso, e o `doctor` tem um teste negativo dedicado.
 
 ## Consequências

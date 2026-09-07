@@ -17,9 +17,9 @@ listagem, paginação (inclusive o teste negativo do `linkage`), detalhe (com
 | --- | --- |
 | `session` | `src/session/`, e refaça o login |
 | `order_count` | `src/mtop/sign.ts` — a assinatura mudou |
-| `list_init` | `src/ae/orders.ts` e `src/domain/normalize.ts` |
+| `list_init` | `src/aliexpress/orders.ts` e `src/domain/normalize.ts` |
 | `list_paging` | `src/ultron/parse.ts` — o empacotamento do POST |
-| `detail_*` | `src/ae/orders.ts` — o nome do parâmetro ou os componentes |
+| `detail_*` | `src/aliexpress/orders.ts` — o nome do parâmetro ou os componentes |
 | `money_identity` | `src/domain/money.ts` ou os rótulos em `normalize.ts` |
 
 Um pedido com status `unknown` significa um rótulo novo: o `doctor` mostra o

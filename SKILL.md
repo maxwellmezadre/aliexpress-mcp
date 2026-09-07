@@ -26,11 +26,11 @@ parâmetros em `TOOLS.md`, ao lado deste arquivo.
 3. **`sync` é em blocos.** Ele faz até `max_requests` chamadas e devolve
    `done: false` com `pendingDetails`. **Chame de novo com os mesmos
    parâmetros até `done: true`.** Um histórico de ~70 pedidos custa cerca de
-   80 requisições e 40 segundos — avise o usuário. **Nunca** chame `sync` em
+   80 requisições e 40 segundos: avise o usuário. **Nunca** chame `sync` em
    paralelo nem dispare outras tools de rede junto: o AliExpress derruba a
    sessão para verificação.
 4. **Parcelamento: a quantidade de parcelas NÃO existe.** Nenhuma API do site
-   expõe. `installments` é sempre `null` — não invente dividindo o total.
+   expõe. `installments` é sempre `null`. Não invente dividindo o total.
    O que existe é `installmentFee`, a taxa cobrada quando o pedido foi
    parcelado (aparece em cerca de um terço dos pedidos). Para o cronograma,
    diga ao usuário para olhar a fatura do cartão.
@@ -39,7 +39,7 @@ parâmetros em `TOOLS.md`, ao lado deste arquivo.
    `spending_summary` por padrão; só inclua com `include_unpaid: true` se o
    usuário pedir explicitamente.
 6. **`track_order` é sempre ao vivo** (1 requisição). Para um pedido já
-   entregue, `get_order` responde de graça — a linha do tempo já está no cache.
+   entregue, `get_order` responde de graça, porque a linha do tempo já está no cache.
 7. **Endereço só sob pedido.** `get_order` só devolve `shippingAddress` com
    `include_address: true`, e é o endereço **daquela época**, não o atual.
 8. **Sessão caída** ("Rode `aliexpress login`"): peça ao usuário para rodar
@@ -49,7 +49,7 @@ parâmetros em `TOOLS.md`, ao lado deste arquivo.
    `auth_status`): **pare**. O cliente entra em espera de 30 minutos, gravada
    em disco, e insistir só piora. Responda com o cache e diga até que horas
    vale a espera.
-10. **`doctor` quando algo falhar de um jeito estranho** — ele diz qual camada
+10. **`doctor` quando algo falhar de um jeito estranho.** Ele diz qual camada
     quebrou (sessão, assinatura, listagem, paginação, detalhe, dinheiro).
 
 ## Tools ↔ CLI
@@ -97,7 +97,7 @@ Todo comando do CLI aceita `--json`.
   esses arquivos em lugar nenhum.
 - **Somas do `breakdown`** podem divergir do total do pedido em 1 a 3 centavos:
   o AliExpress arredonda cada linha. O `total` do pedido é o valor bom.
-- **`list_refunds.unitPrice` é o preço do item**, não o valor reembolsado —
+- **`list_refunds.unitPrice` é o preço do item**, não o valor reembolsado:
   essa API não expõe o reembolso. Não apresente um como o outro.
 - Com `ALIEXPRESS_READ_ONLY=1`, `login`, `sync` e `export` não existem:
   explique que o cache é um retrato e que atualizar é fora do agente.

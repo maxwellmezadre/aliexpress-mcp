@@ -16,7 +16,7 @@ export class MtopError extends Error {
     public readonly api: string,
     hint?: string,
   ) {
-    super(`AliExpress respondeu ${retCode} em ${api}` + (hint ? ` — ${hint}` : ""));
+    super(`AliExpress respondeu ${retCode} em ${api}` + (hint ? `: ${hint}` : ""));
     this.name = "MtopError";
   }
 }

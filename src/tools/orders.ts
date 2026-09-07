@@ -1,5 +1,5 @@
 import { Type } from "@sinclair/typebox";
-import { fetchOrderDetail } from "../ae/orders.js";
+import { fetchOrderDetail } from "../aliexpress/orders.js";
 import { PARSER_VERSION } from "../cache/sync.js";
 import { detailFromCache, detailOut, moneyOut, summaryFromRow, summaryOut } from "../cache/rows.js";
 import { normalizeOrderDetail } from "../domain/normalize.js";
@@ -76,7 +76,7 @@ export const getOrder = defineTool({
   description:
     "Detalhe completo de um pedido: produtos, breakdown de preço (subtotal, frete, imposto, cupons, " +
     "taxa de parcelamento), datas, forma de pagamento e linha do tempo. Lê do cache; se o detalhe " +
-    "ainda não tiver sido baixado, gasta 1 requisição e grava. `installments` é SEMPRE null — o " +
+    "ainda não tiver sido baixado, gasta 1 requisição e grava. `installments` é SEMPRE null: o " +
     "AliExpress não expõe a quantidade de parcelas em nenhuma API; `installmentFee` aparece quando " +
     "houve cobrança de parcelamento. O endereço só vem com include_address.",
   readOnly: true,

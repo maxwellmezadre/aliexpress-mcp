@@ -14,9 +14,9 @@ jobs:
       - uses: oven-sh/setup-bun@v2
       - run: bun install --frozen-lockfile
       # verify.ts = tsc --noEmit + bun test + the real MCP server over stdio.
-      # No network: there is no session, so no request is even attempted, and
-      # the gated live test skips itself.
-      - run: bun run scripts/verify.ts
+      # No network: there is no session, so no request is attempted, and the
+      # live test skips itself.
+      - run: bun run verify
 
   binary:
     name: Build binary

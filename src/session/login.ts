@@ -66,13 +66,10 @@ const POLL_MS = 2_000;
 const REPORT_EVERY_MS = 30_000;
 
 export const PLAYWRIGHT_HINT =
-  "O `login` precisa do playwright-core resolvível — no binário compilado ele " +
-  "fica de fora de propósito (150 MB que só este comando usa). Rode " +
-  "`bun install -g playwright-core`, ou faça o login de dentro do repositório " +
-  "(`bun run login`), ou use `aliexpress login --from-browser chrome`, que não " +
-  "abre navegador nenhum. Se o problema for o navegador e não o pacote: " +
-  "instale o Google Chrome, ou `bunx playwright install chromium` com " +
-  "ALIEXPRESS_BROWSER_CHANNEL=chromium.";
+  "O `login` abre o Google Chrome pelo playwright-core, que vem embutido no binário. " +
+  "Instale o Google Chrome, ou rode `bunx playwright install chromium` e use " +
+  "ALIEXPRESS_BROWSER_CHANNEL=chromium. Sem navegador, `aliexpress login --from-browser chrome` " +
+  "importa a sessão de um navegador já logado (macOS) sem abrir janela nenhuma.";
 
 /**
  * Runs inside the page. Uses the site's own MTOP SDK, so the call is signed and
@@ -171,7 +168,7 @@ export async function runLogin(
     const ordersUrl = `${config.siteBaseUrl}/p/order/index.html`;
     await page.goto(ordersUrl);
     report(
-      "Faça login na janela do navegador (senha, SMS, Google, captcha — o que o AliExpress pedir). Aguardando…",
+      "Faça login na janela do navegador (senha, SMS, Google, captcha, o que o AliExpress pedir). Aguardando…",
     );
 
     const startedAt = ctx.now();

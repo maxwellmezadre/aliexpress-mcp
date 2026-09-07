@@ -16,6 +16,5 @@ body:
   - type: markdown
     attributes:
       value: |
-        Lembre que este projeto é **somente leitura** na conta: confirmar
-        recebimento, cancelar, abrir disputa ou pagar estão fora de escopo por
-        decisão de projeto.
+        Este projeto é somente leitura na conta: confirmar recebimento, cancelar, abrir disputa ou pagar estão
+        fora de escopo por decisão de projeto.

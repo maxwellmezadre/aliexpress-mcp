@@ -1,5 +1,5 @@
 import { Type } from "@sinclair/typebox";
-import { fetchLogistics } from "../ae/logistics.js";
+import { fetchLogistics } from "../aliexpress/logistics.js";
 import { normalizeLogistics } from "../domain/normalize.js";
 import { defineTool } from "./define.js";
 import { orderIdField } from "./fields.js";
@@ -10,7 +10,7 @@ export const trackOrder = defineTool({
     "Rastreio ao vivo de um pedido: código dos Correios, código logístico do AliExpress, " +
     "transportadora, previsão de entrega e a linha do tempo completa. Sempre gasta 1 requisição " +
     "(é o dado que mais muda) e atualiza o cache. Para um pedido já entregue, `get_order` responde " +
-    "de graça. Use `primaryCode` para identificar um evento — a descrição é traduzida.",
+    "de graça. Use `primaryCode` para identificar um evento: a descrição é traduzida.",
   readOnly: true,
   input: Type.Object({
     order_id: orderIdField,

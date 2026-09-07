@@ -1,6 +1,6 @@
-import { fetchLogistics } from "../ae/logistics.js";
-import { fetchOrderDetail, walkOrderPages } from "../ae/orders.js";
-import { fetchAllRefunds } from "../ae/refunds.js";
+import { fetchLogistics } from "../aliexpress/logistics.js";
+import { fetchOrderDetail, walkOrderPages } from "../aliexpress/orders.js";
+import { fetchAllRefunds } from "../aliexpress/refunds.js";
 import type { Ctx } from "../context.js";
 import { AuthError, CaptchaError, MtopError, ParseError, RateLimitError } from "../core/errors.js";
 import {

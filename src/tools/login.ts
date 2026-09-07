@@ -13,7 +13,7 @@ export const login = defineTool({
   name: "login",
   description:
     "Abre uma janela do navegador para o usuário entrar na conta do AliExpress e guarda a sessão " +
-    "cifrada (a senha nunca passa por aqui). Bloqueia até o login terminar — até 15 minutos. " +
+    "cifrada (a senha nunca passa por aqui). Bloqueia até o login terminar (até 15 minutos). " +
     "Com from_browser, importa a sessão de um navegador já logado (macOS) em vez de abrir a janela. " +
     "Prefira o comando de terminal `aliexpress login` quando o cliente MCP tiver timeout curto.",
   readOnly: false,

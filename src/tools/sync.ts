@@ -6,7 +6,7 @@ export const sync = defineTool({
   name: "sync",
   description:
     "Baixa o histórico do AliExpress para o cache local. Trabalha em blocos: faz até max_requests " +
-    "chamadas e devolve `done: false` com `pendingDetails` — CHAME DE NOVO com os mesmos parâmetros " +
+    "chamadas e devolve `done: false` com `pendingDetails`. CHAME DE NOVO com os mesmos parâmetros " +
     "até `done: true`. Um histórico de ~70 pedidos leva cerca de 80 requisições e 40 s. Nunca " +
     "chame em paralelo nem dispare outras tools de rede junto: o AliExpress derruba a sessão. " +
     "`mode: reparse` reprocessa o que já está no cache sem usar a rede.",

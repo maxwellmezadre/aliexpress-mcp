@@ -23,7 +23,7 @@ export const rawGet = defineTool({
   name: "raw_get",
   description:
     "Chama uma API MTOP do AliExpress diretamente (assinada, com o mesmo limite de taxa). Serve para " +
-    "redescobrir um endpoint quando o site muda — use com parcimônia e nunca em rajada. Só APIs " +
+    "redescobrir um endpoint quando o site muda. Use com parcimônia e nunca em rajada. Só APIs " +
     "`mtop.aliexpress.*` / `mtop.ae.*` de leitura: qualquer API de escrita (`*.operation` e afins) é " +
     "recusada, porque este servidor nunca altera a conta.",
   readOnly: true,

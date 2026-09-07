@@ -1,8 +1,8 @@
 import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { fetchLogistics } from "../src/ae/logistics.js";
-import { REVERSE_STATUS, fetchAllRefunds, fetchRefundPage } from "../src/ae/refunds.js";
+import { fetchLogistics } from "../src/aliexpress/logistics.js";
+import { REVERSE_STATUS, fetchAllRefunds, fetchRefundPage } from "../src/aliexpress/refunds.js";
 import { loadConfig } from "../src/config.js";
 import { type Ctx, createContext } from "../src/context.js";
 import { createMemorySessionStore } from "../src/session/store.js";

@@ -24,7 +24,7 @@ bem-vindos.
 
 - Não cole `session.enc`, `session.key`, `cache.db` nem um header `Cookie` numa
   issue, num log ou num prompt.
-- Não commite nada de `task/` — é onde ficam as capturas cruas e o salt.
+- Não commite nada de `task/`: é onde ficam as capturas cruas e o salt.
 - Não rode este projeto contra a conta de outra pessoa.
 
 ## Revogando uma sessão
@@ -38,5 +38,6 @@ em todos os dispositivos nas configurações de segurança do site.
 
 ## Reportando
 
-Mande um e-mail para **heronpboares@gmail.com** com passos de reprodução.
-Não abra issue pública para falha que exponha dado de conta.
+**Não abra uma issue pública** para uma vulnerabilidade. Reporte por
+[GitHub Security Advisories](https://github.com/maxwellmezadre/aliexpress-mcp/security/advisories/new),
+com passos de reprodução.

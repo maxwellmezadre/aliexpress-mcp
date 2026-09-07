@@ -170,7 +170,7 @@ export async function importFromBrowser(ctx: Ctx, opts: ImportOptions, deps: Imp
   }
   if (opts.fresh) rmSync(ctx.config.browserProfileDir, { recursive: true, force: true });
   const service = keychainService(opts.browser);
-  report(`Lendo a chave "${service}" do Keychain — o macOS pode pedir permissão…`);
+  report(`Lendo a chave "${service}" do Keychain (o macOS pode pedir permissão)…`);
   const password = await (deps.readKeychainPassword ?? readKeychainPassword)(service);
   const key = deriveKey(password);
 

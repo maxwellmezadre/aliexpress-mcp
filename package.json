@@ -44,17 +44,15 @@
     "verify": "bun run scripts/verify.ts",
     "docs:tools": "bun run scripts/gen-tools-doc.ts",
     "build:dist": "bun build src/bin.ts src/mcp-bin.ts --target=bun --packages external --outdir dist",
-    "build:binary": "bun build --compile src/bin.ts --outfile aliexpress --external playwright-core",
+    "build:binary": "bun build --compile --external chromium-bidi src/bin.ts --outfile aliexpress",
     "prepublishOnly": "bun run build:dist",
     "setup": "bun run scripts/install.ts"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.30.0",
     "@sinclair/typebox": "^0.34.52",
-    "commander": "^15.0.0"
-  },
-  "optionalDependencies": {
-    "playwright-core": "^1.62.1"
+    "commander": "^15.0.0",
+    "playwright-core": "^1.63.0"
   },
   "devDependencies": {
     "@types/bun": "^1.4.1",

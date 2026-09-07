@@ -7,7 +7,7 @@
 
 CLI + servidor MCP para o **histórico de compras da sua conta do AliExpress**:
 pedidos, produtos, breakdown de preço (imposto, frete, cupons, taxa de
-parcelamento), rastreio completo, devoluções e resumos de gastos — com cache
+parcelamento), rastreio completo, devoluções e resumos de gastos, com cache
 local, para você perguntar quanto gastou sem bater no AliExpress a cada
 pergunta.
 
@@ -34,56 +34,62 @@ hatch recusa APIs de escrita por construção.
 
 ## Instalação
 
+Requer [Bun](https://bun.sh) ≥ 1.3 (o cache usa `bun:sqlite`) e o Google
+Chrome para o `login` pela janela.
+
 ### Tudo de uma vez (Claude Code)
 
 ```sh
 git clone https://github.com/maxwellmezadre/aliexpress-mcp.git
 cd aliexpress-mcp
 bun install
-bun run scripts/install.ts
+bun run setup
 ```
 
-Compila o binário, instala em `~/.local/bin/aliexpress`, registra o servidor
-MCP no escopo de usuário do Claude Code e copia a Skill para
-`~/.claude/skills/aliexpress-mcp/`.
+`setup` compila o binário para `~/.local/bin/aliexpress`, registra o servidor
+MCP `aliexpress` no escopo de usuário do seu `~/.claude.json` e instala a
+Skill em `~/.claude/skills/aliexpress-mcp/`.
 
 ### npm
 
 ```sh
-bun install -g @maxwellmezadre/aliexpress-mcp
+npm i -g @maxwellmezadre/aliexpress-mcp   # instala `aliexpress` e `aliexpress-mcp` no PATH
+aliexpress --version
 ```
+
+O pacote roda com o Bun (`bun:sqlite`), então o Bun precisa estar instalado.
 
 ### Binário único
 
 ```sh
-bun run build:binary   # gera ./aliexpress, sem runtime nenhum
+bun run build:binary   # gera ./aliexpress, sem precisar de runtime instalado
+./aliexpress --version
 ```
 
-Todos os comandos rodam só com o binário, **menos o `login`**: os 150 MB do
-Playwright ficam de fora de propósito, já que só ele usa. Para logar a partir
-do binário, `bun install -g playwright-core`, ou rode `bun run login` de dentro
-do repositório, ou use `aliexpress login --from-browser chrome`, que não abre
-navegador nenhum.
+O binário roda tudo, inclusive o `login`: o Playwright vai embutido e o Chrome
+vem do sistema.
 
 ## Login
 
-```sh
-aliexpress login
-```
-
-Abre uma janela do Chrome em `aliexpress.com/p/order/index.html`. **Você**
-digita a senha e resolve o que o AliExpress pedir (SMS, Google, captcha) — a
-ferramenta nunca vê credencial nenhuma. Ela fica perguntando à API, de dentro
-da própria página, se a sessão já vale, e só então grava os cookies cifrados
-com AES-256-GCM em `~/.config/aliexpress-mcp/session.enc` (modo 0600).
-
-No macOS dá para importar a sessão de um navegador em que você já está logado:
+A senha nunca passa por aqui. Dois caminhos:
 
 ```sh
-aliexpress login --from-browser chrome   # arc | chrome | chromium | brave | edge
+aliexpress login                        # abre o Google Chrome para você entrar
+aliexpress login --from-browser chrome  # importa a sessão de um navegador já logado (macOS)
 ```
 
-Detalhes, o que é gravado e como revogar: [`docs/LOGIN.md`](docs/LOGIN.md).
+O primeiro abre uma janela do Chrome em `aliexpress.com/p/order/index.html`.
+Você digita a senha e resolve o que o AliExpress pedir (SMS, Google, captcha).
+A ferramenta fica perguntando à API, de dentro da própria página, se a sessão
+já vale, e só então grava os cookies.
+
+O segundo é o mais rápido se você já usa o AliExpress no Chrome, no Arc, no
+Brave ou no Edge: ele lê os cookies pelo Keychain (o macOS pede permissão uma
+vez) e não abre janela nenhuma.
+
+Nos dois casos a sessão é gravada cifrada com AES-256-GCM em
+`~/.config/aliexpress-mcp/session.enc` (0600). Detalhes, o que é gravado e
+como revogar: [`docs/LOGIN.md`](docs/LOGIN.md).
 
 ## Uso — CLI
 
@@ -105,12 +111,15 @@ aliexpress export --format csv --scope lines
 aliexpress doctor                 # o que quebrou, camada a camada
 ```
 
-Todo comando aceita `--json`. Referência completa: [`docs/CLI.md`](docs/CLI.md).
+`--json` funciona em qualquer comando e imprime exatamente o que o cliente MCP
+receberia. Referência completa em [`docs/CLI.md`](docs/CLI.md).
 
 ## Uso — MCP
 
+O `setup` já registra o servidor. Manualmente:
+
 ```sh
-claude mcp add -s user aliexpress -- aliexpress mcp
+claude mcp add -s user aliexpress -- /Users/você/.local/bin/aliexpress mcp
 ```
 
 Ou, à mão, em `~/.claude.json`:
@@ -127,75 +136,81 @@ Ou, à mão, em `~/.claude.json`:
 }
 ```
 
-Use o caminho absoluto: clientes MCP não herdam o `PATH` do seu shell.
+Use o caminho absoluto: clientes MCP não herdam o `PATH` do seu shell. Depois
+é só perguntar: *"quanto gastei no AliExpress este ano?"*, *"onde está meu
+pedido da Baseus?"*, *"quanto já paguei de imposto?"*.
 
 ## Variáveis de ambiente
 
-| Variável | Default | O que faz |
+Todas opcionais. A tabela completa está em
+[`docs/CONFIGURATION.md`](docs/CONFIGURATION.md).
+
+| Variável | Default | Para quê |
 | --- | --- | --- |
 | `ALIEXPRESS_CONFIG_DIR` | `~/.config/aliexpress-mcp` | Onde ficam sessão, chave e cache |
 | `ALIEXPRESS_SESSION_KEY` | — | Chave AES em base64 de 32 bytes; sem ela, uma é gerada em `session.key` |
-| `ALIEXPRESS_READ_ONLY` | `0` | Esconde `login`, `sync` e `export` |
+| `ALIEXPRESS_EXPORT_DIR` | `~/Downloads/aliexpress-export` | O único diretório onde `export` escreve |
+| `ALIEXPRESS_READ_ONLY` | `0` | Não registra `login`, `sync` e `export` |
 | `ALIEXPRESS_COMPACT` | `0` | Respostas mínimas por padrão, para economizar contexto |
-| `ALIEXPRESS_EXPORT_DIR` | `~/Downloads/aliexpress-export` | Único diretório em que o `export` pode escrever |
 | `ALIEXPRESS_BROWSER_CHANNEL` | `chrome` | `chrome`, `chromium` ou `msedge` |
-| `ALIEXPRESS_IMPORT_BROWSER` | — | Importa a sessão desse navegador no `login` |
+| `ALIEXPRESS_IMPORT_BROWSER` | — | `arc` \| `chrome` \| `chromium` \| `brave` \| `edge` |
 | `ALIEXPRESS_MIN_INTERVAL_MS` | `400` | Intervalo mínimo entre requisições |
 | `ALIEXPRESS_JITTER_MS` | `200` | Variação aleatória somada ao intervalo |
-| `ALIEXPRESS_HTTP_TIMEOUT_MS` | `30000` | Timeout de cada requisição |
-| `ALIEXPRESS_REGION` / `_LOCALE` / `_CURRENCY` | do cookie | Sobrescreve o que veio de `aep_usuc_f` |
-| `ALIEXPRESS_LOG_FILE` | — | Espelha os logs num arquivo (sempre vão para o stderr também) |
-| `ALIEXPRESS_LIVE` | — | `=1` destrava o teste de integração contra a conta real |
 
-Nada é obrigatório. Sem sessão, os comandos falham na hora da chamada com uma
-mensagem que diz o que fazer — não no boot.
+Sem sessão, os comandos falham na hora da chamada com uma mensagem que diz o
+que fazer, não no boot.
 
 ## Tools
 
-**Sessão e diagnóstico:** `auth_status`, `login`, `doctor`
-**Cache:** `sync`
-**Pedidos:** `list_orders`, `get_order`, `search_products`
-**Logística e devoluções:** `track_order`, `list_refunds`
-**Análise:** `spending_summary`, `export`
-**Redescoberta:** `raw_get`
+São 12, iguais no MCP e no CLI. Referência gerada:
+[`docs/TOOLS.md`](docs/TOOLS.md).
 
-Parâmetros de cada uma: [`docs/TOOLS.md`](docs/TOOLS.md) (gerado do registry).
+| Tool | Comando | Rede |
+| --- | --- | --- |
+| `auth_status` | `aliexpress status [--verify]` | 0 (1 com `--verify`) |
+| `login` | `aliexpress login [--from-browser]` | — |
+| `doctor` | `aliexpress doctor` | ≈ 5 (2 com `--shallow`) |
+| `sync` | `aliexpress sync [--full\|--reparse]` | em blocos |
+| `list_orders` | `aliexpress orders` | 0 |
+| `get_order` | `aliexpress order <id>` | 0 (1 se não estiver no cache) |
+| `search_products` | `aliexpress search <termo>` | 0 |
+| `track_order` | `aliexpress track <id>` | 1, sempre ao vivo |
+| `list_refunds` | `aliexpress refunds [--refresh]` | 0 (1 com `--refresh`) |
+| `spending_summary` | `aliexpress spending --by …` | 0 |
+| `export` | `aliexpress export` | 0 |
+| `raw_get` | `aliexpress raw <api>` | 1 |
 
 ## Como funciona
 
-1. **Login** captura os cookies pelo Playwright — inclusive os `HttpOnly`, que
+1. **Login** captura os cookies pelo Playwright, inclusive os `HttpOnly`, que
    `document.cookie` não enxerga e sem os quais nada autentica.
 2. **Cada chamada é assinada** com `md5(token & t & appKey & payload)`, o mesmo
    esquema do SDK do site. O token (`_m_h5_tk`) é de vida curta e o servidor o
    renova por `Set-Cookie`; o cliente absorve, reassina e repete.
 3. **A listagem e o detalhe** vêm em Ultron/DX, um grafo de componentes. Os
    dados de negócio ficam em `data["<tag>_<id>"].fields`, e a ordem em que o
-   usuário vê os pedidos está em `hierarchy.structure` — não na ordem das
+   usuário vê os pedidos está em `hierarchy.structure`, não na ordem das
    chaves do objeto.
 4. **Tudo é normalizado** para um modelo limpo, com dinheiro em centavos
    inteiros, e guardado num SQLite local. As perguntas analíticas são
    respondidas dali, sem rede.
 
+O que a API **não** tem: o número de parcelas (só a taxa). Está documentado em
+[`docs/DATA-MODEL.md`](docs/DATA-MODEL.md) para ninguém inventar esse número.
 Arquitetura em detalhe: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 
 ## Troubleshooting
 
-- **"Nenhuma sessão do AliExpress salva"** — rode `aliexpress login`.
-- **"O AliExpress recusou a sessão"** — ela caiu. `aliexpress login` de novo;
-  o servidor MCP recarrega sozinho, sem reiniciar.
-- **"O AliExpress exigiu verificação anti-bot"** — pare. Abra o site no seu
-  navegador, resolva o desafio, espere o fim do cooldown (30 min, gravado em
-  disco) e faça login de novo. Insistir piora.
-- **`sync` devolve `done: false`** — é o esperado: ele trabalha em blocos.
-  Chame de novo até `done: true` (o CLI já faz isso sozinho).
-- **`list_orders` devolve `note` falando em sync** — o cache está vazio.
-- **Um pedido com status `unknown`** — o AliExpress usou um rótulo novo.
-  `aliexpress doctor` mostra qual, e é um `dicionário` de uma linha em
-  `src/domain/status.ts`.
-- **"Não consegui carregar o playwright-core"** — só o `login` precisa dele, e
-  o binário não o embute. Veja [Binário único](#binário-único).
-- **Algo quebrou depois de uma mudança no site** — `aliexpress doctor` diz qual
-  camada, e [`docs/REDISCOVERY.md`](docs/REDISCOVERY.md) diz como remapear.
+| Sintoma | O que fazer |
+| --- | --- |
+| `Nenhuma sessão do AliExpress salva` | `aliexpress login` |
+| `O AliExpress recusou a sessão` | Ela caiu. `aliexpress login` de novo; o servidor MCP recarrega sozinho, sem reiniciar |
+| `O AliExpress exigiu verificação anti-bot` | Pare. Abra o site no navegador, resolva o desafio, espere o cooldown de 30 min (gravado em disco) e faça login de novo. Insistir piora |
+| `sync` devolve `done: false` | É o esperado: ele trabalha em blocos. Chame de novo até `done: true` (o CLI já faz isso) |
+| `list_orders` devolve `note` falando em sync | O cache está vazio: `aliexpress sync` |
+| Pedido com status `unknown` | O AliExpress usou um rótulo novo. `aliexpress doctor` mostra qual; mapear é uma linha em `src/domain/status.ts` |
+| Chrome não abre | Instale o Google Chrome, ou `bunx playwright install chromium` e `ALIEXPRESS_BROWSER_CHANNEL=chromium` |
+| Algo mudou no site | `aliexpress doctor` diz qual camada quebrou; [`docs/REDISCOVERY.md`](docs/REDISCOVERY.md) diz como remapear |
 
 ## Documentação
 
@@ -214,5 +229,5 @@ Arquitetura em detalhe: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 
 ## Licença
 
-MIT. Uso pessoal, somente leitura, sobre a sua própria conta. Não redistribua
-os dados nem use isto como serviço multiusuário.
+[MIT](LICENSE). Uso pessoal, somente leitura, sobre a sua própria conta. Não
+redistribua os dados nem use isto como serviço multiusuário.

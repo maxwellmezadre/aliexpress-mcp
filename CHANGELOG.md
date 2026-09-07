@@ -5,6 +5,25 @@ versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
 ## [Unreleased]
 
+### Changed
+
+- `playwright-core` passou de dependência opcional a dependência normal e vai
+  embutido no binário compilado: `aliexpress login` funciona a partir do
+  binário sozinho, sem instalar nada além do Google Chrome. Só o
+  `chromium-bidi` continua externo.
+- `src/ae/` virou `src/aliexpress/`, o nome do diretório da plataforma nos
+  outros MCPs da mesma família.
+- `bun run setup` (`scripts/install.ts`) ganhou `--prefix=`, `--skip-build`,
+  `--dry-run` e `--import-browser=`, e grava `~/.claude.json` com modo 0600.
+- README, `docs/` e templates de issue e PR alinhados ao padrão comum dos cinco
+  MCPs: tabelas de tools e de troubleshooting, seções na mesma ordem, ADRs com
+  título `ADR-NNNN: …`.
+
+### Fixed
+
+- O workflow de release pula o publish no npm quando a versão já está no
+  registro, em vez de falhar na tag da primeira versão publicada à mão.
+
 ## [0.1.1] - 2026-09-07
 
 Primeira versão publicada.
@@ -35,7 +54,7 @@ Primeira versão publicada.
 
 - `installments` é sempre `null`: nenhuma API do site expõe a quantidade de
   parcelas. O que existe é `installmentFee`, a taxa cobrada quando houve
-  parcelamento — e a presença dela prova que o pedido foi parcelado.
+  parcelamento, e a presença dela prova que o pedido foi parcelado.
 - `order.count` responde `SUCCESS` com zeros mesmo deslogado; a verificação de
   sessão usa `order.list`.
 - A soma das linhas do breakdown pode divergir do total em 1 a 3 centavos: o

@@ -1,9 +1,12 @@
-# ADR-0003 — TypeBox como fonte única do schema
+# ADR-0003: TypeBox como fonte única do schema
 
-- **Status:** Aceito
-- **Contexto:** Cada tool precisa de três coisas: o tipo estático dos
-  argumentos, um validador em runtime e o JSON Schema anunciado ao cliente MCP.
-  Manter os três à mão diverge; usar Zod exige uma ponte para JSON Schema.
+Status: Aceito
+
+## Contexto
+
+Cada tool precisa de três coisas: o tipo estático dos
+argumentos, um validador em runtime e o JSON Schema anunciado ao cliente MCP.
+Manter os três à mão diverge; usar Zod exige uma ponte para JSON Schema.
 
 ## Decisão
 

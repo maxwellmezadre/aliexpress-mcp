@@ -5,8 +5,9 @@ body:
   - type: markdown
     attributes:
       value: |
-        ⚠️ **Nunca cole `session.enc`, `session.key`, `cache.db`, um header
-        `Cookie` nem ids de pedido reais.** Eles são a sua conta.
+        Nunca cole `session.enc`, `session.key`, `cache.db`, o diretório
+        `browser-profile/`, um header `Cookie` nem ids de pedido reais. Eles
+        são a sua conta.
   - type: textarea
     id: what
     attributes:
@@ -40,5 +41,5 @@ body:
   - type: input
     id: env
     attributes:
-      label: Sistema e Bun
-      placeholder: macOS 15 / Bun 1.3.14
+      label: Sistema, Bun e navegador
+      placeholder: macOS 15 / Bun 1.3.14 / Chrome 140

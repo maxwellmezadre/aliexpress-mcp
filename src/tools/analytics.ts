@@ -22,7 +22,7 @@ export const spendingSummary = defineTool({
   description:
     "Agrega os gastos do cache local por mês, ano, loja, forma de pagamento, ou em `breakdown` " +
     "(quanto foi imposto, frete, taxa de parcelamento e cupons). Pedidos cancelados ou expirados " +
-    "ficam de fora por padrão — neles nada foi pago. Rode `sync` antes para ter o histórico completo.",
+    "ficam de fora por padrão, porque neles nada foi pago. Rode `sync` antes para ter o histórico completo.",
   readOnly: true,
   input: Type.Object({
     group_by: Type.Union(

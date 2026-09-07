@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import { existsSync } from "node:fs";
-import { fetchOrderCount, fetchOrderListInit } from "../../src/ae/orders.js";
+import { fetchOrderCount, fetchOrderListInit } from "../../src/aliexpress/orders.js";
 import { loadConfig } from "../../src/config.js";
 import { createContext } from "../../src/context.js";
 import { normalizeOrderList } from "../../src/domain/normalize.js";

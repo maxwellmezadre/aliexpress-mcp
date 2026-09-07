@@ -3,7 +3,7 @@
 ## Por que precisa de um navegador
 
 Não existe OAuth de comprador no AliExpress. A sessão são cookies, e os que
-autenticam de verdade são `HttpOnly` — `document.cookie` não os enxerga. Só o
+autenticam de verdade são `HttpOnly`, e `document.cookie` não os enxerga. Só o
 navegador (via `context.cookies()` do Playwright) ou o banco de cookies dele
 entregam a sessão completa. Copiar `document.cookie` à mão produz um jar que
 não autentica nada.
@@ -17,10 +17,10 @@ aliexpress login
 1. Abre o Chrome (perfil persistente em `~/.config/aliexpress-mcp/browser-profile/`)
    com os sinais de automação desligados.
 2. Navega para `aliexpress.com/p/order/index.html`.
-3. **Você** faz o login: senha, SMS, Google, captcha — o que o AliExpress pedir.
+3. **Você** faz o login: senha, SMS, Google, captcha, o que o AliExpress pedir.
    A ferramenta nunca vê credencial.
 4. A cada 2 segundos ela pergunta à API, **de dentro da própria página**, se a
-   sessão já vale — chamando `order.list` pelo SDK do site. Não é URL, não é
+   sessão já vale, chamando `order.list` pelo SDK do site. Não é URL, não é
    seletor: os dois mudam sem aviso e os dois já são verdadeiros antes do login
    terminar.
 5. Volta à página de pedidos, o que faz o servidor emitir os cookies `HttpOnly`.
@@ -40,11 +40,11 @@ aliexpress login --from-browser chrome    # arc | chrome | chromium | brave | ed
 ```
 
 Lê o banco de cookies do navegador e decifra com a chave que ele guarda no
-Keychain — o macOS vai pedir sua permissão uma vez. Nada é automatizado no
+Keychain. O macOS vai pedir sua permissão uma vez. Nada é automatizado no
 navegador e nenhuma senha é lida.
 
 **Ressalva:** a sessão passa a ser compartilhada com aquele navegador. Se o
-AliExpress rotacionar um cookie de um lado, o outro pode cair — reimportar
+AliExpress rotacionar um cookie de um lado, o outro pode cair; reimportar
 resolve. E um navegador com login antigo pode ter uma sessão **parcial**, que
 passa no `order.count` mas é recusada no `order.list`; nesse caso use o login
 normal.

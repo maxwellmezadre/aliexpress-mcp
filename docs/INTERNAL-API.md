@@ -1,7 +1,7 @@
 # A API interna do AliExpress
 
 Engenharia reversa validada contra uma conta real. Os ids abaixo são
-placeholders. Nada aqui é documentado ou estável — quando mudar,
+placeholders. Nada aqui é documentado ou estável. Quando mudar,
 [`REDISCOVERY.md`](REDISCOVERY.md) diz como remapear.
 
 ## Por que não existe caminho oficial
@@ -9,7 +9,7 @@ placeholders. Nada aqui é documentado ou estável — quando mudar,
 A Open Platform do AliExpress só atende afiliado, dropshipping e vendedor. Ela
 **não dá acesso ao histórico da própria conta**. Não há OAuth de comprador, não
 há access token nem refresh token. O único caminho é a API interna **MTOP**, em
-`acs.aliexpress.com`, autenticada pelos cookies de sessão do navegador —
+`acs.aliexpress.com`, autenticada pelos cookies de sessão do navegador,
 exatamente como a página `www.aliexpress.com/p/order/index.html` faz.
 
 ## Assinatura
@@ -26,7 +26,7 @@ data   = a MESMA string JSON que vai no parâmetro `data`
 **A armadilha clássica**: assinar um JSON e enviar outro. Serialize uma vez e
 use a mesma string nos dois lugares.
 
-`_m_h5_tk` **não é autenticação** — é um token anti-abuso de vida curta que o
+`_m_h5_tk` **não é autenticação**. É um token anti-abuso de vida curta que o
 próprio servidor emite. A autenticação vem dos cookies de sessão.
 
 ### O ciclo do token
@@ -85,7 +85,7 @@ Quem prova a sessão é o `order.list`, que devolve `FAIL_SYS_SESSION_EXPIRED`.
 
 ### `order.detail` usa `tradeOrderId`
 
-Chamar com `orderId` devolve `SUCCESS` e o **esqueleto vazio da página** — fácil
+Chamar com `orderId` devolve `SUCCESS` e o **esqueleto vazio da página**, fácil
 de confundir com um pedido apagado. E sem `channel: "tracking"` o backend deixa
 o bloco de logística de fora (e às vezes deixa mesmo com ele).
 
@@ -94,7 +94,7 @@ o bloco de logística de fora (e às vezes deixa mesmo com ele).
 Não `shipToCountry`, como todo o resto. `reverseStatus: 1` é o histórico
 completo; `2` e `3` são as abas em andamento, `4` a de concluídas; `0` e `5`
 estão fora do domínio e devolvem `UNKNOWN_FAIL_CODE`. O campo `pages` voltou
-`0` com 3 resultados reais — conte os `items`, não confie nele.
+`0` com 3 resultados reais. Conte os `items`, não confie nele.
 
 ## Ultron/DX
 
@@ -131,7 +131,7 @@ o estado dos componentes com `pageIndex` incrementado, mais `linkage`,
 { "params": "{\"data\":\"…\",\"linkage\":\"…\",\"hierarchy\":\"…\",\"endpoint\":\"…\",\"operator\":\"pc_om_list_body_…\"}" }
 ```
 
-**Omitir `linkage` devolve `SUCCESS` com `data` vazio** — uma falha silenciosa
+**Omitir `linkage` devolve `SUCCESS` com `data` vazio**, uma falha silenciosa
 que se parece exatamente com "acabaram os pedidos". Cada resposta é a base da
 próxima: o `linkage` é rotativo.
 
@@ -143,7 +143,7 @@ Lista: `pc_om_list_page`, `pc_om_list_header`, `pc_om_list_header_action`
 
 Detalhe: `detail_simple_order_info_component` (datas, endereço, pagamento),
 `detail_order_price_block` (breakdown), `detail_product_block` (produtos **e
-`sellerVO`** — a única fonte do vendedor no detalhe),
+`sellerVO`**, a única fonte do vendedor no detalhe),
 `detail_service_progress_bar` (linha do tempo), `detail_order_status_block`
 (`title` é a situação canônica), `detail_aync_block` (veio vazio; não é
 necessário).
@@ -152,7 +152,7 @@ necessário).
 
 `mtop.ae.ld.querydetail` devolve um item de `trackingDetailLineList` por pacote,
 com `mailNo` (Correios), `originMailNo` (código do AliExpress), transportadora,
-`etaInfo` e `detailList` — a linha do tempo, do mais recente para o mais antigo
+`etaInfo` e `detailList`, a linha do tempo, do mais recente para o mais antigo
 (26 eventos num pacote entregue da conta de referência).
 
 Use `trackingPrimaryCode`/`trackingSecondCode` como chave do evento: a descrição

@@ -11,8 +11,11 @@ dist/
 .env
 .env.*
 
-# Private planning artifacts: the original spec carries real account data
+# Private planning artifacts: the spec and the steps carry real account data
 task/
 
-# Raw payload captures (before anonymization) never leave the machine
+# Raw captures (before anonymization) never leave the machine
 /captures/
+
+# Local Claude Code settings
+.claude/settings.local.json

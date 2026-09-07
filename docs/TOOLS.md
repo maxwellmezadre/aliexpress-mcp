@@ -31,7 +31,7 @@ Diz se há uma sessão do AliExpress salva e o que ela cobre (região, idioma, m
 
 ## `login`
 
-Abre uma janela do navegador para o usuário entrar na conta do AliExpress e guarda a sessão cifrada (a senha nunca passa por aqui). Bloqueia até o login terminar — até 15 minutos. Com from_browser, importa a sessão de um navegador já logado (macOS) em vez de abrir a janela. Prefira o comando de terminal `aliexpress login` quando o cliente MCP tiver timeout curto.
+Abre uma janela do navegador para o usuário entrar na conta do AliExpress e guarda a sessão cifrada (a senha nunca passa por aqui). Bloqueia até o login terminar (até 15 minutos). Com from_browser, importa a sessão de um navegador já logado (macOS) em vez de abrir a janela. Prefira o comando de terminal `aliexpress login` quando o cliente MCP tiver timeout curto.
 
 **Escreve em disco/cache:** sim
 
@@ -43,7 +43,7 @@ Abre uma janela do navegador para o usuário entrar na conta do AliExpress e gua
 
 ## `doctor`
 
-Diagnóstico camada a camada: sessão, assinatura MTOP, listagem, paginação Ultron (inclusive o teste negativo de `linkage`), detalhe (com `tradeOrderId` e com o parâmetro errado), somas de dinheiro, devoluções e cache. Use quando algo falhar de um jeito estranho — ele diz qual camada quebrou. Gasta cerca de 5 requisições.
+Diagnóstico camada a camada: sessão, assinatura MTOP, listagem, paginação Ultron (inclusive o teste negativo de `linkage`), detalhe (com `tradeOrderId` e com o parâmetro errado), somas de dinheiro, devoluções e cache. Use quando algo falhar de um jeito estranho: ele diz qual camada quebrou. Gasta cerca de 5 requisições.
 
 **Escreve em disco/cache:** não
 
@@ -53,7 +53,7 @@ Diagnóstico camada a camada: sessão, assinatura MTOP, listagem, paginação Ul
 
 ## `sync`
 
-Baixa o histórico do AliExpress para o cache local. Trabalha em blocos: faz até max_requests chamadas e devolve `done: false` com `pendingDetails` — CHAME DE NOVO com os mesmos parâmetros até `done: true`. Um histórico de ~70 pedidos leva cerca de 80 requisições e 40 s. Nunca chame em paralelo nem dispare outras tools de rede junto: o AliExpress derruba a sessão. `mode: reparse` reprocessa o que já está no cache sem usar a rede.
+Baixa o histórico do AliExpress para o cache local. Trabalha em blocos: faz até max_requests chamadas e devolve `done: false` com `pendingDetails`. CHAME DE NOVO com os mesmos parâmetros até `done: true`. Um histórico de ~70 pedidos leva cerca de 80 requisições e 40 s. Nunca chame em paralelo nem dispare outras tools de rede junto: o AliExpress derruba a sessão. `mode: reparse` reprocessa o que já está no cache sem usar a rede.
 
 **Escreve em disco/cache:** sim
 
@@ -84,7 +84,7 @@ Lista os pedidos do AliExpress a partir do cache local, do mais novo para o mais
 
 ## `get_order`
 
-Detalhe completo de um pedido: produtos, breakdown de preço (subtotal, frete, imposto, cupons, taxa de parcelamento), datas, forma de pagamento e linha do tempo. Lê do cache; se o detalhe ainda não tiver sido baixado, gasta 1 requisição e grava. `installments` é SEMPRE null — o AliExpress não expõe a quantidade de parcelas em nenhuma API; `installmentFee` aparece quando houve cobrança de parcelamento. O endereço só vem com include_address.
+Detalhe completo de um pedido: produtos, breakdown de preço (subtotal, frete, imposto, cupons, taxa de parcelamento), datas, forma de pagamento e linha do tempo. Lê do cache; se o detalhe ainda não tiver sido baixado, gasta 1 requisição e grava. `installments` é SEMPRE null: o AliExpress não expõe a quantidade de parcelas em nenhuma API; `installmentFee` aparece quando houve cobrança de parcelamento. O endereço só vem com include_address.
 
 **Escreve em disco/cache:** não
 
@@ -109,7 +109,7 @@ Busca textual nos produtos já comprados (título, variação e loja), sem acent
 
 ## `track_order`
 
-Rastreio ao vivo de um pedido: código dos Correios, código logístico do AliExpress, transportadora, previsão de entrega e a linha do tempo completa. Sempre gasta 1 requisição (é o dado que mais muda) e atualiza o cache. Para um pedido já entregue, `get_order` responde de graça. Use `primaryCode` para identificar um evento — a descrição é traduzida.
+Rastreio ao vivo de um pedido: código dos Correios, código logístico do AliExpress, transportadora, previsão de entrega e a linha do tempo completa. Sempre gasta 1 requisição (é o dado que mais muda) e atualiza o cache. Para um pedido já entregue, `get_order` responde de graça. Use `primaryCode` para identificar um evento: a descrição é traduzida.
 
 **Escreve em disco/cache:** não
 
@@ -120,7 +120,7 @@ Rastreio ao vivo de um pedido: código dos Correios, código logístico do AliEx
 
 ## `list_refunds`
 
-Devoluções e reembolsos da conta, do mais recente para o mais antigo, com o pedido de origem e o preço unitário do item devolvido. Lê do cache; com refresh=true busca ao vivo. ATENÇÃO: o AliExpress não expõe nesta API o valor efetivamente reembolsado, só o preço do item — não apresente `unitPrice` como se fosse o valor devolvido.
+Devoluções e reembolsos da conta, do mais recente para o mais antigo, com o pedido de origem e o preço unitário do item devolvido. Lê do cache; com refresh=true busca ao vivo. ATENÇÃO: o AliExpress não expõe nesta API o valor efetivamente reembolsado, só o preço do item. Não apresente `unitPrice` como se fosse o valor devolvido.
 
 **Escreve em disco/cache:** não
 
@@ -131,7 +131,7 @@ Devoluções e reembolsos da conta, do mais recente para o mais antigo, com o pe
 
 ## `spending_summary`
 
-Agrega os gastos do cache local por mês, ano, loja, forma de pagamento, ou em `breakdown` (quanto foi imposto, frete, taxa de parcelamento e cupons). Pedidos cancelados ou expirados ficam de fora por padrão — neles nada foi pago. Rode `sync` antes para ter o histórico completo.
+Agrega os gastos do cache local por mês, ano, loja, forma de pagamento, ou em `breakdown` (quanto foi imposto, frete, taxa de parcelamento e cupons). Pedidos cancelados ou expirados ficam de fora por padrão, porque neles nada foi pago. Rode `sync` antes para ter o histórico completo.
 
 **Escreve em disco/cache:** não
 
@@ -159,7 +159,7 @@ Exporta o cache para um arquivo JSON ou CSV (pedidos, itens, pacotes ou devoluç
 
 ## `raw_get`
 
-Chama uma API MTOP do AliExpress diretamente (assinada, com o mesmo limite de taxa). Serve para redescobrir um endpoint quando o site muda — use com parcimônia e nunca em rajada. Só APIs `mtop.aliexpress.*` / `mtop.ae.*` de leitura: qualquer API de escrita (`*.operation` e afins) é recusada, porque este servidor nunca altera a conta.
+Chama uma API MTOP do AliExpress diretamente (assinada, com o mesmo limite de taxa). Serve para redescobrir um endpoint quando o site muda. Use com parcimônia e nunca em rajada. Só APIs `mtop.aliexpress.*` / `mtop.ae.*` de leitura: qualquer API de escrita (`*.operation` e afins) é recusada, porque este servidor nunca altera a conta.
 
 **Escreve em disco/cache:** não
 

@@ -5,8 +5,8 @@ import {
   fetchOrderDetail,
   fetchOrderListInit,
   fetchOrderListPage,
-} from "../ae/orders.js";
-import { fetchAllRefunds } from "../ae/refunds.js";
+} from "../aliexpress/orders.js";
+import { fetchAllRefunds } from "../aliexpress/refunds.js";
 import type { Ctx } from "../context.js";
 import { ParseError } from "../core/errors.js";
 import { breakdownTotal, normalizeOrderDetail, normalizeOrderList } from "../domain/normalize.js";
@@ -38,7 +38,7 @@ export const doctor = defineTool({
   description:
     "Diagnóstico camada a camada: sessão, assinatura MTOP, listagem, paginação Ultron (inclusive o " +
     "teste negativo de `linkage`), detalhe (com `tradeOrderId` e com o parâmetro errado), somas de " +
-    "dinheiro, devoluções e cache. Use quando algo falhar de um jeito estranho — ele diz qual " +
+    "dinheiro, devoluções e cache. Use quando algo falhar de um jeito estranho: ele diz qual " +
     "camada quebrou. Gasta cerca de 5 requisições.",
   readOnly: true,
   input: Type.Object({
@@ -110,7 +110,7 @@ export const doctor = defineTool({
         add(
           "list_paging_without_linkage",
           false,
-          "paginar sem `linkage` NÃO foi detectado — a guarda contra a página vazia silenciosa quebrou",
+          "paginar sem `linkage` NÃO foi detectado: a guarda contra a página vazia silenciosa quebrou",
         );
       } catch (error) {
         add(
@@ -160,7 +160,7 @@ export const doctor = defineTool({
           add(
             "detail_wrong_parameter",
             false,
-            "chamar o detalhe com `orderId` devolveu uma página real — a armadilha mudou, revise `fetchOrderDetail`",
+            "chamar o detalhe com `orderId` devolveu uma página real: a armadilha mudou, revise `fetchOrderDetail`",
           );
         } catch (error) {
           add(
@@ -193,7 +193,7 @@ function report(checks: Check[], ctx: Ctx) {
     ok: stats.orders > 0,
     detail:
       stats.orders === 0
-        ? "cache vazio — rode `sync`"
+        ? "cache vazio: rode `sync`"
         : `${stats.orders} pedidos (${stats.withDetail} com detalhe), ${stats.lines} itens, ` +
           `${stats.packages} pacotes, ${stats.refunds} devoluções, ${stats.oldestOrder} → ${stats.newestOrder}`,
   });

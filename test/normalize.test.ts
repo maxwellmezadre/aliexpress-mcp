@@ -1,7 +1,7 @@
 import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import type { RawLogistics, RawRefundPage } from "../src/ae/types.js";
+import type { RawLogistics, RawRefundPage } from "../src/aliexpress/types.js";
 import {
   breakdownTotal,
   normalizeLogistics,
