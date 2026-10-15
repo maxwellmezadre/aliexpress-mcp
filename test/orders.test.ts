@@ -18,9 +18,11 @@ import {
   fakeClock,
   jsonResponse,
   scriptedFetch,
+  dropletLayout,
   sessionData,
   silentLogger,
 } from "./helpers.js";
+import { listOrders } from "../src/ultron/parse.js";
 
 const raw = (name: string): { data: unknown } =>
   JSON.parse(readFileSync(join(import.meta.dir, "fixtures", `${name}.json`), "utf8")) as {
@@ -194,5 +196,33 @@ describe("walkOrderPages", () => {
     const pages = [];
     for await (const page of walkOrderPages(ctx)) pages.push(page);
     expect(pages).toHaveLength(1);
+  });
+});
+
+describe("the 2026-10 layout (compName and page; asyncHandler instead of linkage)", () => {
+  const OLD = LIST.data as UltronResponse;
+  const NEW = dropletLayout(OLD);
+  const ids = (page: UltronResponse) => listOrders(page).map((order) => order.fields.orderId);
+
+  test("page 1 reads every order, in the order the user sees them", async () => {
+    const { ctx } = context([ok(NEW)]);
+    const page = await fetchOrderListInit(ctx);
+    expect(ids(page).length).toBeGreaterThan(0);
+    expect(ids(page)).toEqual(ids(OLD));
+  });
+
+  test("the walk stops after page 1 and says paging is blocked, without a second request", async () => {
+    const { ctx, fetch } = context([ok(NEW)]);
+    const pages = [];
+    for await (const page of walkOrderPages(ctx)) pages.push(page);
+    expect(pages).toHaveLength(1);
+    expect(pages[0]?.hasMore).toBe(true);
+    expect(pages[0]?.pagingBlocked).toBe(true);
+    expect(fetch.calls).toHaveLength(1);
+  });
+
+  test("an order detail in the new layout is usable", async () => {
+    const { ctx } = context([ok(dropletLayout(DETAIL.data as UltronResponse))]);
+    await expect(fetchOrderDetail(ctx, "8000000000000001")).resolves.toBeDefined();
   });
 });

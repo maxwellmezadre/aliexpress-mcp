@@ -14,6 +14,7 @@ import {
   fakeClock,
   jsonResponse,
   scriptedFetch,
+  dropletLayout,
   sessionData,
   silentLogger,
 } from "./helpers.js";
@@ -292,5 +293,17 @@ describe("reparse", () => {
     // The re-parsed rows have their dates back.
     expect(ctx.cache().getOrder(ctx.cache().listOrders({ limit: 1 })[0]?.order_id as string)?.paid_at)
       .toBe("2026-07-15");
+  });
+});
+
+describe("the 2026-10 layout", () => {
+  test("a first sync reads page 1, fetches its details and warns that older pages were not read", async () => {
+    const { ctx, fetch } = context([ok(dropletLayout(listPage(true))), ...Array.from({ length: 10 }, () => ok(dropletLayout(DETAIL))), ok(REFUNDS)]);
+    const report = await runSyncChunk(ctx, { withTracking: false });
+    expect(report.ordersSeen).toBe(10);
+    expect(report.detailsFetched).toBe(10);
+    expect(report.warnings.some((w) => w.includes("paginação"))).toBe(true);
+    // 1 list page (no paging attempt) + 10 details + 1 refund page.
+    expect(fetch.calls).toHaveLength(12);
   });
 });

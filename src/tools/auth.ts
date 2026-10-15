@@ -1,7 +1,7 @@
 import { Type } from "@sinclair/typebox";
 import { AuthError, CaptchaError } from "../core/errors.js";
 import { timeZoneParam } from "../mtop/client.js";
-import { listOrders } from "../ultron/parse.js";
+import { fromWire, listOrders } from "../ultron/parse.js";
 import type { UltronResponse } from "../ultron/types.js";
 import { compactObject, defineTool } from "./define.js";
 
@@ -99,7 +99,7 @@ export const authStatus = defineTool({
           timeZone: timeZoneParam(new Date(ctx.now())),
         },
       });
-      const page = response.data;
+      const page = fromWire(response.data);
       return compactObject({
         ...base,
         verified: true,

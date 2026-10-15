@@ -2,7 +2,7 @@ import type { Ctx } from "../context.js";
 import { ParseError } from "../core/errors.js";
 import { timeZoneParam } from "../mtop/client.js";
 import type { StatusTab } from "../domain/status.js";
-import { assertPageUsable, buildPagePayload, hasMore } from "../ultron/parse.js";
+import { assertPageUsable, buildPagePayload, fromWire, hasMore } from "../ultron/parse.js";
 import type { TaggedComponent, UltronResponse } from "../ultron/types.js";
 import type { RawOrderCount } from "./types.js";
 
@@ -57,7 +57,7 @@ export async function fetchOrderListInit(
       ...(filters.searchOption ? { searchOption: filters.searchOption } : {}),
     },
   });
-  return response.data;
+  return fromWire(response.data);
 }
 
 /**
@@ -84,7 +84,7 @@ export async function fetchOrderListPage(
     method: "POST",
     data: { params: JSON.stringify(params) },
   });
-  return response.data;
+  return fromWire(response.data);
 }
 
 /**
@@ -105,7 +105,7 @@ export async function fetchOrderDetail(ctx: Ctx, tradeOrderId: string): Promise<
       channel: "tracking",
     },
   });
-  const page = response.data;
+  const page = fromWire(response.data);
   assertDetailUsable(page, tradeOrderId);
   return page;
 }
@@ -126,6 +126,8 @@ export type OrderPage = {
   index: number;
   orders: TaggedComponent[];
   hasMore: boolean;
+  /** More pages exist but the response came in the 2026-10 layout, whose paging is not supported yet: the walk stops here. */
+  pagingBlocked: boolean;
   response: UltronResponse;
 };
 
@@ -144,8 +146,11 @@ export async function* walkOrderPages(
   let index = 1;
   for (;;) {
     const orders = assertPageUsable(response, index);
-    yield { index, orders, hasMore: hasMore(response), response };
-    if (!hasMore(response) || index >= maxPages) return;
+    // ponytail: the 2026-10 layout pages through `asyncHandler`, a request not captured yet; stop after this page
+    // instead of POSTing a guess (which answers SUCCESS with an empty page). Capture "Ver mais pedidos" to lift it.
+    const pagingBlocked = hasMore(response) && response.linkage == null;
+    yield { index, orders, hasMore: hasMore(response), pagingBlocked, response };
+    if (!hasMore(response) || index >= maxPages || pagingBlocked) return;
     const next = await fetchOrderListPage(ctx, response, index + 1, filters);
     const nextOrders = assertPageUsable(next, index + 1);
     // Guard against a server that keeps saying hasMore while returning nothing.

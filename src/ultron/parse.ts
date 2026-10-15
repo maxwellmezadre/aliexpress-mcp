@@ -10,6 +10,22 @@ import type { TaggedComponent, UltronResponse } from "./types.js";
 //     Object key order is arbitrary here, and iterating it silently scrambles
 //     the order of the user's purchases.
 
+/**
+ * In 2026-10 AliExpress renamed the component type `tag` to `compName` and the graph `hierarchy` to `page`, and
+ * started paging through `asyncHandler` instead of `linkage` ("droplet" layout). Every response goes through here,
+ * so the rest of the code reads one shape whichever layout came.
+ */
+export function fromWire(response: UltronResponse): UltronResponse {
+  if (!response || typeof response !== "object") return response;
+  const data = Object.fromEntries(
+    Object.entries(response.data ?? {}).map(([key, component]) => [
+      key,
+      component.tag || !component.compName ? component : { ...component, tag: component.compName },
+    ]),
+  );
+  return { ...response, data, hierarchy: response.hierarchy ?? (response.page as UltronResponse["hierarchy"]) };
+}
+
 /** Depth-first walk of the component graph, in display order. */
 export function orderedKeys(response: UltronResponse): string[] {
   const structure = response.hierarchy?.structure;

@@ -4,6 +4,7 @@ import type { FetchInit, FetchLike, FetchResponse } from "../src/core/http.js";
 import type { Logger } from "../src/core/logger.js";
 import type { Cookie, RegionalSettings } from "../src/session/jar.js";
 import { type SessionData, createMemorySessionStore } from "../src/session/store.js";
+import type { UltronResponse } from "../src/ultron/types.js";
 
 // Test doubles for every seam the production code injects. Nothing global is
 // patched: the fakes are plain objects typed like the real collaborators.
@@ -160,4 +161,24 @@ export const memorySession = createMemorySessionStore;
 
 export function fixture(name: string): unknown {
   return JSON.parse(readFileSync(join(import.meta.dir, "fixtures", `${name}.json`), "utf8"));
+}
+
+/**
+ * A response in the layout AliExpress switched to in 2026-10 ("droplet"): the component type moved from `tag` to
+ * `compName`, the graph from `hierarchy` to `page`, and paging state from `linkage` to `asyncHandler`. Built from an
+ * old-layout fixture, so the tests keep the same fake data.
+ */
+export function dropletLayout(old: UltronResponse): Record<string, unknown> {
+  const page = structuredClone(old) as unknown as Record<string, unknown> & { data: Record<string, Record<string, unknown>> };
+  for (const component of Object.values(page.data)) {
+    component.compName = component.tag;
+    delete component.tag;
+  }
+  page.page = page.hierarchy;
+  delete page.hierarchy;
+  delete page.linkage;
+  delete page.endpoint;
+  page.asyncHandler = { handlerParams: { enableCompress: true, query: "q", submit: "s", validate: "v" }, md5: "m", payloads: [], triggers: [] };
+  page.components = [];
+  return page;
 }

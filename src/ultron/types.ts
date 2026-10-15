@@ -6,6 +6,8 @@
 export type UltronComponent = {
   /** Component type, e.g. `pc_om_list_order`. Stable — select by this. */
   tag: string;
+  /** Where the 2026-10 layout puts the type; `fromWire` copies it into `tag`. */
+  compName?: string;
   type?: string;
   /** Usually the order id for `pc_om_list_order`. */
   id?: string;
@@ -35,6 +37,10 @@ export type UltronResponse = {
   global?: Record<string, unknown>;
   container?: unknown;
   reload?: unknown;
+  /** 2026-10 layout: the graph, under its new name (`fromWire` moves it to `hierarchy`). */
+  page?: UltronHierarchy;
+  /** 2026-10 layout: the paging state that replaced `linkage`. Paging with it is not supported yet. */
+  asyncHandler?: unknown;
 };
 
 /** A component plus the key it lives under in `data`. */

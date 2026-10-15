@@ -127,6 +127,9 @@ export async function runSyncChunk(ctx: Ctx, options: SyncOptions = {}): Promise
     for await (const page of walkOrderPages(ctx, { statusTab: "all", timeOption: "all" }, options.maxPages ?? 100)) {
       report.pagesFetched += 1;
       report.requestsUsed += 1;
+      if (page.pagingBlocked) {
+        report.warnings.push("o AliExpress mudou a paginação da lista de pedidos (2026-10): só a primeira página, com os pedidos mais recentes, foi lida");
+      }
       const orders = normalizeOrderList(page.response, { statusTab: "all" });
       let newOnPage = 0;
       for (const order of orders) {
