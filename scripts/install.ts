@@ -10,7 +10,7 @@ import pkg from "../package.json" with { type: "json" };
 // shell PATH), and install the Skill. Idempotent: run it again to update.
 //
 // Usage: bun run setup [--prefix=~/.local/bin] [--skip-build] [--dry-run]
-//                      [--import-browser=arc|chrome|chromium|brave|edge]
+//                      [--import-browser=dia|arc|chrome|chromium|brave|edge]
 
 const NAME = "aliexpress";
 const ENV_PREFIX = "ALIEXPRESS";
@@ -29,8 +29,9 @@ const PREFIX = expandHome(option("prefix") ?? join(homedir(), ".local", "bin"));
 const BIN = join(PREFIX, NAME);
 const CLAUDE_JSON = join(homedir(), ".claude.json");
 const SKILL_DIR = join(homedir(), ".claude", "skills", `${NAME}-mcp`);
-const IMPORT_BROWSERS = ["arc", "chrome", "chromium", "brave", "edge"];
-const importBrowser = option("import-browser");
+const IMPORT_BROWSERS = ["dia", "arc", "chrome", "chromium", "brave", "edge"];
+// No flag: Dia when it is installed (the session is imported from it), else none.
+const importBrowser = option("import-browser") ?? (existsSync("/Applications/Dia.app") ? "dia" : undefined);
 const dry = flag("dry-run");
 
 const step = (message: string): void => console.error(`\n${message}`);

@@ -36,7 +36,7 @@ do zero).
 ## Importando de um navegador já logado (macOS)
 
 ```sh
-aliexpress login --from-browser chrome    # arc | chrome | chromium | brave | edge
+aliexpress login --from-browser chrome    # dia | arc | chrome | chromium | brave | edge
 ```
 
 Lê o banco de cookies do navegador e decifra com a chave que ele guarda no

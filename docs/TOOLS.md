@@ -39,7 +39,7 @@ Abre uma janela do navegador para o usuário entrar na conta do AliExpress e gua
 | --- | --- | --- | --- |
 | `timeout_seconds` | integer (≥ 60, ≤ 900) | — | Tempo máximo esperando o login (default 300) |
 | `fresh` | boolean | — | Apaga o perfil do navegador antes de abrir (login do zero) |
-| `from_browser` | `arc` \| `chrome` \| `chromium` \| `brave` \| `edge` | — | Importa os cookies de um navegador já logado (só macOS) em vez de abrir uma janela |
+| `from_browser` | `dia` \| `arc` \| `chrome` \| `chromium` \| `brave` \| `edge` | — | Importa os cookies de um navegador já logado (só macOS) em vez de abrir uma janela |
 
 ## `doctor`
 

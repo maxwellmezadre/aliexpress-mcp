@@ -15,7 +15,7 @@ diz o que fazer.
 | `ALIEXPRESS_COMPACT` | `0` | Respostas mínimas por padrão nas tools que aceitam `compact` |
 | `ALIEXPRESS_EXPORT_DIR` | `~/Downloads/aliexpress-export` | Único diretório em que o `export` pode escrever |
 | `ALIEXPRESS_BROWSER_CHANNEL` | `chrome` | `chrome`, `chromium` ou `msedge` |
-| `ALIEXPRESS_IMPORT_BROWSER` | — | `arc`, `chrome`, `chromium`, `brave` ou `edge`: o `login` importa daí |
+| `ALIEXPRESS_IMPORT_BROWSER` | — | `dia`, `arc`, `chrome`, `chromium`, `brave` ou `edge`: o `login` importa daí |
 | `ALIEXPRESS_MIN_INTERVAL_MS` | `400` | Intervalo mínimo entre duas requisições |
 | `ALIEXPRESS_JITTER_MS` | `200` | Variação aleatória somada ao intervalo |
 | `ALIEXPRESS_HTTP_TIMEOUT_MS` | `30000` | Timeout de cada requisição |

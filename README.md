@@ -153,7 +153,7 @@ Todas opcionais. A tabela completa está em
 | `ALIEXPRESS_READ_ONLY` | `0` | Não registra `login`, `sync` e `export` |
 | `ALIEXPRESS_COMPACT` | `0` | Respostas mínimas por padrão, para economizar contexto |
 | `ALIEXPRESS_BROWSER_CHANNEL` | `chrome` | `chrome`, `chromium` ou `msedge` |
-| `ALIEXPRESS_IMPORT_BROWSER` | — | `arc` \| `chrome` \| `chromium` \| `brave` \| `edge` |
+| `ALIEXPRESS_IMPORT_BROWSER` | — | `dia` \| `arc` \| `chrome` \| `chromium` \| `brave` \| `edge` |
 | `ALIEXPRESS_MIN_INTERVAL_MS` | `400` | Intervalo mínimo entre requisições |
 | `ALIEXPRESS_JITTER_MS` | `200` | Variação aleatória somada ao intervalo |
 

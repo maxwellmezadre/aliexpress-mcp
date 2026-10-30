@@ -25,6 +25,7 @@ export const BROWSERS = IMPORT_BROWSERS;
 export type BrowserId = ImportBrowser;
 
 const LOCATIONS: Record<BrowserId, { label: string; dir: string; service: string }> = {
+  dia: { label: "Dia", dir: "Dia/User Data", service: "Dia Safe Storage" },
   arc: { label: "Arc", dir: "Arc/User Data", service: "Arc Safe Storage" },
   chrome: { label: "Google Chrome", dir: "Google/Chrome", service: "Chrome Safe Storage" },
   chromium: { label: "Chromium", dir: "Chromium", service: "Chromium Safe Storage" },
